@@ -1,0 +1,75 @@
+\documentclass[11pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage[margin=1.05in]{geometry}
+\usepackage{microtype}
+\usepackage{booktabs,array,longtable}
+\usepackage{enumitem}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={The Burr-Erdos-Graham-Sos conjecture for the seven-cycle},pdfauthor={Asad Shahab},pdfsubject={Erdos Problem 809; rainbow odd cycles}}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Prob}{\mathbb P}
+\newcommand{\one}{\mathbf 1}
+\newcommand{\MC}{\operatorname{mc}}
+\newcommand{\cF}{\mathcal F}
+\newcommand{\cT}{\mathcal T}
+\newcommand{\cH}{\mathcal H}
+\newcommand{\cP}{\mathcal P}
+\newcommand{\cL}{\mathcal L}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\ind}[1]{\one_{\{#1\}}}
+\newcommand{\threshold}[1]{\left\lfloor #1^2/4\right\rfloor+1}
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}
+\setlist[enumerate]{label=\textup{(\roman*)},leftmargin=2em,itemsep=2pt,topsep=4pt}
+\setlength{\emergencystretch}{1.5em}
+\allowdisplaybreaks[1]
+\title[The Burr--Erd\H{o}s--Graham--S\'os conjecture for the seven-cycle]{The Burr--Erd\H{o}s--Graham--S\'os conjecture for the seven-cycle}
+% The optional argument sets the even-page running head, so both heads show the title.
+\author[The Burr--Erd\H{o}s--Graham--S\'os conjecture for the seven-cycle]{Asad Shahab}
+\date{September 26, 2026}
+\subjclass[2020]{05C35, 05C15, 05D10}
+\keywords{Maximal anti-Ramsey number, rainbow cycle, fractional coloring, flag algebras, exact certificate, formal verification}
+\begin{document}
+\begin{abstract}
+For a graph $H$, let $f(n,e,H)$ be the least number of colors in an edge-coloring of some $n$-vertex graph with at least $e$ edges in which every copy of $H$ is rainbow. Burr, Erd\H{o}s, Graham, and S\'os conjectured that $f(n,\lfloor n^2/4\rfloor+1,C_{2k+1})=(1/8+o(1))n^2$ for every fixed $k\ge3$, and Buci\'c, Chen, and Ma recently proved this for all $k\ge4$. We prove the remaining case $k=3$:
+\[
+ f\left(n,\left\lfloor n^2/4\right\rfloor+1,C_7\right)
+ =\left(\frac18+o(1)\right)n^2.
+\]
+The lower bound rests on a weighted palette inequality, which we prove with an exact rational certificate on five sampled vertices. Its main ingredients are a fractional matching of compatible triangular edges and private resources attached to nontriangular edges. A stable form of the inequality, combined with regularity, triangle removal, and a direct argument for graphs close to bipartite, transfers the bound to arbitrary edge-colorings. We also describe a Lean~4 formalization of the conjecture for every fixed $k\ge3$, which combines the new seven-cycle proof with a formalization of the Buci\'c--Chen--Ma argument for $k\ge4$.
+\end{abstract}
+\maketitle
+\input{sections/01_introduction}
+\input{sections/02_palettes}
+\input{sections/03_matching}
+\input{sections/04_certificate}
+\input{sections/05_finite}
+\input{sections/06_cleanup}
+\input{sections/07_source}
+\input{sections/08_nearcut}
+\input{sections/09_completion}
+\input{sections/10_verification}
+\input{sections/acknowledgements}
+\clearpage
+\appendix
+\input{sections/appendix_certificate}
+\clearpage
+\bibliographystyle{amsplain}
+\bibliography{references}
+\end{document}

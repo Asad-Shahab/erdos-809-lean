@@ -1,0 +1,105 @@
+\section{The near-cut case}\label{sec:nearcut}
+For graphs close to a bipartite cut we bound the number of colors directly. The strict inequality $e(G)>n^2/4$ provides an internal edge, through which we route seven-cycles containing two prescribed crossing edges.
+
+\begin{lemma}[Near-cut seven-cycle clique]\label{lem:nearcut}
+Let $0<\varepsilon\le1/16$ and $n\ge64\varepsilon^{-3}$. Suppose $G$ is eligible and has a cut with at least $(1/4-\varepsilon^3/8)n^2$ edges. Then every rainbow-$C_7$ coloring of $G$ uses at least $(1/8-\varepsilon)n^2$ colors.
+\end{lemma}
+\begin{proof}
+Put $\tau=\varepsilon/2$, so that $\tau\le1/32$ and $n\ge8\tau^{-3}$. Take a maximum cut $(A,B)$, with $|A|=a$, $|B|=b$, and $M_0$ crossing edges. Let $D=ab-M_0$ be the number of missing crossing edges and $I=e(G)-M_0$ the number of internal edges. The cut assumption and eligibility imply
+\begin{equation}\label{eq:nearcutbasic}
+ |a-n/2|,|b-n/2|\le\tau^{3/2}n,\qquad
+ D\le\tau^3n^2,\qquad I>D,
+\end{equation}
+where the last inequality holds because $I>n^2/4-M_0\ge D$.
+
+Call a vertex \emph{typical} if it misses at most $\tau n$ vertices on the opposite side. Let $W$ be the set of remaining vertices and $s=|W|$. Counting the two endpoints of each missing edge gives
+\begin{equation}\label{eq:badvertices}
+ s\le2\tau^2n.
+\end{equation}
+We first find an internal edge $uv$, say in $B$, such that $u$ is typical and
+\begin{equation}\label{eq:trigger}
+ d_A(v)>a/2-s.
+\end{equation}
+Suppose no such edge exists on either side. Then no internal edge has two typical endpoints, since by~\eqref{eq:nearcutbasic}--\eqref{eq:badvertices} a typical vertex has crossing degree greater than half the opposite side minus $s$.
+
+For $v\in W$, write $d_{\rm int}(v)$ and $d_{\rm cr}(v)$ for its internal and crossing degrees and $\operatorname{def}(v)$ for its number of missing crossing neighbors. Local optimality of a maximum cut gives $d_{\rm int}(v)\le d_{\rm cr}(v)$. If $v$ has a typical internal neighbor, the assumed failure of~\eqref{eq:trigger} gives
+\[
+ d_{\rm cr}(v)\le |\text{opposite side}|/2-s,
+ \qquad \operatorname{def}(v)-d_{\rm int}(v)\ge2s.
+\]
+If it has no typical internal neighbor, then $d_{\rm int}(v)\le s-1$, whereas $\operatorname{def}(v)>\tau n\ge16s$, which gives the same inequality. Every internal edge meets $W$. If $s>0$, it follows that
+\begin{align*}
+ I&\le\sum_{v\in W}d_{\rm int}(v)
+ \le\sum_{v\in W}\operatorname{def}(v)-2s^2\\
+ &\le D+|W\cap A||W\cap B|-2s^2
+ \le D-\frac74s^2<D,
+\end{align*}
+contradicting~\eqref{eq:nearcutbasic}; in the third step, a missing crossing edge with both endpoints in $W$ is the only way the deficit sum can exceed $D$. If $s=0$, the absence of internal edges between typical vertices gives $I=0$, which is also impossible. Thus the required internal edge $uv$ exists.
+
+Set
+\[
+ X=(N_A(u)\cap N_A(v))\setminus W,
+ \qquad B_0=B\setminus(W\cup\{u,v\}).
+\]
+Using typicality of $u$,~\eqref{eq:trigger}, and the preceding bounds, we obtain
+\begin{align}
+ |X|&>\left(\frac14-\tau-\frac12\tau^{3/2}-4\tau^2\right)n
+ \ge\left(\frac14-\frac32\tau\right)n,\label{eq:nearX}\\
+ |B_0|-\tau n
+ &\ge\left(\frac12-\tau-\tau^{3/2}-2\tau^2\right)n-2
+ \ge\left(\frac12-\frac32\tau\right)n.\label{eq:nearB}
+\end{align}
+The final inequalities use
+\[
+ \frac{\sqrt\tau}{2}+4\tau\le\frac12,
+ \qquad \sqrt\tau+2\tau+\frac{2}{\tau n}\le\frac12,
+\]
+which hold in the stated range. All vertices of $X$ are typical, so the set $E(X,B_0)$ of selected edges has size at least
+\begin{equation}\label{eq:nearcount}
+ |X|(|B_0|-\tau n)
+ \ge\left(\frac18-\frac98\tau\right)n^2
+ \ge\left(\frac18-\varepsilon\right)n^2.
+\end{equation}
+We show that any two distinct selected edges lie on a common simple $C_7$.
+
+First take disjoint edges $xy,zw$, where $x,z\in X$ and $y,w\in B_0$. Choose $c\in N_A(y)\cap N_A(w)$ outside $\{x,z\}$, and use the cycle
+\begin{equation}\label{eq:cycle-disjoint}
+ v\,x\,y\,c\,w\,z\,u\,v.
+\end{equation}
+For two selected edges $xy,xw$ sharing their endpoint in $A$, choose $c\in N_A(v)\cap N_A(y)$ outside $\{x\}$ and then $d\in N_A(u)\cap N_A(w)$ outside $\{x,c\}$, and use
+\begin{equation}\label{eq:cycle-shareA}
+ v\,c\,y\,x\,w\,d\,u\,v.
+\end{equation}
+For two edges $xy,zy$ sharing their endpoint in $B$, choose $w\in N(z)\cap B_0$ outside $\{y\}$ and $c\in N_A(w)\cap N_A(u)$ outside $\{x,z\}$, and use
+\begin{equation}\label{eq:cycle-shareB}
+ v\,x\,y\,z\,w\,c\,u\,v.
+\end{equation}
+These choices are possible. Two typical vertices of $B$ have at least $a-2\tau n>2$ common neighbors in $A$. The neighborhood of a typical vertex of $B$ meets that of either endpoint of $uv$ in more than $a/2-s-\tau n>2$ vertices. Finally, $|B_0|-\tau n>1$. These inequalities follow from~\eqref{eq:nearcutbasic}--\eqref{eq:nearB} and $n\ge8\tau^{-3}$.
+
+Each displayed cycle has three distinct vertices in $A$ and four distinct vertices in $B$; the latter are distinct because $B_0$ excludes $u,v$ and each new choice excludes the vertices already selected. Thus the cycles are simple. The selected edges therefore form a clique in the conflict graph and receive distinct colors, and~\eqref{eq:nearcount} completes the proof.
+\end{proof}
+
+\begin{proposition}[Potential bound at large minimum degree]\label{prop:terminal}
+For every $\gamma,t>0$ there is $n_0$ such that every eligible graph $G$ of order $n\ge n_0$ with $\delta(G)\ge(1/3+\gamma)n$ satisfies
+\begin{equation}\label{eq:terminal}
+ r_7(G)\ge P(n,e(G))-tn^2.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Choose $0<\varepsilon_0\le1/16$ and $\rho>0$ with
+\[
+ \rho\le\varepsilon_0^3/8,\qquad
+ \varepsilon_0+3\rho/2\le t.
+\]
+If $b(G)\ge\rho n^2$, apply Proposition~\ref{prop:farcut}. Otherwise, eligibility gives a maximum cut of size at least $(1/4-\rho)n^2$, while
+\[
+ e(G)\le(1/4+\rho)n^2,\qquad
+ P(n,e(G))\le(1/8+3\rho/2)n^2.
+\]
+Lemma~\ref{lem:nearcut} then yields
+\[
+ r_7(G)\ge(1/8-\varepsilon_0)n^2
+ \ge P(n,e(G))-(\varepsilon_0+3\rho/2)n^2.
+\]
+Take $n_0$ large enough for both cases. The constants depend only on $\gamma$ and $t$.
+\end{proof}

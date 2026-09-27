@@ -5,5 +5,13 @@
 __pycache__/
 *.pyc
 
+# LaTeX build output (paper/build.sh keeps erdos809_manuscript.pdf)
+/paper/main.aux
+/paper/main.blg
+/paper/main.fls
+/paper/main.log
+/paper/main.out
+/paper/main.pdf
+
 # Operating-system metadata
 .DS_Store

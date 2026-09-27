@@ -1,0 +1,54 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{1}
+
+\bibitem{BCM2026}
+Matija Buci{\'c}, Kaizhe Chen, and Jie Ma, \emph{On a maximal anti-{Ramsey}
+  conjecture of {Burr}, {Erd{\H{o}}s}, {Graham}, and {S{\'o}s}},
+  arXiv:2603.18952v1 [math.CO], 2026, \url{https://arxiv.org/abs/2603.18952}.
+
+\bibitem{BEGS1989}
+S.~A. Burr, P.~Erd{\H{o}}s, R.~L. Graham, and V.~T. S{\'o}s, \emph{Maximal
+  antiramsey graphs and the strong chromatic number}, Journal of Graph Theory
+  \textbf{13} (1989), no.~3, 263--282,
+  \url{https://doi.org/10.1002/jgt.3190130302}.
+
+\bibitem{ConlonFox2012}
+David Conlon and Jacob Fox, \emph{Bounds for graph regularity and removal
+  lemmas}, Geometric and Functional Analysis \textbf{22} (2012), no.~5,
+  1191--1256, \url{https://doi.org/10.1007/s00039-012-0171-x}.
+
+\bibitem{Lean4}
+Leonardo de~Moura and Sebastian Ullrich, \emph{The {Lean} 4 theorem prover and
+  programming language}, Automated Deduction -- CADE 28 (Andr{\'e} Platzer and
+  Geoff Sutcliffe, eds.), Lecture Notes in Computer Science, vol. 12699,
+  Springer, Cham, 2021, \url{https://doi.org/10.1007/978-3-030-79876-5_37},
+  pp.~625--635.
+
+\bibitem{Fox2011}
+Jacob Fox, \emph{A new proof of the graph removal lemma}, Annals of Mathematics
+  (2) \textbf{174} (2011), no.~1, 561--579,
+  \url{https://doi.org/10.4007/annals.2011.174.1.17}.
+
+\bibitem{Razborov2007}
+Alexander~A. Razborov, \emph{Flag algebras}, The Journal of Symbolic Logic
+  \textbf{72} (2007), no.~4, 1239--1282,
+  \url{https://doi.org/10.2178/jsl/1203350785}.
+
+\bibitem{Szemeredi1978}
+Endre Szemer{\'e}di, \emph{Regular partitions of graphs}, Probl{\`e}mes
+  combinatoires et th{\'e}orie des graphes (Orsay, 1976), Colloques
+  Internationaux du CNRS, vol. 260, CNRS, Paris, 1978, pp.~399--401.
+
+\bibitem{Mathlib}
+{The mathlib Community}, \emph{The {Lean} mathematical library}, Proceedings of
+  the 9th ACM SIGPLAN International Conference on Certified Programs and Proofs
+  (New York), CPP 2020, Association for Computing Machinery, 2020,
+  \url{https://doi.org/10.1145/3372885.3373824}, pp.~367--381.
+
+\end{thebibliography}

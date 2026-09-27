@@ -1,0 +1,185 @@
+\section{The exact polynomial certificate}\label{sec:certificate}
+We now prove the weighted inequality behind the lower bound. The proof has two parts: a finite identity, one equation for each admissible colored graph on five vertices, verified by computer in exact rational arithmetic; and an averaging argument showing that every term of the identity contributes with the correct sign.
+
+\subsection{The marked-host statement}
+Let $Q$ again have positive vertex weights summing to one, but in this section allow any partition $E(Q)=F\sqcup T$ such that \emph{no triangle contains an edge of $F$}. Set $f=c(F)$ and define $d_F$ and $q$ by~\eqref{eq:resources}. Assign marks $0\le\lambda_e\le1$ to the edges of $T$, with $\lambda_e=0$ off $T$, and put
+\[
+ \sigma_{uv}=x_ux_v\lambda_{uv},\qquad
+ M=\sum_{uv\in T}\sigma_{uv},\qquad
+ k(v)=\sum_u x_u\lambda_{uv}.
+\]
+The marks need not come from a matching. Define
+\begin{equation}\label{eq:triangleobservables}
+ \tau(w)=c\bigl(E(Q[N(w)])\bigr),\qquad
+ \Delta=\sum_wx_w\tau(w),\qquad
+ B=\sum_wx_w\tau(w)q(w).
+\end{equation}
+Thus $\Delta$ is three times the weighted number of triangles, an unordered triangle $uvw$ having weight $x_ux_vx_w$.
+
+\begin{theorem}[Exact marked-host inequality]\label{thm:polynomial}
+Suppose $\delta\ge1/3$, the root budgets
+\[
+ M-\sum_{v\in N(w)}x_vk(v)\ge0\quad(w\in V(Q))
+\]
+hold, and
+\[
+ \lambda_{uv}>0\ \Longrightarrow\
+ x(N(u)\cup N(v))\le2/3.
+\]
+Then, if $m\ge1/4$,
+\begin{equation}\label{eq:polynomial}
+ \cL:=2B+\left(\frac12-m-2f-M\right)\Delta\ge0.
+\end{equation}
+More generally, if $\xi\ge0$ and $m\ge1/4-\xi$, then
+\begin{equation}\label{eq:polynomialstable}
+ \cL\ge-a_*\xi\ge-\xi,
+ \qquad a_*=\frac{383936867}{1000000000}<1.
+\end{equation}
+\end{theorem}
+The other hypotheses are the same in both assertions; only the density condition is weakened.
+
+\subsection{A five-position probability space}
+Sample host vertices $X_0,\ldots,X_4$ independently according to $x$. Conditional on these types, color each unordered pair of \emph{positions} independently, according to
+\[
+ a_{ij}=\begin{cases}
+ 0,&X_iX_j\notin E(Q),\\
+ 1,&X_iX_j\in F,\\
+ 3\text{ with probability }\lambda_{X_iX_j},\ \ 2\text{ otherwise},
+   &X_iX_j\in T.
+ \end{cases}
+\]
+Host types may repeat, and $X_i=X_j$ gives $a_{ij}=0$. When two position pairs represent the same host edge, their marks are still independent. The root and union constraints will enter through conditional expectations in this probability space.
+
+A colored graph is \emph{admissible} if no triangle has an edge of color~1; every sample is admissible. For an ordered sample, abbreviate
+\[
+ E_{ij}=\ind{a_{ij}>0},\quad F_{ij}=\ind{a_{ij}=1},\quad
+ T_{ij}=\ind{a_{ij}\ge2},\quad L_{ij}=\ind{a_{ij}=3},
+ \qquad t=E_{01}E_{02}E_{12},
+\]
+and define the objective contribution
+\begin{equation}\label{eq:orderedobjective}
+ o(a)=4tT_{03}F_{34}+t-tE_{34}-2tF_{34}-tL_{34}.
+\end{equation}
+The elementary identities
+\begin{gather*}
+ \E t=2\Delta,\qquad \E(tT_{03}F_{34})=2B,\\
+ \E E_{34}=2m,\qquad \E F_{34}=2f,\qquad \E L_{34}=2M
+\end{gather*}
+give
+\begin{equation}\label{eq:objectiveexpectation}
+ \E o(a)=4\cL.
+\end{equation}
+For the mixed term, condition on $X_0=w$: the extensions on positions $1,2$ and on $3,4$ are independent, with expectations $2\tau(w)$ and $q(w)$. In the other products the triangle on $0,1,2$ is independent of the pair $3,4$. These computations remain valid when host types coincide.
+
+\subsection{The finite identity}
+We now describe the flags and matrices in the certificate. A flag is a colored graph with specified labeled vertices, and isomorphisms of flags fix the labels. Canonical representatives are chosen as described in Appendix~\ref{app:data}.
+
+Let $\mathcal A$ and $\mathcal D$ be the admissible flags on three and four positions, respectively, with position~0 labeled. Let $\mathcal T_3$ be the admissible unrooted three-position types. Finally, let $\mathcal U$ be the admissible four-position flags with ordered labeled pair $(0,1)$ of color~3, so that only positions~2 and~3 may be exchanged. Then
+\begin{equation}\label{eq:flagcounts}
+ |\mathcal A|=28,\quad |\mathcal D|=294,\quad
+ |\mathcal T_3|=14,\quad |\mathcal U|=190.
+\end{equation}
+For each $\theta\in\mathcal T_3$, fix its canonical labeled representative on positions $0,1,2$, and let $\mathcal V_\theta$ be the set of allowed attachment vectors $(a_{03},a_{13},a_{23})$.
+
+Write $A_{ijk}$ for the flag in $\mathcal A$ induced on $(i,j,k)$ with root $i$, $D_{ijkl}$ for the corresponding flag in $\mathcal D$, and $\theta_{ijk}$ for the unrooted type. When $a_{01}=3$, write $U_{0123}$ for the ordered-edge-rooted flag. For the fixed labeled type on $0,1,2$, let $v_3,v_4$ denote the two attachment vectors.
+
+The data consist of symmetric rational matrices $G_0$ on $\mathcal A$ and $G_\theta$ on $\mathcal V_\theta$, nonnegative rational arrays
+\[
+ (\alpha_\theta)_{\mathcal T_3},\qquad
+ (\beta_D)_{\mathcal D},\qquad
+ (\gamma_A)_{\mathcal A},\qquad
+ (\eta_U)_{\mathcal U},
+\]
+and nonnegative rational slacks $s_H$, one for each admissible unlabeled five-position graph $H$. Set
+\begin{align}
+ g(a)={}&4G_0[A_{012},A_{034}]
+ +4\sum_{\theta\in\mathcal T_3}
+   \ind{a|_{012}=\theta}G_\theta[v_3,v_4],
+ \label{eq:gramcolumn}\\
+ d(a)={}&\alpha_{\theta_{012}}(2E_{34}-1),\label{eq:densitycolumn}\\
+ h(a)={}&\frac43\beta_{D_{0123}}(3E_{04}-1),\label{eq:degreecolumn}\\
+ r(a)={}&2\gamma_{A_{034}}L_{12}(1-E_{01}-E_{02}),\label{eq:rootcolumn}\\
+ u(a)={}&\begin{cases}
+ \displaystyle\frac43\eta_{U_{0123}}
+ \bigl(2-3\ind{E_{04}=1\ \mathrm{or}\ E_{14}=1}\bigr),&a_{01}=3,\\
+ 0,&a_{01}\ne3.
+ \end{cases}\label{eq:unioncolumn}
+\end{align}
+In~\eqref{eq:gramcolumn}, $a|_{012}=\theta$ denotes equality of labeled graphs, whereas the index $\theta_{012}$ in~\eqref{eq:densitycolumn} is the unrooted isomorphism type.
+
+\begin{lemma}[Finite rational certificate]\label{lem:certificate}
+The rational data described in Appendix~\ref{app:data} have the following properties. Every $G_i$ has a factorization $G_i=V_iR_iV_i^{\mathsf T}$ with $V_i$ integral and $R_i$ rational positive definite. All scalar multipliers and all $s_H$ are nonnegative, and $\max_\theta\alpha_\theta=a_*$. For every admissible unlabeled five-position graph $H$,
+\begin{equation}\label{eq:rowidentity}
+ \sum_{\pi\in S_5}o(H^\pi)
+ =\sum_{\pi\in S_5}\bigl(g+d+h+r+u\bigr)(H^\pi)+s_H.
+\end{equation}
+There are exactly $117916$ admissible labeled graphs and $1436$ disjoint unlabeled orbits covering them.
+\end{lemma}
+\begin{proof}[Computer-assisted proof]
+Enumerating the $4^{10}$ color assignments on five positions gives the admissible labeled graphs. The orbits of the chosen representatives under the $120$ permutations are pairwise disjoint and cover this set. The flag and attachment lists come from the same enumeration with the prescribed labels fixed.
+
+For each rational matrix $R_i$, exact symmetric elimination produces strictly positive pivots, so $R_i$ is positive definite and $G_i=V_iR_iV_i^{\mathsf T}$ is positive semidefinite. Substituting these matrices and the rational scalar multipliers into~\eqref{eq:rowidentity} verifies the identity for each orbit, with nonnegative slacks. All scalar multipliers are nonnegative, and the largest density multiplier is $a_*$.
+
+All of these computations are exact. They were carried out by an independently written verifier in integer and rational arithmetic, and they are also checked in the Lean development described in Section~\ref{sec:verification}. Table~\ref{tab:certificate} lists the sizes of the data.
+\end{proof}
+
+\begin{table}[tb]
+\centering
+\caption{Sizes of the rational certificate. Omitted scalar entries are zero.}\label{tab:certificate}
+\begin{tabular}{lr}
+\toprule
+Object & Number\\
+\midrule
+Admissible labeled five-position graphs & $117916$\\
+Unlabeled orbits and coefficient identities & $1436$\\
+Positive semidefinite Gram blocks & $15$\\
+Strictly positive rational elimination pivots & $456$\\
+Positive scalar multipliers & $481$\\
+\quad density / degree / root / union & $13\,/\,256\,/\,28\,/\,184$\\
+Strictly positive / exactly zero slacks & $1397\,/\,39$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Averaging the identity}
+\begin{proof}[Proof of Theorem~\ref{thm:polynomial}]
+The sampling law is invariant under permutations of the positions. Average~\eqref{eq:rowidentity} over the distribution of unlabeled samples and divide by $480=120\cdot4$. By~\eqref{eq:objectiveexpectation}, the left side becomes $\cL$. We show that each term on the right has nonnegative expectation, except for the density term.
+
+For the root Gram term, condition on $X_0=w$. The two rooted flags on $0,1,2$ and on $0,3,4$ are then independent and identically distributed. If $p(w)$ is their conditional probability vector, their normalized contribution is
+\[
+ \E_w\bigl[p(w)^{\mathsf T}G_0p(w)\bigr]\ge0.
+\]
+For a three-root term, condition on $X_0,X_1,X_2$ and on the three marks among these positions. The two new attachments are again conditionally independent with the same distribution, so the contribution is a nonnegative quadratic form multiplied by the probability of its labeled type.
+
+Independence of $0,1,2$ from $3,4$ gives
+\begin{equation}\label{eq:densityexpectation}
+ \frac14\E d(a)
+ =(m-1/4)\sum_{\theta\in\mathcal T_3}
+       \alpha_\theta\Prob(\theta_{012}=\theta).
+\end{equation}
+The type probabilities sum to one. Since position~4 is fresh, the degree term becomes a sum of nonnegative flag densities multiplied by $D(X_0)-1/3$, and is therefore nonnegative.
+
+For the root term, condition on $X_0=w$ and put
+\[
+ R(w)=\sum_{v\in N(w)}x_vk(v).
+\]
+Then $\E(L_{12}\mid X_0=w)=2M$ and
+\[
+ \E(L_{12}E_{01}\mid X_0=w)
+ =\E(L_{12}E_{02}\mid X_0=w)=R(w),
+\]
+so the conditional expectation of $2L_{12}(1-E_{01}-E_{02})$ is $4K(w)$. The extension on $1,2$ is conditionally independent of the flag on $0,3,4$. After division by four,~\eqref{eq:rootcolumn} therefore contributes a nonnegative flag density times $K(w)$, averaged over $w$.
+
+For the union term, condition on the four types and the marks that determine its flag. If the selected root event has positive probability, the underlying root edge has positive $\lambda$. The fresh fifth type lies in the union of the two full neighborhoods with probability equal to the weight of that union. The normalized conditional expectation is
+\[
+ \eta_{U_{0123}}\ind{a_{01}=3}
+ \left(\frac23-x(N(X_0)\cup N(X_1))\right),
+\]
+which is nonnegative on the flag event.
+
+Finally, if $p_H$ is the probability of orbit $H$, the normalized slack contribution is $\sum_Hp_Hs_H/480\ge0$. Here the sum over permutations counts multiplicities, including distinct permutations that yield the same labeled graph.
+
+If $m\ge1/4$, then~\eqref{eq:densityexpectation} is nonnegative as well, which proves~\eqref{eq:polynomial}. If $m\ge1/4-\xi$, its value is at least $-a_*\xi$, because the type probabilities sum to one and $0\le\alpha_\theta\le a_*$. All other terms remain nonnegative, which proves~\eqref{eq:polynomialstable}.
+\end{proof}
+
+The certificate is a flag-algebra computation in the sense of Razborov~\cite{Razborov2007}, although we have phrased its interpretation directly in terms of finite sampling. The matrices were found by semidefinite programming and then replaced by exact rational factorizations; only these factorizations and the identity~\eqref{eq:rowidentity} enter the proof.

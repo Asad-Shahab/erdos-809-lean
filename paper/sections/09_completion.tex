@@ -1,0 +1,76 @@
+\section{Peeling and the upper bound}\label{sec:completion}
+\subsection{Preserving the exact threshold}
+We now remove the minimum-degree hypothesis without giving up the surplus of one edge.
+
+\begin{lemma}[Fixed-margin peeling]\label{lem:peeling}
+Let $n\ge64$ and $0<\gamma\le1/48$. Suppose $G$ has exactly $\lfloor n^2/4\rfloor+1$ edges. Repeatedly delete a vertex of current degree less than $(1/3+\gamma)N+1$, where $N$ is the current order. The process stops at an induced subgraph $H$ of order $h>n/3$ such that
+\begin{gather}
+ e(H)>h^2/4,\qquad \delta(H)\ge(1/3+\gamma)h+1,\label{eq:peelterminal}\\
+ P(h,e(H))\ge\frac{n^2}{8}
+ -\frac{3\gamma}{4}n(n+1)-\frac{7n}{4}.\label{eq:peelpotential}
+\end{gather}
+\end{lemma}
+\begin{proof}
+Deleting a vertex of degree $d<(1/3+\gamma)N+1$ changes the potential by
+\begin{equation}\label{eq:peelchange}
+ P(N-1,m-d)-P(N,m)
+ =\frac{2N-1}{4}-\frac32d
+ >-\frac{3\gamma}{2}N-\frac74.
+\end{equation}
+The initial potential exceeds $n^2/8$. Summing~\eqref{eq:peelchange} and using $\sum N\le n(n+1)/2$ proves~\eqref{eq:peelpotential} for every initial segment of the deletion process.
+
+If the order first reached some $h\le n/3$, the trivial bound $e(H)\le h^2/2$ would give
+\[
+ P(h,e(H))\le h^2/2\le n^2/18.
+\]
+On the other hand,~\eqref{eq:peelpotential} and $\gamma\le1/48$ give
+\[
+ P(h,e(H))\ge\frac{7}{64}n^2-\frac{113}{64}n>n^2/18
+ \quad(n\ge64),
+\]
+a contradiction. Therefore every deletion is made at $N>n/3$, and the process stops at an order above $n/3$.
+
+At each such deletion the surplus $m-N^2/4$ increases, since
+\begin{align*}
+ \bigl[(m-d)-(N-1)^2/4\bigr]-\bigl[m-N^2/4\bigr]
+ &=\frac{2N-1}{4}-d\\
+ &>\left(\frac16-\gamma\right)N-\frac54>0.
+\end{align*}
+The last inequality follows from $n\ge64$ and $\gamma\le1/48$. The initial surplus is positive, so $e(H)>h^2/4$. The stopping rule gives the asserted minimum degree.
+\end{proof}
+
+\begin{proof}[Lower bound in Theorem~\ref{thm:main}]
+It suffices to consider $0<\varepsilon\le1/16$. Fix an eligible graph $G$ on $n$ vertices and a valid coloring. First keep exactly $\lfloor n^2/4\rfloor+1$ edges and restrict the coloring to them. Apply Lemma~\ref{lem:peeling} with $\gamma=\varepsilon/12$. The terminal graph $H$ has $h>n/3$, so for sufficiently large $n$ Proposition~\ref{prop:terminal} applies to it with $t=\varepsilon/2$. Since restriction cannot increase the number of colors,
+\begin{align*}
+ r_7(G)&\ge r_7(H)
+ \ge P(h,e(H))-\frac{\varepsilon}{2}h^2\\
+ &\ge\frac{n^2}{8}
+ -\frac{\varepsilon}{16}n(n+1)-\frac{7n}{4}
+ -\frac{\varepsilon}{2}n^2
+ \ge\left(\frac18-\varepsilon\right)n^2
+\end{align*}
+for all sufficiently large $n$. The threshold on $n$ depends only on $\varepsilon$, so the bound holds for all eligible graphs and all valid colorings.
+\end{proof}
+
+\subsection{The two-clique upper bound}
+The two-clique construction behind the conjecture gives the matching upper bound~\cite{BEGS1989,BCM2026}.
+
+\begin{proof}[Upper bound in Theorem~\ref{thm:main}]
+Put
+\[
+ a=\left\lceil\frac n2+\sqrt n\right\rceil,\qquad b=n-a,
+\]
+and take $G=K_a\sqcup K_b$. For sufficiently large $n$ these are nonnegative integers with $a\ge b$, and
+\begin{align*}
+ e(G)&=\binom a2+\binom b2
+ =\frac{n^2}{4}+\left(a-\frac n2\right)^2-\frac n2\\
+ &\ge\frac{n^2}{4}+\frac n2
+ \ge\left\lfloor\frac{n^2}{4}\right\rfloor+1.
+\end{align*}
+Give the edges of each clique distinct colors, reusing colors of the larger clique on the smaller one. Every cycle lies in a single component and is therefore rainbow. The number of colors is at most
+\[
+ \binom a2=\frac{n^2}{8}+O(n^{3/2})
+ =\left(\frac18+o(1)\right)n^2.
+\]
+Together with the lower bound, this proves Theorem~\ref{thm:main}, and hence Corollary~\ref{cor:allodd}.
+\end{proof}

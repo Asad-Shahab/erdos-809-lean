@@ -1,0 +1,57 @@
+\section{From colorings to the finite palette bound}\label{sec:source}
+Write $r_7(G)=r_{C_7}(G)$. A graph of order $n$ is \emph{eligible} if $e(G)\ge\lfloor n^2/4\rfloor+1$, or equivalently $e(G)>n^2/4$. For an ordinary graph put
+\[
+ b(G)=e(G)-\max_{U\subseteq V(G)}e(U,V(G)\setminus U),
+ \qquad P(n,e)=\frac32e-\frac{n^2}{4}.
+\]
+For a graph on $h$ vertices with uniform weights, the weighted deficit is $b(G)/h^2$.
+
+\begin{lemma}[Color classes give compatible patterns]\label{lem:sourcepatterns}
+Let $G$ have a valid rainbow-$C_7$ coloring using $r$ colors. Let $H\subseteq G$ have $h>0$ vertices and satisfy the path property of Lemma~\ref{lem:cleanup} with $k=5$, with all lifted paths in $G$. Let $Z$ be the set of vertices of $H$ lying in no $H$-triangle and $S=E(H[Z])$. Then every nonempty restriction of an original color class to $E(H)\setminus S$ is a matching and a pattern, with compatibility computed in $H$. With uniform vertex weights $1/h$,
+\begin{equation}\label{eq:sourcecover}
+ r/h^2\ge\Phi(H).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Suppose two retained edges $uv,uw$ have the same color, with $v\ne w$. If $u$ lies on an $H$-triangle $uab$, there is a retained five-walk $vuabuw$. If instead $v$ or $w$ lies on a triangle, the corresponding five-walk is $vabvuw$ or $vuwabw$, respectively. In each case the endpoints are the distinct vertices $v,w$. Lift the walk to a simple path of length five in $G$ avoiding $u$. Together with $uv$ and $uw$ it forms a simple $C_7$ with two edges of the same color, a contradiction. Hence every monochromatic retained wedge has all three vertices in $Z$, and the restriction of a color class to $E(H)\setminus S$ is a matching.
+
+Take two edges $ab,cd$ of this matching. If they are incompatible for some orientation, there is a two-walk from $a$ to $c$ and a three-walk from $b$ to $d$ in $H$. Lift the first walk to a path in $G$ avoiding $b,d$, and then lift the second to a path in $G$ avoiding the three vertices of the first. The two paths are vertex-disjoint, and together with $ab$ and $cd$ they form a simple seven-cycle containing both edges of the same color, again a contradiction. This proves compatibility in every orientation.
+
+Assign amount $1/h^2$ to each nonempty restricted color class, adding the amounts when two classes give the same pattern. Every edge outside $S$ belongs to exactly one original color class, so its capacity $1/h^2$ is covered exactly. The total cost is at most $r/h^2$, which proves~\eqref{eq:sourcecover}.
+\end{proof}
+The coloring of $G$ itself is never modified; the edges of $S$ are left out only when the fractional cover is formed.
+
+\begin{proposition}[The far-cut estimate]\label{prop:farcut}
+For every $\gamma,\rho,t>0$, all sufficiently large eligible graphs $G$ on $n$ vertices with
+\[
+ \delta(G)\ge(1/3+\gamma)n,\qquad b(G)\ge\rho n^2
+\]
+satisfy
+\begin{equation}\label{eq:farcut}
+ r_7(G)\ge P(n,e(G))-tn^2.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Fix a valid coloring with $r$ colors. Apply Lemmas~\ref{lem:cleanup} and~\ref{lem:prune} with $k=5$ and with $\eta>0$ to be chosen in terms of $\gamma,\rho,t$. Let $H$ be the resulting subgraph, of order $h$, and let $\ell=e(G)-e(H)$, which counts every lost edge. Give the vertices of $H$ uniform weight $1/h$ and put $\xi=\ell/h^2$. Eligibility gives
+\[
+ m_H=\frac{e(H)}{h^2}\ge\frac14-\xi.
+\]
+Every cut of $H$ extends to a cut of $G$, so $b(H)\ge b(G)-\ell$. Choose $\eta$ small enough that
+\[
+ \ell\le\rho n^2/2,\qquad \xi\le\rho/4,
+\]
+which is possible by~\eqref{eq:pruneorder}--\eqref{eq:pruneloss}. Then the normalized deficit of $H$ is at least $\rho/2$, and its weighted minimum degree is greater than $1/3$. Applying Theorem~\ref{thm:stable} with deficit parameter $\rho/2$, and then Lemma~\ref{lem:sourcepatterns}, we obtain
+\[
+ r\ge P(h,e(H))-\frac{4\ell}{\rho}.
+\]
+Since
+\[
+ P(n,e(G))-P(h,e(H))
+ =\frac32\ell-\frac{n^2-h^2}{4}\le\frac32\ell,
+\]
+it follows that
+\begin{equation}\label{eq:sourceerror}
+ r\ge P(n,e(G))-\left(\frac32+\frac4\rho\right)\ell.
+\end{equation}
+Decrease $\eta$ so that the last error term is at most $tn^2$, and only then take $n$ sufficiently large. These choices depend only on $\gamma,\rho,t$, and not on $G$ or its coloring.
+\end{proof}

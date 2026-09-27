@@ -1,0 +1,68 @@
+\section{Strict and stable finite palette bounds}\label{sec:finite}
+We return to the triangular and nontriangular sectors of Section~\ref{sec:palettes} and assume $\delta>1/3$. The optimal matching of Section~\ref{sec:matching} has $M=2\nu$, and its marks satisfy the degree, root, and union hypotheses of Theorem~\ref{thm:polynomial}.
+
+\begin{lemma}[Weighted triangle positivity]\label{lem:mantel}
+If $m>1/4$, then $\Delta>0$.
+\end{lemma}
+\begin{proof}
+If $\Delta=0$, then $Q$ is triangle-free, since all vertex weights are positive. Hence $D(u)+D(v)\le1$ on every edge, and summing with edge weights yields
+\[
+ \sum_vx_vD(v)^2
+ =\sum_{uv\in E(Q)}x_ux_v\bigl(D(u)+D(v)\bigr)\le m.
+\]
+On the other hand, by the Cauchy--Schwarz inequality and $\sum_vx_vD(v)=2m$, the left side is at least $4m^2$. Thus $m\le1/4$, a contradiction.
+\end{proof}
+
+\begin{theorem}[Finite palette bound]\label{thm:finite}
+Every positively weighted finite simple graph with $\delta>1/3$ and $m>1/4$ satisfies
+\begin{equation}\label{eq:finite}
+ \Phi\ge\frac32m-\frac14.
+\end{equation}
+\end{theorem}
+\begin{proof}
+By Lemma~\ref{lem:mantel}, $\Delta>0$. Theorem~\ref{thm:polynomial} and Lemma~\ref{lem:resources} give
+\[
+ \Phi_F\ge\max_wq(w)\ge\frac B\Delta
+ \ge f+\nu+\frac m2-\frac14.
+\]
+Add $m-f-\nu$ and use Proposition~\ref{prop:decomposition}.
+\end{proof}
+The strict inequality $m>1/4$ cannot be dropped: a balanced complete bipartite weighted host has $m=1/4$ and $S=E(Q)$, so $\Phi=0$.
+
+For a weighted host write
+\[
+ \MC(Q)=\max_{U\subseteq V(Q)}c\bigl(E(U,V(Q)\setminus U)\bigr),
+ \qquad b(Q)=m-\MC(Q).
+\]
+
+\begin{lemma}[Triangle mass from cut deficit]\label{lem:cuttriangle}
+For every weighted host,
+\begin{equation}\label{eq:cuttriangle}
+ \MC(Q)\ge4m^2-2\Delta,
+ \qquad 2\Delta\ge b(Q)+4m(m-1/4).
+\end{equation}
+If $m\ge1/4-\xi$, $b(Q)\ge\rho>0$, and $0\le\xi\le\rho/2$, then $\Delta\ge\rho/4$.
+\end{lemma}
+\begin{proof}
+The cut with one side $N(w)$ has mass
+\[
+ \sum_{v\in N(w)}x_vD(v)-2\tau(w).
+\]
+Averaging over $w$, the first term becomes $\sum_vx_vD(v)^2\ge4m^2$, which proves~\eqref{eq:cuttriangle}. If $m\ge1/4$, the last term of~\eqref{eq:cuttriangle} is nonnegative. Otherwise $4m\le1$ and $m-1/4\ge-\xi$, so $4m(m-1/4)\ge-\xi$. In both cases $2\Delta\ge\rho-\xi\ge\rho/2$.
+\end{proof}
+
+\begin{theorem}[Stable finite palette bound]\label{thm:stable}
+Suppose $\delta>1/3$, $m\ge1/4-\xi$, $b(Q)\ge\rho>0$, and $0\le\xi\le\rho/2$. Then
+\begin{equation}\label{eq:stable}
+ \Phi\ge\frac32m-\frac14-\frac{2\xi}{\rho}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Lemma~\ref{lem:cuttriangle} gives $\Delta\ge\rho/4$. By the stable assertion of Theorem~\ref{thm:polynomial},
+\[
+ \frac B\Delta\ge f+\nu+\frac m2-\frac14-\frac{\xi}{2\Delta}
+ \ge f+\nu+\frac m2-\frac14-\frac{2\xi}{\rho}.
+\]
+Now use $\Phi_F\ge B/\Delta$ and~\eqref{eq:decomposition} as before.
+\end{proof}
+The error term does not depend on the number of vertices of $Q$. This is what allows us to apply the bound after deleting a small number of edges.

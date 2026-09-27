@@ -1,0 +1,87 @@
+\section{Robust paths in the original graph}\label{sec:cleanup}
+Using the regularity and triangle-removal lemmas, we find a spanning subgraph whose short walks can be replaced by simple paths of the original graph, with the same endpoints and avoiding a bounded set of prescribed vertices. These two lemmas are the only nonelementary graph-theoretic tools in the proof of Theorem~\ref{thm:main}.
+
+For disjoint nonempty vertex sets $A,B$, write $d(A,B)=e(A,B)/(|A||B|)$. The pair is $\epsilon$-regular if
+\[
+ |d(A',B')-d(A,B)|\le\epsilon
+\]
+whenever $A'\subseteq A$, $B'\subseteq B$, $|A'|\ge\epsilon|A|$, and $|B'|\ge\epsilon|B|$.
+
+\begin{theorem}[Equitable regularity]\label{thm:regularity}
+For every $\epsilon>0$ and positive integer $t_0$, there are $T$ and $n_0$ such that every graph on $n\ge n_0$ vertices has a partition
+\[
+ V_0\sqcup V_1\sqcup\cdots\sqcup V_t,
+ \qquad t_0\le t\le T,
+\]
+where $|V_0|\le\epsilon n$, the other clusters have equal size, and at most $\epsilon t^2$ unordered cluster pairs are not $\epsilon$-regular.
+\end{theorem}
+This is the standard equitable form of Szemer\'edi's regularity lemma~\cite{Szemeredi1978}; see also~\cite{ConlonFox2012}.
+
+\begin{theorem}[Triangle removal]\label{thm:removal}
+For every $\alpha>0$ there is $\zeta>0$ such that a graph on $N$ vertices with at most $\zeta N^3$ triangles can be made triangle-free by deleting at most $\alpha N^2$ edges.
+\end{theorem}
+This is the triangle case of the graph removal lemma; see~\cite{Fox2011}. Only the qualitative forms of both results are needed.
+
+\begin{lemma}[Robust path cleanup]\label{lem:cleanup}
+Given $\eta>0$ and an integer $k\ge0$, for all sufficiently large $n$ every $n$-vertex graph $G$ has a spanning subgraph $G_0$ with
+\[
+ e(G)-e(G_0)\le\eta n^2
+\]
+such that the following holds. If distinct vertices $a,b$ are joined in $G_0$ by a walk of length $\ell\in\{2,3,5\}$, then for every $W\subseteq V(G)\setminus\{a,b\}$ with $|W|\le k$ there is a simple $a$--$b$ path of length exactly $\ell$ in the \emph{original graph $G$}, avoiding $W$.
+\end{lemma}
+\begin{proof}
+We construct one cleanup for lengths three and five and another for length two. Each property survives further edge deletion, so the intersection of the two subgraphs has both.
+
+\emph{Lengths three and five.}
+Choose $d>0$ small and $t_0$ large, and then choose $\epsilon>0$ so small that
+\[
+ \epsilon<d/10,\qquad 4\epsilon+d+1/t_0<\eta/2.
+\]
+Apply Theorem~\ref{thm:regularity}, and let $L$ be the common cluster size. Delete edges incident to $V_0$, edges inside a cluster, edges in irregular pairs, and edges in regular pairs of density less than $d$. In each remaining regular pair $(A,B)$, also delete every edge incident to a vertex with fewer than $(d-\epsilon)L$ \emph{original} neighbors in the opposite cluster. There are fewer than $\epsilon L$ such vertices on either side, since a set of $\epsilon L$ of them would violate regularity together with the whole opposite cluster.
+
+The respective edge losses are at most
+\[
+ \epsilon n^2,\quad \frac{n^2}{2t_0},\quad
+ \epsilon n^2,\quad \frac d2 n^2,\quad \epsilon n^2,
+\]
+up to rounding errors that are negligible for large $n$. Their sum is less than $\eta n^2/2$. Every retained edge joins two clusters forming a regular pair of density at least $d$ in $G$, and each of its endpoints has at least $(d-\epsilon)L$ neighbors in the opposite cluster.
+
+We use the following immediate consequence of regularity. If $(A,B)$ is $\epsilon$-regular with density $p$ and $Y\subseteq B$ has size at least $\epsilon|B|$, then fewer than $\epsilon|A|$ vertices of $A$ have fewer than $(p-\epsilon)|Y|$ neighbors in $Y$; otherwise these vertices and $Y$ would violate regularity.
+
+For a retained three-walk $av_1v_2b$, let $C_1,C_2$ be the clusters of $v_1,v_2$. The sets
+\[
+ L_1=N_G(a)\cap C_1,\qquad L_2=N_G(b)\cap C_2
+\]
+have size at least $(d-\epsilon)L$. Remove $W\cup\{a,b\}$ from them. For large $n$ the remaining sets still have size at least $\epsilon L$, so regularity of $(C_1,C_2)$ supplies an edge $xy$ between them. The path $axyb$ is simple, has length three, and avoids $W$.
+
+For a retained five-walk $av_1v_2v_3v_4b$, let $C_i$ be the cluster of $v_i$, and put $L_1=N_G(a)\cap C_1$ and $L_4=N_G(b)\cap C_4$, both of size at least $(d-\epsilon)L$. All but $\epsilon L$ vertices of $C_2$ have at least $(d-\epsilon)|L_1|$ neighbors in $L_1$, and all but $\epsilon L$ vertices of $C_3$ have at least $(d-\epsilon)|L_4|$ neighbors in $L_4$. After $W\cup\{a,b\}$ is excluded, these two sets of good vertices are still large enough for regularity of $(C_2,C_3)$ to give an edge $yz$ between them. Choose
+\[
+ x\in N_G(y)\cap L_1,\qquad z'\in N_G(z)\cap L_4,
+\]
+at each step excluding $W$ and every vertex already chosen. Each available neighbor set initially has size at least $(d-\epsilon)^2L$, which exceeds $k+6$ for large $n$. Then $axyzz'b$ is the required simple five-path. Consecutive clusters are distinct. Nonconsecutive clusters, and vertices of the input walk, may coincide, but the explicit exclusions keep the vertices of the new path distinct.
+
+\emph{Length two.}
+Take three disjoint copies $A,B,C$ of $V(G)$. Between $A$ and $B$, and between $B$ and $C$, put copies of the adjacency relation of $G$. Add a virtual edge $u_Av_C$ precisely when $u\ne v$ and the original codegree $|N_G(u)\cap N_G(v)|$ is at most $k$. Each virtual edge lies in at most $k$ auxiliary triangles, and every auxiliary triangle contains a virtual edge, so there are at most $kn^2=o((3n)^3)$ auxiliary triangles.
+
+By Theorem~\ref{thm:removal}, for large $n$ these triangles can be destroyed by deleting at most $\eta n^2/(2(k+1))$ auxiliary edges. When an $AB$ or $BC$ edge is deleted, delete its underlying edge of $G$. For each deleted virtual edge $u_Av_C$, delete $uw$ for every $w\in N_G(u)\cap N_G(v)$, at a cost of at most $k$ edges of $G$. The total loss is at most $\eta n^2/2$.
+
+No retained two-walk $uwv$ with distinct endpoints can have original codegree at most $k$. Such a walk would form an auxiliary triangle $u_Aw_Bv_C$. If an $AB$ or $BC$ edge of that triangle was deleted, its underlying edge of $G$ was deleted; if its virtual edge was deleted, the edge $uw$ was deleted explicitly. Either way the walk was not retained. Thus the endpoints have at least $k+1$ common neighbors in $G$, and one of them lies outside $W$. It is not an endpoint because $G$ is simple, so it gives the required two-path.
+\end{proof}
+The threshold on $n$ in Lemma~\ref{lem:cleanup} depends only on $\eta$ and $k$.
+
+\begin{lemma}[Degree pruning]\label{lem:prune}
+Suppose $\delta(G)\ge(1/3+\gamma)n$, where $\gamma>0$. For every sufficiently small fixed $\eta>0$, the cleanup above can be followed by vertex deletion to give a subgraph $H$ of order $h$ such that, writing $\beta=\gamma/4$ and $\ell=e(G)-e(H)$,
+\begin{align}
+ h&\ge(1-2\eta/\beta)n,\label{eq:pruneorder}\\
+ \ell&\le(\eta+2\eta/\beta)n^2,\label{eq:pruneloss}\\
+ \delta(H)&>(1/3+\gamma/2)h.\label{eq:prunedegree}
+\end{align}
+The subgraph $H$ retains the path property of Lemma~\ref{lem:cleanup}, with the paths taken in $G$.
+\end{lemma}
+\begin{proof}
+Delete the vertices that lost more than $\beta n$ incident edges in the cleanup; there are at most $2\eta n/\beta$ of them. The remaining induced subgraph of $G_0$ satisfies the bounds on order and total edge loss above, where the loss includes all edges at removed vertices. Its minimum degree is at least
+\[
+ (1/3+\gamma-\beta-2\eta/\beta)n.
+\]
+Choose $\eta<\beta\gamma/8$. Then this exceeds $(1/3+\gamma/2)n$, and hence $(1/3+\gamma/2)h$. Retained walks are still walks of $G_0$, and their lifted paths need only lie in $G$, not in $H$.
+\end{proof}

@@ -1,0 +1,109 @@
+\section{Weighted palettes and private resources}\label{sec:palettes}
+\subsection{Compatibility}
+Throughout this section, $Q$ is a finite simple graph with positive vertex weights $(x_v)_{v\in V(Q)}$ satisfying $\sum_vx_v=1$. For $U\subseteq V(Q)$ and $A\subseteq E(Q)$, write
+\[
+ x(U)=\sum_{v\in U}x_v,\qquad c(uv)=x_ux_v,\qquad
+ c(A)=\sum_{e\in A}c(e).
+\]
+Put $D(v)=x(N(v))$, $\delta=\min_vD(v)$, and $m=c(E(Q))$. Neighborhoods are open, and walks and neighborhoods are always taken in $Q$.
+
+\begin{definition}\label{def:compatibility}
+Two distinct edge types $ab,cd\in E(Q)$ are \emph{compatible} if
+\begin{equation}\label{eq:compatibility}
+ (A_Q^2)_{ac}(A_Q^3)_{bd}=0
+\end{equation}
+for every choice of orientations $(a,b)$ and $(c,d)$ of the two edges. Here $A_Q$ is the adjacency matrix, so its powers count walks; walks may repeat vertices and may be closed. A \emph{pattern} is a nonempty pairwise compatible set of edge types.
+\end{definition}
+Compatibility is defined through walks rather than simple cycles. Section~\ref{sec:source} shows that, after the cleanup of Section~\ref{sec:cleanup}, the original color classes give patterns in the retained graph.
+
+Let $T$ be the set of edges of $Q$ that lie in a triangle, and put $F=E(Q)\setminus T$. Let $Z$ be the set of vertices lying in no triangle, and define
+\begin{equation}\label{eq:sectors}
+ S=E(Q[Z]),\qquad J=F\setminus S,\qquad f=c(F).
+\end{equation}
+Thus $S\subseteq F$, and $f$ includes the mass of $S$.
+For $A\subseteq E(Q)$, an \emph{exact fractional pattern cover} of $A$ is a collection of amounts $a_p\ge0$, indexed by patterns contained in $A$, with
+\begin{equation}\label{eq:exactcover}
+ \sum_{p\ni e}a_p=c(e)\quad(e\in A).
+\end{equation}
+Its cost is $\sum_pa_p$. Write $\Phi$ for the minimum cost of a cover of $E(Q)\setminus S$ and $\Phi_F$ for the minimum cost of a cover of $J$. The cover by singletons is feasible and there are finitely many patterns, so both minima are attained. Compatibility is always computed in $Q$, even when the covered set is smaller.
+
+Lower bounds on covers come from weak duality. If $y_e\ge0$ and
+\begin{equation}\label{eq:wholepattern}
+ \sum_{e\in p}y_e\le1\quad\text{for every pattern }p\subseteq A,
+\end{equation}
+then every exact cover of $A$ has cost at least $\sum_{e\in A}c(e)y_e$. To see this, multiply~\eqref{eq:exactcover} by $y_e$ and interchange the two finite sums.
+
+\subsection{Neighborhood geometry}
+Both sectors are controlled by the following lemma.
+\begin{lemma}\label{lem:cross}
+For compatible edges $uv$ and $ab$, the nonempty intersections between the two indexed pairs
+\[
+ \{N(u),N(v)\}\quad\text{and}\quad\{N(a),N(b)\}
+\]
+form a partial matching: each member of either pair meets at most one member of the other. If this matching is perfect and the edges are oriented so that $N(u)\cap N(a)$ and $N(v)\cap N(b)$ are nonempty, then the crossed intersections are empty and the aligned pairs $N(u),N(a)$ and $N(v),N(b)$ are anticomplete.
+\end{lemma}
+\begin{proof}
+If $N(u)$ meets both $N(a)$ and $N(b)$, there is a two-walk from $u$ to $a$, and for $z\in N(u)\cap N(b)$ the walk $vuzb$ has length three. These complementary walks are forbidden by~\eqref{eq:compatibility}. Relabeling the endpoints and exchanging the two edges gives the remaining row and column restrictions. In the perfect case, a two-walk from $u$ to $a$ excludes every three-walk from $v$ to $b$; equivalently, there is no edge between $N(v)$ and $N(b)$. The other aligned pair is treated in the same way.
+\end{proof}
+Neighborhoods are indexed by endpoints, so they are counted separately even when two endpoints coincide. We shall use repeatedly that when $\delta>1/3$ no three vertex neighborhoods are pairwise disjoint, since their weights would sum to more than one.
+
+\begin{lemma}[Sector separation]\label{lem:sectors}
+Suppose $\delta>1/3$. No compatible pair mixes $T$ and $F$, and every compatible triple consists entirely of edges of $F$.
+\end{lemma}
+\begin{proof}
+Suppose $uv$ is compatible with $ab\in F$. Since $N(a)$ and $N(b)$ are disjoint, neither $N(u)$ nor $N(v)$ can avoid both, for that would give three disjoint neighborhoods. By Lemma~\ref{lem:cross} the intersections therefore form a perfect matching; align the pairs as in that lemma. If $uv\in T$, choose $z\in N(u)\cap N(v)$. By anticompleteness $N(z)$ avoids both $N(a)$ and $N(b)$, again giving three disjoint neighborhoods. This proves the first assertion.
+
+For the second, consider the six indexed endpoint neighborhoods of three compatible edges, grouped into three pairs. Between any two pairs the intersection relation is a partial matching. There is no independent transversal of the three pairs, because three selected neighborhoods with no pairwise intersections would be disjoint.
+
+We claim that every cross matching is perfect. Suppose a member $A$ of the first pair meets neither member of the second. For each member $B$ of the second pair, every member of the third must meet $A$ or $B$, since otherwise these three form an independent transversal. Each of $A,B$ has at most one cross neighbor in the third pair. Hence $A$ meets one member of the third pair, and \emph{both} members of the second pair must meet the other. This contradicts the partial-matching property.
+
+Align the second and third pairs with the first, and denote their members by $A_i,B_i$ for $i=1,2,3$. The matching between pairs two and three is also aligned, since a crossed matching would leave $A_1,B_2,B_3$ pairwise disjoint. Thus, for distinct $i,j$, the sets $A_i,B_j$ are disjoint, while $A_i,A_j$ and $B_i,B_j$ are anticomplete by Lemma~\ref{lem:cross}. If the $i$th edge is triangular, take $z\in A_i\cap B_i$. For the two other indices $j,k$, the three neighborhoods $N(z),A_j,B_k$ are disjoint, a contradiction. Consequently all three edges lie in $F$.
+\end{proof}
+
+Let $\mathcal C_T$ be the graph whose vertices are the edge types in $T$ and whose edges are the compatible pairs. A \emph{capacitated fractional matching} in $\mathcal C_T$ assigns $z_{eg}\ge0$ to each unordered compatible pair $\{e,g\}$, subject to
+\[
+ \sum_{g:\{e,g\}\in E(\mathcal C_T)}z_{eg}\le c(e)\quad(e\in T).
+\]
+Let $\nu$ be the maximum of $\sum_{\{e,g\}}z_{eg}$, the value of a bounded linear program in finitely many variables.
+
+\begin{proposition}[Exact palette decomposition]\label{prop:decomposition}
+If $\delta>1/3$, then
+\begin{equation}\label{eq:decomposition}
+ \Phi=\Phi_F+c(T)-\nu=\Phi_F+m-f-\nu.
+\end{equation}
+\end{proposition}
+\begin{proof}
+By Lemma~\ref{lem:sectors}, each pattern lies wholly in $F$ or wholly in $T$, and a $T$-pattern is a singleton or a pair. The pair amounts of any exact $T$-cover form a feasible fractional matching, and if their sum is $v$, counting the covered capacity shows that the cost is $c(T)-v$. Conversely, a feasible matching extends to an exact cover of the same cost by covering its unused capacities with singletons. Minimizing gives $c(T)-\nu$, independently of the $J$-sector.
+\end{proof}
+
+\subsection{Private resources}
+For $v\in V(Q)$ write $N_T(v)=\{u:uv\in T\}$ and $d_F(v)=x(N_F(v))$. Define
+\begin{equation}\label{eq:resources}
+ R_{uv}=N_T(u)\cup N_T(v)\quad(uv\in F),\qquad
+ q(w)=\sum_{v:wv\in T}x_vd_F(v).
+\end{equation}
+
+\begin{lemma}[Private-resource prices]\label{lem:resources}
+Suppose $\delta>1/3$. If $uv,ab\in F$ are compatible, then
+\[
+ R_{uv}\cap\bigl(N(a)\cup N(b)\bigr)=\varnothing.
+\]
+Consequently, for every $w$, the set
+\[
+ D_w=\{e\in J:w\in R_e\}
+\]
+meets every pattern in $J$ at most once, and
+\begin{equation}\label{eq:resourcebound}
+ c(D_w)=q(w),\qquad \Phi_F\ge\max_wq(w).
+\end{equation}
+\end{lemma}
+\begin{proof}
+The proof of Lemma~\ref{lem:sectors} gives a perfect alignment for the two edges. In that alignment $N(u)$ avoids $N(b)$, so $N_T(u)$ avoids $N(b)$. If $z\in N_T(u)\cap N(a)$, the triangular edge $uz$ has a common neighbor $t\in N(u)$ adjacent to $z$, and the edge $tz$ contradicts anticompleteness of $N(u),N(a)$. Similarly, $N_T(v)$ avoids both neighborhoods of the mate. This proves the asserted disjointness, and in particular $R_{uv}\cap R_{ab}=\varnothing$.
+
+Hence a fixed $w$ lies in the resource of at most one edge of any pattern, and the indicator of $D_w$ satisfies~\eqref{eq:wholepattern}. Edges in $S$ have empty resources. Moreover, $N(u)\cap N(v)=\varnothing$ for $uv\in F$, so the two possible resource incidences of such an edge cannot both occur. Expanding the objective therefore gives
+\[
+ \sum_{uv\in F}x_ux_v\ind{w\in R_{uv}}
+ =\sum_{v:wv\in T}x_v\sum_{u:uv\in F}x_u=q(w).
+\]
+The bound on $\Phi_F$ now follows from~\eqref{eq:wholepattern}.
+\end{proof}

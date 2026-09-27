@@ -1,0 +1,49 @@
+\section{Two constraints from the triangular matching}\label{sec:matching}
+Fix an optimal fractional matching $z$ in $\mathcal C_T$. Define its edge usage, marking probability, total usage, and marked degree by
+\begin{align}
+ \sigma_e&=\sum_{g:\{e,g\}\in E(\mathcal C_T)}z_{eg},
+ &\lambda_{uv}&=\frac{\sigma_{uv}}{x_ux_v}\quad(uv\in T),\label{eq:marks}\\
+ M&=\sum_{e\in T}\sigma_e=2\nu,
+ &k(v)&=\sum_{u:uv\in T}x_u\lambda_{uv}.
+ \label{eq:markeddegree}
+\end{align}
+Set $\lambda_{uv}=0$ off $T$. The capacity constraints give $0\le\lambda_{uv}\le1$, and
+\[
+ \sum_vx_vk(v)=2M.
+\]
+The marks satisfy two constraints, one for each vertex and one for each marked edge.
+
+\begin{lemma}[Root-incidence budget]\label{lem:root}
+For every $w\in V(Q)$,
+\begin{equation}\label{eq:rootbudget}
+ K(w):=M-\sum_{v\in N(w)}x_vk(v)\ge0.
+\end{equation}
+\end{lemma}
+\begin{proof}
+A compatible pair $e,g$ has at most two endpoint incidences in $N(w)$, where an endpoint is counted once for each edge containing it. Otherwise, after orienting the pair as $ab,cd$, the vertex $w$ is adjacent to $a,b,c$, and the walks $awc$ and $bwcd$ contradict compatibility. Hence
+\[
+ K(w)=\sum_{\{e,g\}}z_{eg}
+ \bigl(2-\abs{e\cap N(w)}-\abs{g\cap N(w)}\bigr)\ge0,
+\]
+where the equality follows directly from~\eqref{eq:markeddegree}.
+\end{proof}
+
+\begin{lemma}[Selected-edge union bound]\label{lem:union}
+Let $uv\in T$ have a compatible mate in $T$. There is a vertex $z$ such that
+\[
+ N(z)\cap\bigl(N(u)\cup N(v)\bigr)=\varnothing.
+\]
+Consequently,
+\begin{equation}\label{eq:union}
+ \lambda_{uv}>0\quad\Longrightarrow\quad
+ x\bigl(N(u)\cup N(v)\bigr)\le1-\delta<\frac23
+\end{equation}
+when $\delta>1/3$.
+\end{lemma}
+\begin{proof}
+Choose a compatible triangular mate $ab$. If the partial matching of cross-intersections in Lemma~\ref{lem:cross} has at most one entry, one of $N(a),N(b)$ avoids both $N(u)$ and $N(v)$, and we take the corresponding endpoint as $z$. Otherwise the matching is perfect; orient it so that the aligned pairs are $N(u),N(a)$ and $N(v),N(b)$. Since $ab$ is triangular, there is $z\in N(a)\cap N(b)$, and anticompleteness of the aligned pairs implies that $N(z)$ avoids $N(u)\cup N(v)$. In either case the union is disjoint from a neighborhood of mass at least $\delta$.
+
+Finally, $\lambda_{uv}>0$ means $\sigma_{uv}>0$, so some pair containing $uv$ has positive matching amount and supplies a triangular mate.
+\end{proof}
+
+In the next section we set the matching aside and prove a polynomial inequality for arbitrary marks satisfying these two constraints.

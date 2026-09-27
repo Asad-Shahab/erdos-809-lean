@@ -1,0 +1,16 @@
+\section{The rational certificate data}\label{app:data}
+The certificate of Lemma~\ref{lem:certificate} consists of representatives of the admissible five-position graphs, the flag and attachment lists, fifteen factorizations $G_i=V_iR_iV_i^{\mathsf T}$, four families of scalar multipliers, and one slack for each representative. The matrices $V_i$ have integer entries, and the entries of $R_i$, the multipliers, and the slacks are rational.
+
+Canonical representatives are defined as follows. A colored graph on $s$ ordered positions is encoded by its $\binom{s}{2}$ colors in lexicographic order of pairs, and we take the lexicographically least encoding among the permitted relabelings: all permutations for unrooted types, permutations fixing position~0 for one-root flags, and permutations fixing positions~0 and~1 individually for ordered-edge-rooted flags. Attachment vectors keep the fixed order of their three roots. These conventions determine the indices in~\eqref{eq:gramcolumn}--\eqref{eq:unioncolumn}.
+
+In the order used by the data, the full Gram dimensions are
+\[
+ 28,64,28,44,44,19,23,23,35,35,35,30,30,30,30,
+\]
+and the dimensions of the reduced positive definite matrices are
+\[
+ 20,55,28,44,40,14,18,23,30,35,34,29,30,30,26,
+\]
+which sum to $456$. Among the $1436$ coefficient slacks, $39$ are zero and the smallest positive slack is $2835633/500000000$. The common scale $7461504000000000$ clears the denominators of the Gram matrices and scalar multipliers, as well as the divisions by three in the degree and union terms. Matrix products sum over ordered pairs of flags, as in $p^{\mathsf T}G_ip$.
+
+The verifier reconstructs the admissible graphs and their orbit partition, the flag indices, and every coefficient in~\eqref{eq:rowidentity}. It checks positive definiteness of each $R_i$ by rational elimination, substitutes the resulting $G_i$ into the identity, and checks the signs of the multipliers and slacks and the exact value of $a_*$. The same data, scaled to integers, form part of the Lean development described in Section~\ref{sec:verification}.
