@@ -1,0 +1,9 @@
+# Lake build output and downloaded dependencies
+/.lake
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Operating-system metadata
+.DS_Store
