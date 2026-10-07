@@ -4,6 +4,62 @@ The three formal_proof references in FC PR 6634 point to 7ec4aaa6e9d685e8f994800
 
 FC source read locally: commit 338c1efab080e61bcd4de7e202c3a3d784e6bdab, FormalConjectures/ErdosProblems/809.lean. Source SHA256 e36f9efdda43c891f942fb2c1bc2b67c7b42d631f8512d2260fc02a249e57e8e. The IsRainbow source is FormalConjecturesForMathlib/Combinatorics/SimpleGraph/Coloring/Vertex.lean, SHA256 c8fd859de2574369d2c43518ade29b1b730af7944fbd6a03b6e13a3d2459420c. Both definition texts were compared verbatim; all three substantive FC proposition texts were checked by examples in the bridge (the full-result answer wrapper is replaced by True).
 
+## Current PR head checked read-only
+
+On 2026-10-07 at 23:40 UTC, PR #6634 was fetched from
+`google-deepmind/formal-conjectures` into a throwaway clone, using only a Git
+read. Its head was `338c1efab080e61bcd4de7e202c3a3d784e6bdab`, tree
+`912e21ea3af0d60ad231849675c51b0d708a3766`; `git ls-remote` confirmed that
+same current PR head. This matches the local FC source snapshot above.
+The PR uses Lean 4.33.1 and pins Mathlib to
+`0df444a360eaa60ab8c11dca51a86af692955474`.
+
+The declarations below were extracted and compared by unified diff. Each diff
+was empty. Definitions include their argument types and bodies. For theorem
+statements, only the declaration name was changed to `example`; the full
+result's `answer(True)` was replaced by `True`, as in the checked bridge.
+
+| PR source | Current bridge or dependency | Comparison |
+| --- | --- | --- |
+| `809.lean:46–48`, `strongChromaticNum` | `PaletteBridge.lean`, mirrored definition | Exact text, empty diff |
+| `Coloring/Vertex.lean:148–150`, `IsRainbow` | `PaletteBridge.lean`, mirrored definition | Exact text, empty diff |
+| Pinned Mathlib `Coloring/EdgeLabeling.lean`, `EdgeLabeling` | Current Mathlib 4.35 `EdgeLabeling` | Exact declaration text, empty diff: `G.edgeSet → K` |
+| Same Mathlib file, `EdgeLabeling.pullback` | Current Mathlib 4.35 `pullback` | Exact declaration text, empty diff: `C ∘ f.mapEdgeSet` |
+| `809.lean:59–61`, link at 57–58 | Checked full-result `example`, proved by `full_true_iff` | Empty diff after the stated wrapper/name changes |
+| `809.lean:80–82`, link at 78–79 | Checked BCM `example`, proved by `bcm k hk` | Empty diff after the declaration-name change |
+| `809.lean:90–92`, link at 88–89 | Checked C7 `example`, proved by `c7` | Empty diff after the declaration-name change |
+
+The pinned FC Mathlib file was also retrieved directly at its 40-character
+revision. Its SHA256 is
+`33b287eb682ff17ffc8e51f7bcc835e46c30d96befd051e60c23d22c0fc201c6`.
+`EdgeLabeling` is imported from Mathlib by FC and the bridge; it is not a copied
+project definition. The comparison includes `pullback`, which connects the
+mirrored `IsRainbow` to the original copy-edge injectivity predicate.
+FC's `Answer.lean` was read: `answer(True)` elaborates the supplied `True` with
+metadata, or through a safe auxiliary abbreviation whose value is `True`.
+The bridge imports none of FC's answer machinery and proves `True ↔ …`.
+
+Reproduce the source fetch without editing an existing FC checkout:
+
+```bash
+scratch=$(mktemp -d /tmp/erdos809-fc-pr-6634.XXXXXX)
+git init "$scratch"
+git -C "$scratch" remote add origin https://github.com/google-deepmind/formal-conjectures.git
+git -C "$scratch" fetch --depth=1 --filter=blob:none origin pull/6634/head:fc-pr-6634
+git -C "$scratch" checkout --detach fc-pr-6634
+git -C "$scratch" rev-parse HEAD 'HEAD^{tree}'
+git -C "$scratch" ls-remote origin refs/pull/6634/head
+# Compare the exact declarations at the paths and lines in the table above.
+# Remove the scratch clone after saving the evidence.
+```
+
+This is a comparison against the PR head at the stated time, not a claim about
+future PR edits. No PR, comment, formal_proof link, or GitHub object was modified.
+A reviewer-reply draft is kept outside the repository; its proposed link targets
+use `<NEW_SHA>` until the user pushes the verified final commit. The historical
+pin's declarations and axioms were checked at 7ec4aaa; the new bridge is checked
+only on the current Lean 4.35 tree, not retrofitted or compiled at that old pin.
+
 ## Historical pin checked locally
 
 Toolchain: leanprover/lean4:v4.28.0 (Lean commit 7e01a1bf5c70fc6167d49c345d3bf80596e9a79b).
@@ -142,25 +198,19 @@ No theorem was weakened. No sorry, admit, custom axiom, native_decide, Lean.ofRe
 
 Certificate witness lists, representatives, permutations, offsets, counts, matrices, numerators, and rational values are unchanged. All 9,371 preexisting certificate definition/abbreviation bodies in 334 files match main after comments and whitespace normalization; the raw certificate directory and its four recorded hashes match main. All 28,671 preexisting theorem/lemma signatures match main, none are missing, and no project module imports were removed. Challenge.lean, Solution.lean, comparator.json, and scripts/verify-comparator.sh are byte-for-byte unchanged since the takeover at b32de74.
 
-The bridge is checked on the new 4.35 tree; the three pinned declarations are checked at 7ec4aaa itself on 4.28.0. Their substantive theorem types agree. This is local compiler/kernel and independent certificate-checker evidence, with no claim of external human refereeing or Palomar acceptance.
+The bridge is checked on the new 4.35 tree; the three pinned declarations are checked at 7ec4aaa itself on 4.28.0. Their substantive theorem types agree. This is compiler/kernel and independent certificate-checker evidence, with no claim of external human refereeing or Palomar acceptance.
 
-## Comparator resource limitation
+## Comparator verification
 
-The unchanged Comparator script built the current solution in a privileged
-Linux arm64 Ubuntu 24.04 container at source commit
-`8564063444dccb5b9647064446d89dada40b6689`. Both the ordinary Linux build
-(3569 jobs) and Comparator's sandbox build (3568 jobs) passed. Nanoda reported
-`nanoda kernel accepts the solution`. The complete Comparator check did not
-pass: Linux's OOM log identifies con-ron, with approximately 6.3 GiB RSS plus
-the Lake process in the approximately 8 GB VM. Its apparent kernel rejection
-was a killed process, with `memory.events` recording `oom_kill 1`.
+The unchanged `scripts/verify-comparator.sh` passed on a separate ARM64
+Ubuntu 24.04 VM at source commit
+`de13121330f31b7fdb33725d53e656d9487fe7c9`, using the committed Lean 4.35.0-rc2
+toolchain. Con-ron accepted 72,095 declarations in verified mode, nanoda
+accepted, and Lean’s default kernel accepted. Comparator finished with
+`Your solution is okay!` and `COMPARATOR EXIT 0`.
 
-The missing `/run/user` Bubblewrap parent was created, resolving the earlier
-sandbox issue. Added swap and one-worker/four-worker verified diagnostics
-were tried. The serial run was interrupted after approximately 96 minutes
-without a verdict. Four workers reached 20,000 of 71,461 pending checks,
-then consumed about 7 GiB swap; the run was interrupted when host free disk
-fell below the required 5 GiB reserve. No named declaration failure was
-reported. These are incomplete diagnostics, not accepted kernel checks.
-The added swap and copied exports were removed. Comparator is the sole
-remaining verification gap; its configuration and allowlist were unchanged.
+[LINUX_COMPARATOR_VERIFICATION.md](LINUX_COMPARATOR_VERIFICATION.md) records
+exact output, log hashes, and reproduction commands. The previous 8 GiB
+Docker OOM and interrupted diagnostics were incomplete attempts; the successful
+VM run resolves that verification gap. Comparator configuration, its
+three-axiom allowlist, the proof, and certificate data were unchanged.

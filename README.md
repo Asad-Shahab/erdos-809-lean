@@ -1,10 +1,11 @@
 # Erdős #809 in Lean
 
-The formalization is verified locally on Lean and Mathlib `4.35.0-rc2`.
-The full proof, Formal Conjectures bridge, source preflight, and independent
-rational certificate replay pass. Comparator remains the sole incomplete check:
-Linux killed con-ron for memory exhaustion in the approximately 8 GB Docker VM.
-Nanoda accepted the solution; the complete Comparator run has not passed.
+The formalization is verified on Lean and Mathlib `4.35.0-rc2`.
+The full proof, Formal Conjectures bridge, source preflight, independent
+rational certificate replay, and Comparator passed. The unchanged Comparator
+script ran on a separate ARM64 Ubuntu VM: con-ron, nanoda, and Lean’s default
+kernel accepted the solution. Exact output and reproduction details are in
+[Linux verification evidence](verification/LINUX_COMPARATOR_VERIFICATION.md).
 See [PALOMAR.md](PALOMAR.md), [LOCAL_PORT.md](LOCAL_PORT.md), and the
 [Formal Conjectures verification evidence](verification/FORMAL_CONJECTURES_VERIFICATION.md).
 This branch contains no GitHub Actions workflow. The preserved `main`
@@ -74,7 +75,8 @@ The current public and FC bridge theorem audits report only `propext`,
 `Classical.choice`, and `Quot.sound`. The historical pin was separately checked
 on Lean 4.28.0. The intentional hole in `Challenge.lean` does not occur in the
 proved Solution's dependency closure. Comparator requires Linux Bubblewrap;
-macOS reproduction uses the arm64 Docker procedure in [LOCAL_PORT.md](LOCAL_PORT.md).
+use a separate Linux checkout with sufficient memory as described in
+[LOCAL_PORT.md](LOCAL_PORT.md).
 
 ## Certificate verifier
 

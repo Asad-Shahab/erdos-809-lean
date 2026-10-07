@@ -2,8 +2,9 @@
 
 This branch carries the Lean/Mathlib `4.35.0-rc2` compatibility port and the
 independent Challenge/Solution interface for `Asad-Shahab/erdos-809-lean`.
-All work and checks were local; no push, GitHub write, workflow, or submission
-was performed. The preserved main snapshot is
+Development remained in local branches; Linux verification used a separate
+AWS VM reached over SSH. No push, GitHub write, workflow, or submission was
+performed. The preserved main snapshot is
 `cfa2b4427b523d1dfaa40d538c99776380840374`.
 
 Paper: [arXiv:2609.38286](https://arxiv.org/abs/2609.38286).
@@ -29,9 +30,12 @@ The separate Linux arm64 build passed too. The four public declarations and
 all bridge lemmas elaborate. Their axiom closures contain only `propext`,
 `Classical.choice`, and `Quot.sound` (the threshold arithmetic lemma uses
 only `propext`). Source preflight and the independent standard-library
-certificate replay passed. Comparator remains the sole incomplete check: Linux
-killed con-ron for memory exhaustion in the approximately 8 GB Docker VM. Nanoda
-accepted the solution; the complete Comparator run has not passed.
+certificate replay passed. The unchanged Comparator script passed on an ARM64
+Ubuntu 24.04 VM with 61 GiB RAM: con-ron accepted 72,095 declarations in verified
+mode, nanoda accepted, and Lean’s default kernel accepted. The final summary
+was `Your solution is okay!`, with exit 0.
+[Linux verification evidence](verification/LINUX_COMPARATOR_VERIFICATION.md)
+records the checked source commit, exact output, and reproduction commands.
 
 Lean is pinned to `leanprover/lean4:v4.35.0-rc2`; Mathlib is pinned to
 `065356127b1dc0016f66b7283ce0ce2c4055aa55`. Module visibility and the
@@ -67,8 +71,9 @@ git checkout -- certificate/results/selected_union_independent_replay.json
 bash scripts/verify-comparator.sh
 ```
 
-Comparator needs Linux Bubblewrap. On macOS use the separate Linux volume
-procedure in [LOCAL_PORT.md](LOCAL_PORT.md). The submitted `comparator.json`
+Comparator needs Linux Bubblewrap. Use a separate Linux checkout with
+sufficient memory following [LOCAL_PORT.md](LOCAL_PORT.md). The submitted
+`comparator.json`
 and `scripts/verify-comparator.sh` are unchanged since takeover; the axiom
 allowlist has exactly the standard three entries. The independent certificate
 replay's timing field is restored after every run.

@@ -75,9 +75,9 @@ status:
     formula, effective cutoff, or full-density seven-cycle formula is claimed.
     The original proof is recorded in the cited paper. The Lean/Mathlib
     4.35.0-rc2 port and Formal Conjectures bridge have
-    passed local builds and axiom audits. Comparator remains incomplete because
-    con-ron exhausted memory in the local Linux Docker VM; nanoda accepted the
-    exported solution.
+    passed builds and axiom audits. The unchanged Comparator script passed
+    on a separate ARM64 Ubuntu VM: con-ron, nanoda, and Lean’s default kernel
+    accepted the solution with exit 0.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms: ["propext", "Classical.choice", "Quot.sound"]
@@ -119,11 +119,11 @@ review:
   notes: >-
     The original three declarations were checked at pin
     7ec4aaa6e9d685e8f9948005d8be69923cce2ab8 on Lean 4.28.0 using a
-    cache-assisted build. The port and semantic bridge were checked locally
+    cache-assisted build. The port and semantic bridge were checked
     on Lean 4.35.0-rc2; the full build, standard three-axiom audits, source
-    preflight, and independent certificate replay passed. Comparator remains
-    incomplete because con-ron exhausted memory in the local Linux Docker VM;
-    nanoda accepted the exported solution.
+    preflight, and independent certificate replay passed. Comparator passed
+    on a separate ARM64 Ubuntu VM with all three kernels accepting. Exact
+    Linux evidence is in verification/LINUX_COMPARATOR_VERIFICATION.md.
     Reproduction and exact outputs are recorded in
     verification/FORMAL_CONJECTURES_VERIFICATION.md. No independent human
     expert review or Palomar acceptance is claimed here.
@@ -134,14 +134,14 @@ alignment:
     - source: "arXiv:2609.38286v1, Corollary 1.2 (including Theorem 1.1)"
       lean: "Erdos809Palomar.main_result"
       module: "Solution"
-      status: "ported-verified-except-comparator"
+      status: "ported-verified"
       note: >-
         The proof term is Erdos809.erdos_809 k hk. The Challenge spells out
         the attained minimum, edge threshold, cycle copies, and used-color
         count without any project-specific import. The current toolchain
-        build and axiom audit passed. Comparator remains incomplete because
-        con-ron exhausted memory in the local Linux Docker VM; nanoda accepted
-        the exported solution.
+        build and axiom audit passed. The unchanged Comparator script passed
+        on ARM64 Linux with con-ron in verified mode, nanoda, and Lean’s
+        default kernel accepting the exported solution.
 
 acknowledgements: >-
   The Lean and Mathlib communities; Bucić, Chen, and Ma for the longer-cycle
