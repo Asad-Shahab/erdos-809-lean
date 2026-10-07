@@ -1,4 +1,7 @@
-import Erdos809.PatternSectors
+module
+public import Erdos809.PatternSectors
+
+@[expose] public section
 
 /-! Split an exact cover along sectors only when every whole pattern lies
 in one sector. Empty patterns are assigned by the explicit pattern tag. -/

@@ -1,10 +1,13 @@
+module
 /-
 Copyright (c) 2026 Asad Shahab. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Asad Shahab
 -/
-import Erdos809.Resources
-import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Erdos809.Resources
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+
+@[expose] public section
 
 /-! Exact fractional covers and prices valid on entire compatible patterns. -/
 

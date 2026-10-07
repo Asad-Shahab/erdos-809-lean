@@ -1,5 +1,8 @@
-import Erdos809.Certificate.ScaledBasis
-import Mathlib.Algebra.BigOperators.Ring.List
+module
+public import Erdos809.Certificate.ScaledBasis
+public import Mathlib.Algebra.BigOperators.Ring.List
+
+@[expose] public section
 
 /-! Sparse integer basis rows. The finite list evaluator is connected to the
 ordinary full matrix product by a proved identity, including repeated indices.

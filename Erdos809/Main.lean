@@ -1,8 +1,11 @@
-import Erdos809.Certificate.PolynomialCertificate
-import Erdos809.Certificate.LocalGraphsCoverage
-import Erdos809.Certificate.SemanticRows
-import Erdos809.FiniteCP
-import Erdos809.FinalInterface
+module
+public import Erdos809.Certificate.PolynomialCertificate
+public import Erdos809.Certificate.LocalGraphsCoverage
+public import Erdos809.Certificate.SemanticRows
+public import Erdos809.FiniteCP
+public import Erdos809.FinalInterface
+
+@[expose] public section
 
 /-! The complete certificate-to-Erdős-809 chain. Concrete, kernel-checked
 finite lemmas discharge both premises of the semantic certificate theorem.

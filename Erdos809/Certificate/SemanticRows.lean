@@ -1,18 +1,21 @@
-import Erdos809.Certificate.SemanticRows.Rows0000_0099
-import Erdos809.Certificate.SemanticRows.Rows0100_0199
-import Erdos809.Certificate.SemanticRows.Rows0200_0299
-import Erdos809.Certificate.SemanticRows.Rows0300_0399
-import Erdos809.Certificate.SemanticRows.Rows0400_0499
-import Erdos809.Certificate.SemanticRows.Rows0500_0599
-import Erdos809.Certificate.SemanticRows.Rows0600_0699
-import Erdos809.Certificate.SemanticRows.Rows0700_0799
-import Erdos809.Certificate.SemanticRows.Rows0800_0899
-import Erdos809.Certificate.SemanticRows.Rows0900_0999
-import Erdos809.Certificate.SemanticRows.Rows1000_1099
-import Erdos809.Certificate.SemanticRows.Rows1100_1199
-import Erdos809.Certificate.SemanticRows.Rows1200_1299
-import Erdos809.Certificate.SemanticRows.Rows1300_1399
-import Erdos809.Certificate.SemanticRows.Rows1400_1435
+module
+public import Erdos809.Certificate.SemanticRows.Rows0000_0099
+public import Erdos809.Certificate.SemanticRows.Rows0100_0199
+public import Erdos809.Certificate.SemanticRows.Rows0200_0299
+public import Erdos809.Certificate.SemanticRows.Rows0300_0399
+public import Erdos809.Certificate.SemanticRows.Rows0400_0499
+public import Erdos809.Certificate.SemanticRows.Rows0500_0599
+public import Erdos809.Certificate.SemanticRows.Rows0600_0699
+public import Erdos809.Certificate.SemanticRows.Rows0700_0799
+public import Erdos809.Certificate.SemanticRows.Rows0800_0899
+public import Erdos809.Certificate.SemanticRows.Rows0900_0999
+public import Erdos809.Certificate.SemanticRows.Rows1000_1099
+public import Erdos809.Certificate.SemanticRows.Rows1100_1199
+public import Erdos809.Certificate.SemanticRows.Rows1200_1299
+public import Erdos809.Certificate.SemanticRows.Rows1300_1399
+public import Erdos809.Certificate.SemanticRows.Rows1400_1435
+
+@[expose] public section
 
 namespace Erdos809.Certificate.LocalFormula.SemanticRows
 

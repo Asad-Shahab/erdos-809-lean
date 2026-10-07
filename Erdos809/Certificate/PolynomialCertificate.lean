@@ -1,8 +1,11 @@
-import Erdos809.Certificate.GramColumns
-import Erdos809.Certificate.ConstraintColumns
-import Erdos809.Certificate.MatchingExpectation
-import Erdos809.Certificate.LocalFormulaReflection
-import Erdos809.WeightedCP
+module
+public import Erdos809.Certificate.GramColumns
+public import Erdos809.Certificate.ConstraintColumns
+public import Erdos809.Certificate.MatchingExpectation
+public import Erdos809.Certificate.LocalFormulaReflection
+public import Erdos809.WeightedCP
+
+@[expose] public section
 
 /-! Complete graph interpretation of the finite local certificate. Only the
 explicit exhaustive coverage and concrete row-check premises remain below;

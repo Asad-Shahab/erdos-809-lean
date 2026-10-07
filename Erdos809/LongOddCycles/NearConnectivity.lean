@@ -1,8 +1,11 @@
-import Erdos809.LongOddCycles.Counting
-import Erdos809.LongOddCycles.DenseCycles
-import Erdos809.LongOddCycles.ScalarCutoff
-import Erdos809.Source.DegreePruning
-import Mathlib.Tactic
+module
+public import Erdos809.LongOddCycles.Counting
+public import Erdos809.LongOddCycles.DenseCycles
+public import Erdos809.LongOddCycles.ScalarCutoff
+public import Erdos809.Source.DegreePruning
+public import Mathlib.Tactic
+
+@[expose] public section
 
 /-! The graph partition behind the near-density alternative. All absent-edge
 claims concern the neighborhoods after removal of the forbidden set. -/

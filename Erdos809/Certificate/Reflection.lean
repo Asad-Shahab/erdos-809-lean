@@ -1,8 +1,11 @@
-import Mathlib.Data.Rat.Cast.Order
-import Mathlib.Data.Rat.Star
-import Mathlib.LinearAlgebra.Matrix.PosDef
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.FinCases
+module
+public import Mathlib.Data.Rat.Cast.Order
+public import Mathlib.Data.Rat.Star
+public import Mathlib.LinearAlgebra.Matrix.PosDef
+public import Mathlib.Tactic.NormNum
+public import Mathlib.Tactic.FinCases
+
+@[expose] public section
 
 /-! Kernel-checkable interfaces for the Campaign 4 rational certificate.
 

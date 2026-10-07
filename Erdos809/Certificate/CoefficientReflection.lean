@@ -1,5 +1,8 @@
-import Mathlib.Data.Int.Order.Basic
-import Mathlib.Data.List.Defs
+module
+public import Mathlib.Data.Int.Order.Basic
+public import Mathlib.Data.List.Defs
+
+@[expose] public section
 
 /-! A small kernel evaluator for scaled integer coefficient identities.
 The two lists preserve the separate Gram and valid-column contributions.

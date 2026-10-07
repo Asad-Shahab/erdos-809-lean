@@ -1,6 +1,9 @@
-import Mathlib.Combinatorics.SimpleGraph.Extremal.Turan
-import Mathlib.Combinatorics.SimpleGraph.DegreeSum
-import Mathlib.Tactic
+module
+public import Mathlib.Combinatorics.SimpleGraph.Extremal.Turan
+public import Mathlib.Combinatorics.SimpleGraph.DegreeSum
+public import Mathlib.Tactic
+
+@[expose] public section
 
 /-! The near-degree weak book bound, obtained from Mantel and three-set
 incidence counting. No stronger external book theorem is assumed. -/
@@ -18,8 +21,8 @@ lemma card_three_sets_le {V : Type*} [Fintype V] [DecidableEq V]
       (if v ∈ C ∩ A then 1 else 0 : ℕ) by
         by_cases ha : v ∈ A <;> by_cases hb : v ∈ B <;> by_cases hc : v ∈ C <;>
           simp [ha, hb, hc])
-  simpa only [sum_add_distrib, sum_boole, filter_mem_eq_inter,
-    univ_inter, sum_const, card_univ, smul_eq_mul, mul_one] using h
+  simpa [sum_add_distrib, sum_boole, filter_mem_eq_inter,
+    univ_inter, sum_const, card_univ, smul_eq_mul, mul_one, -mem_inter] using h
 
 lemma triangle_incidence {V : Type*} [Fintype V] [DecidableEq V]
     (G : SimpleGraph V) [DecidableRel G.Adj] (a b c : V) :
@@ -36,12 +39,8 @@ lemma triangle_of_above_quarter {V : Type*} [Fintype V] [DecidableEq V]
     ∃ a b c : V, G.Adj a b ∧ G.Adj a c ∧ G.Adj b c := by
   have hcf : ¬G.CliqueFree 3 := by
     intro h
-    have hb := h.card_edgeFinset_le (r := 2)
-    have hmod : (Fintype.card V % 2).choose 2 = 0 :=
-      Nat.choose_eq_zero_of_lt (Nat.mod_lt _ (by omega))
-    simp only [Nat.reduceAdd, Nat.reduceSub, Nat.reduceMul, mul_one, hmod, add_zero] at hb
-    have hb' : G.edgeFinset.card ≤ Fintype.card V ^ 2 / 4 :=
-      hb.trans (Nat.div_le_div_right (Nat.sub_le _ _))
+    have hb' : G.edgeFinset.card ≤ Fintype.card V ^ 2 / 4 := by
+      simpa only [turanNumber_two] using h.card_edgeFinset_le (r := 2)
     have hcast := Nat.cast_le (α := ℝ) |>.mpr hb'
     have hdiv : ((Fintype.card V ^ 2 / 4 : ℕ) : ℝ) ≤ (Fintype.card V : ℝ) ^ 2 / 4 := by
       have h : ((Fintype.card V ^ 2 / 4 : ℕ) : ℝ) ≤ ((Fintype.card V ^ 2 : ℕ) : ℝ) / 4 := Nat.cast_div_le

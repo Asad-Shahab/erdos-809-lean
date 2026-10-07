@@ -1,5 +1,8 @@
-import Erdos809.Certificate.LocalSupport
-import Mathlib.Data.Fintype.Perm
+module
+public import Erdos809.Certificate.LocalSupport
+public import Mathlib.Data.Fintype.Perm
+
+@[expose] public section
 
 /-! Expectations of local graph observables and exact position symmetrization.
 The finite sums use the full vertex-and-mark law, including repeated types.
@@ -55,8 +58,11 @@ theorem localDensity_relabel (x : VertexWeights V) (κ : ColorKernel V)
     (hκ : ∀ u v c, κ.prob u v c = κ.prob v u c)
     (g : LocalGraph) (σ : Equiv.Perm (Fin 5)) :
     coloredDensity x κ (g.relabel σ).color = coloredDensity x κ g.color := by
-  simpa only [LocalGraph.color_relabel] using
-    coloredDensity_relabel x κ hκ σ g.color g.color_symm
+  have hcolor : (g.relabel σ).color = fun i j => g.color (σ i) (σ j) := by
+    funext i j
+    exact LocalGraph.color_relabel g σ i j
+  rw [hcolor]
+  exact coloredDensity_relabel x κ hκ σ g.color g.color_symm
 
 theorem localExpectation_relabel (x : VertexWeights V) (κ : ColorKernel V)
     (hκ : ∀ u v c, κ.prob u v c = κ.prob v u c)

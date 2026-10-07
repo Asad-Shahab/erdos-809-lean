@@ -1,5 +1,8 @@
-import Erdos809.Main
-import Erdos809.LongOddCycles.Main
+module
+public import Erdos809.Main
+public import Erdos809.LongOddCycles.Main
+
+@[expose] public section
 
 /-! Unify the preserved C7 theorem and the formalized published longer-cycle
 cases. This is a split on k=3; it uses no monotonicity in cycle length. -/

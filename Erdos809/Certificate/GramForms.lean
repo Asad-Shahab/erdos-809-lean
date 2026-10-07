@@ -1,5 +1,8 @@
-import Erdos809.Certificate.Reflection
-import Mathlib.Data.Real.Star
+module
+public import Erdos809.Certificate.Reflection
+public import Mathlib.Data.Real.Star
+
+@[expose] public section
 
 /-! Finite conditional Gram forms. The application supplies the actual flag
 probability vectors and their root weights; no sampling interpretation is

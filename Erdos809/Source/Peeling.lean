@@ -1,7 +1,10 @@
-import Erdos809.Source.Potential
-import Mathlib.Combinatorics.SimpleGraph.DeleteEdges
-import Mathlib.Combinatorics.SimpleGraph.DegreeSum
-import Mathlib.Tactic.ByContra
+module
+public import Erdos809.Source.Potential
+public import Mathlib.Combinatorics.SimpleGraph.DeleteEdges
+public import Mathlib.Combinatorics.SimpleGraph.DegreeSum
+public import Mathlib.Tactic.ByContra
+
+@[expose] public section
 
 /-!
 # Finite fixed-margin peeling

@@ -1,5 +1,8 @@
-import Erdos809.Source.TwoPathCleanup
-import Erdos809.Source.RegularityCleanup
+module
+public import Erdos809.Source.TwoPathCleanup
+public import Erdos809.Source.RegularityCleanup
+
+@[expose] public section
 
 /-!
 # Uniform robust source-path cleanup

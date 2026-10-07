@@ -1,8 +1,11 @@
-import Erdos809.Certificate.Sampling
-import Mathlib.GroupTheory.Perm.Basic
-import Mathlib.Data.Fin.VecNotation
-import Mathlib.Algebra.BigOperators.Fin
-import Mathlib.Tactic.FinCases
+module
+public import Erdos809.Certificate.Sampling
+public import Mathlib.GroupTheory.Perm.Basic
+public import Mathlib.Data.Fin.VecNotation
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Tactic.FinCases
+
+@[expose] public section
 
 /-!
 # Four-color graphs on five sampled positions

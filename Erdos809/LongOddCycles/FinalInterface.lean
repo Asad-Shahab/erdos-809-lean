@@ -1,4 +1,7 @@
-import Erdos809.LongOddCycles.UpperBound
+module
+public import Erdos809.LongOddCycles.UpperBound
+
+@[expose] public section
 
 namespace Erdos809
 

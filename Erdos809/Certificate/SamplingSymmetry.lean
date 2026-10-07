@@ -1,4 +1,7 @@
-import Erdos809.Certificate.PairRelabel
+module
+public import Erdos809.Certificate.PairRelabel
+
+@[expose] public section
 
 /-! Exchangeability of the finite colored sampling law. The theorem reindexes
 both vertex choices and independent marks on pairs of sample positions. -/

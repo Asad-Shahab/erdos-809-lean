@@ -1,21 +1,29 @@
 name = "Erdos809"
 version = "0.1.0"
 keywords = ["math"]
-defaultTargets = ["Erdos809"]
+defaultTargets = ["Erdos809", "Challenge", "Solution"]
 
 [leanOptions]
-pp.unicode.fun = true # pretty-prints `fun a ↦ b`
+pp.unicode.fun = true
 relaxedAutoImplicit = false
 weak.linter.mathlibStandardSet = true
 maxSynthPendingDepth = 3
+backward.privateInPublic = true
+backward.proofsInPublic = true
 
 [[require]]
 name = "mathlib"
 git = "https://github.com/leanprover-community/mathlib4.git"
-rev = "v4.28.0"
+rev = "v4.35.0-rc2"
 
 [[lean_lib]]
 name = "Erdos809"
-# Bound each compiler's worker count during parallel formalization. This does
-# not alter proof checking or invalidate already checked module traces.
 weakLeanArgs = ["-j1"]
+
+[[lean_lib]]
+name = "Challenge"
+roots = ["Challenge"]
+
+[[lean_lib]]
+name = "Solution"
+roots = ["Solution"]

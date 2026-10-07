@@ -1,8 +1,11 @@
-import Erdos809.Compatibility
-import Mathlib.Data.Real.Basic
-import Mathlib.Algebra.Order.BigOperators.Group.Finset
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.NormNum
+module
+public import Erdos809.Compatibility
+public import Mathlib.Data.Real.Basic
+public import Mathlib.Algebra.Order.BigOperators.Group.Finset
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.NormNum
+
+@[expose] public section
 
 /-! Finite probability weights and weighted full-host graph quantities. -/
 

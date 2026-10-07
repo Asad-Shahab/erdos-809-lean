@@ -1,9 +1,12 @@
+module
 /-
 Copyright (c) 2026 Asad Shahab. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Asad Shahab
 -/
-import Erdos809.Resources
+public import Erdos809.Resources
+
+@[expose] public section
 
 /-! No compatible triple contains a triangular edge. The proof retains the
 six endpoint neighborhoods separately, even when actual endpoints coincide. -/

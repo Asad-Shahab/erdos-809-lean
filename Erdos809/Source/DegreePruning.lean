@@ -1,13 +1,16 @@
+module
 /-
 Copyright (c) 2026 Asad Shahab. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Asad Shahab
 -/
-import Erdos809.Source.RobustPaths
-import Mathlib.Combinatorics.SimpleGraph.DegreeSum
-import Mathlib.Tactic.Positivity
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.Ring
+public import Erdos809.Source.RobustPaths
+public import Mathlib.Combinatorics.SimpleGraph.DegreeSum
+public import Mathlib.Tactic.Positivity
+public import Mathlib.Tactic.FieldSimp
+public import Mathlib.Tactic.Ring
+
+@[expose] public section
 
 /-!
 # Degree pruning after spanning edge cleanup
@@ -98,7 +101,7 @@ lemma edge_loss_induce_compl_le (B : Finset V) :
     have hvB : v ∈ B := by simpa only [S, mem_sdiff, mem_univ, true_and, not_not] using hvS
     apply mem_biUnion.mpr
     refine ⟨v, hvB, ?_⟩
-    exact (H.mem_incidenceFinset v e).mpr ⟨by simpa using hee, by simpa using hve⟩
+    exact (H.mem_incidenceFinset).mpr ⟨by simpa using hee, by simpa using hve⟩
   have hD : D.card ≤ B.card * Fintype.card V := by
     calc
       D.card ≤ (B.biUnion (fun v ↦ H.incidenceFinset v)).card := card_le_card hsub

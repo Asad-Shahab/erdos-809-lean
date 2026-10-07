@@ -1,19 +1,22 @@
-import Erdos809.Certificate.Links.Block00
-import Erdos809.Certificate.Links.Block01
-import Erdos809.Certificate.Links.Block02
-import Erdos809.Certificate.Links.Block03
-import Erdos809.Certificate.Links.Block04
-import Erdos809.Certificate.Links.Block05
-import Erdos809.Certificate.Links.Block06
-import Erdos809.Certificate.Links.Block07
-import Erdos809.Certificate.Links.Block08
-import Erdos809.Certificate.Links.Block09
-import Erdos809.Certificate.Links.Block10
-import Erdos809.Certificate.Links.Block11
-import Erdos809.Certificate.Links.Block12
-import Erdos809.Certificate.Links.Block13
-import Erdos809.Certificate.Links.Block14
-import Erdos809.Certificate.FlagData
+module
+public import Erdos809.Certificate.Links.Block00
+public import Erdos809.Certificate.Links.Block01
+public import Erdos809.Certificate.Links.Block02
+public import Erdos809.Certificate.Links.Block03
+public import Erdos809.Certificate.Links.Block04
+public import Erdos809.Certificate.Links.Block05
+public import Erdos809.Certificate.Links.Block06
+public import Erdos809.Certificate.Links.Block07
+public import Erdos809.Certificate.Links.Block08
+public import Erdos809.Certificate.Links.Block09
+public import Erdos809.Certificate.Links.Block10
+public import Erdos809.Certificate.Links.Block11
+public import Erdos809.Certificate.Links.Block12
+public import Erdos809.Certificate.Links.Block13
+public import Erdos809.Certificate.Links.Block14
+public import Erdos809.Certificate.FlagData
+
+@[expose] public section
 
 /-! The concrete PSD matrices exposed at exactly the common coefficient scale.
 The dependent type dimensions preserve the frozen type order.

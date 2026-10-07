@@ -1,7 +1,10 @@
-import Erdos809.Certificate.Reflection
-import Mathlib.Tactic.FieldSimp
-import Mathlib.Tactic.Ring
-import Mathlib.Tactic.Convert
+module
+public import Erdos809.Certificate.Reflection
+public import Mathlib.Tactic.FieldSimp
+public import Mathlib.Tactic.Ring
+public import Mathlib.Tactic.Convert
+
+@[expose] public section
 
 namespace Erdos809.Certificate
 
@@ -29,13 +32,18 @@ theorem posSemidef_of_integer_gram {K n k : Type*}
   rw [hid] at hgram
   have hden : 0 < (factor : K) * (scale : K) :=
     mul_pos (Nat.cast_pos.mpr hfactor) (Nat.cast_pos.mpr hscale)
-  convert hgram.smul (inv_nonneg.mpr hden.le) using 1
-  ext i j
-  change (A i j : K) / scale =
-    ((factor : K) * (scale : K))⁻¹ * ((factor : K) * (A i j : K))
-  have hs : (scale : K) ≠ 0 := ne_of_gt (Nat.cast_pos.mpr hscale)
-  have hf : (factor : K) ≠ 0 := ne_of_gt (Nat.cast_pos.mpr hfactor)
-  field_simp [hs, hf]
+  have hmatrix :
+      (fun i j => (A i j : K) / scale : Matrix n n K) =
+        ((factor : K) * (scale : K))⁻¹ •
+          (fun i j => (factor : K) * (A i j : K) : Matrix n n K) := by
+    ext i j
+    change (A i j : K) / scale =
+      ((factor : K) * (scale : K))⁻¹ * ((factor : K) * (A i j : K))
+    have hs : (scale : K) ≠ 0 := ne_of_gt (Nat.cast_pos.mpr hscale)
+    have hf : (factor : K) ≠ 0 := ne_of_gt (Nat.cast_pos.mpr hfactor)
+    field_simp [hs, hf]
+  rw [hmatrix]
+  exact hgram.smul (inv_nonneg.mpr hden.le)
 
 
 end Erdos809.Certificate

@@ -1,5 +1,8 @@
-import Erdos809.LongOddCycles.Definitions
-import Erdos809.UpperBound
+module
+public import Erdos809.LongOddCycles.Definitions
+public import Erdos809.UpperBound
+
+@[expose] public section
 
 namespace Erdos809
 open SimpleGraph

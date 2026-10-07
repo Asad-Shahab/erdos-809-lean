@@ -1,8 +1,11 @@
-import Erdos809.Certificate.ProductDisjoint
-import Erdos809.Certificate.GramForms
-import Erdos809.Certificate.Sampling
-import Mathlib.Algebra.BigOperators.Fin
-import Mathlib.Tactic.FinCases
+module
+public import Erdos809.Certificate.ProductDisjoint
+public import Erdos809.Certificate.GramForms
+public import Erdos809.Certificate.Sampling
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Tactic.FinCases
+
+@[expose] public section
 
 /-! Actual one-root flag Gram positivity under the hierarchical vertex-and-mark
 sampling law. The target statement and supplied dependencies were compared

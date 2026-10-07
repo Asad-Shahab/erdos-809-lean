@@ -1,4 +1,7 @@
-import Erdos809.Definitions
+module
+public import Erdos809.Definitions
+
+@[expose] public section
 
 /-! Generic simple, non-induced cycle coloring semantics. These parallel the
 completed C7 definitions and retain arbitrary palettes and host minimization. -/

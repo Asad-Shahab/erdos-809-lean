@@ -1,5 +1,8 @@
-import Mathlib.Data.Real.Sqrt
-import Mathlib.Tactic
+module
+public import Mathlib.Data.Real.Sqrt
+public import Mathlib.Tactic
+
+@[expose] public section
 
 /-! Scalar inequalities for the Bucić--Chen--Ma longer odd-cycle argument.
 

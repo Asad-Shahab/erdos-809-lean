@@ -1,5 +1,18 @@
 # Erdős #809 in Lean
 
+The formalization is verified locally on Lean and Mathlib `4.35.0-rc2`.
+The full proof, Formal Conjectures bridge, source preflight, and independent
+rational certificate replay pass. Comparator remains the sole incomplete check:
+Linux killed con-ron for memory exhaustion in the approximately 8 GB Docker VM.
+Nanoda accepted the solution; the complete Comparator run has not passed.
+See [PALOMAR.md](PALOMAR.md), [LOCAL_PORT.md](LOCAL_PORT.md), and the
+[Formal Conjectures verification evidence](verification/FORMAL_CONJECTURES_VERIFICATION.md).
+This branch contains no GitHub Actions workflow. The preserved `main`
+snapshot remains unchanged; these checks performed no push or submission.
+
+Paper: [The Burr-Erdős-Graham-Sós conjecture for the
+seven-cycle](https://arxiv.org/abs/2609.38286), by Asad Shahab.
+
 For every fixed integer `k ≥ 3`, the minimum number of colors used over all
 simple `n`-vertex graphs with at least `⌊n²/4⌋ + 1` edges and all edge colorings
 in which every simple, not necessarily induced, `C₂ₖ₊₁` is rainbow satisfies
@@ -17,38 +30,51 @@ Erdos809.erdos_809 (k : ℕ) (hk : 3 ≤ k) :
   Erdos809.CycleAsymptoticExtremalValue (2 * k + 1)
 ```
 
-The Lean sources are the import closure of that theorem, exported unchanged
-from the author's development repository at commit
-`d7fcc0cd633946076a0ccc965fc088fa2cca676f`.
+The original public sources were exported from the author's development
+repository at `d7fcc0cd633946076a0ccc965fc088fa2cca676f`. The preserved public
+snapshot `cfa2b4427b523d1dfaa40d538c99776380840374` used Lean 4.28.0 and
+Mathlib commit `8f9d9cff6bd728b17a24e163c9402775d9e6a365`. This branch ports
+that same mathematics to Palomar's newer toolchain and module requirements.
 
-- Lean: `4.28.0` (`leanprover/lean4:v4.28.0`).
-- mathlib: `v4.28.0`, commit `8f9d9cff6bd728b17a24e163c9402775d9e6a365`.
-- All dependency revisions are pinned in `lake-manifest.json`.
+- Target Lean: `leanprover/lean4:v4.35.0-rc2`.
+- Target Mathlib: `v4.35.0-rc2`, commit `065356127b1dc0016f66b7283ce0ce2c4055aa55`.
+- Every Git dependency is pinned in `lake-manifest.json`.
+- The expanded statement of record is `Erdos809Palomar.main_result` in
+  [Challenge.lean](Challenge.lean), paired with [Solution.lean](Solution.lean).
 
-With [elan](https://github.com/leanprover/elan) installed, build from the
-repository root. The thread setting bounds compilation parallelism.
+The seven-cycle argument is Shahab's independent proof. The mathematical
+argument for longer odd cycles is credited to Bucić, Chen, and Ma; the
+contribution here in those cases is its formalization. The metadata records
+Jacob Parish's `PALOMAR-2026-09-30-000004` as an independent related
+formalization and makes no priority claim.
+
+With [elan](https://github.com/leanprover/elan) installed, use the local
+verification commands in [PALOMAR.md](PALOMAR.md). Module migration is already
+committed. The build commands are:
 
 ```sh
 export LEAN_NUM_THREADS=2
 lake exe cache get
-lake build
+lake build Challenge
+lake build Erdos809 Solution
 ```
 
-Check the theorem and its axioms:
+Check the submission theorem and its axioms:
 
 ```sh
 lake env lean --stdin <<'EOF'
-import Erdos809
-#check Erdos809.erdos_809
-#print axioms Erdos809.erdos_809
+import Solution
+#check Erdos809Palomar.main_result
+#print axioms Erdos809Palomar.main_result
 EOF
+bash scripts/verify-comparator.sh
 ```
 
-The axiom query reports:
-
-```text
-'Erdos809.erdos_809' depends on axioms: [propext, Classical.choice, Quot.sound]
-```
+The current public and FC bridge theorem audits report only `propext`,
+`Classical.choice`, and `Quot.sound`. The historical pin was separately checked
+on Lean 4.28.0. The intentional hole in `Challenge.lean` does not occur in the
+proved Solution's dependency closure. Comparator requires Linux Bubblewrap;
+macOS reproduction uses the arm64 Docker procedure in [LOCAL_PORT.md](LOCAL_PORT.md).
 
 ## Certificate verifier
 
@@ -69,7 +95,9 @@ python3 -I -S -B certificate/code/verify_selected_union_certificate.py
 Never use `-O`: the assertions are the proof checks. Input and verifier hashes
 are recorded in [SHA256SUMS](certificate/SHA256SUMS). The command writes
 [the reference result](certificate/results/selected_union_independent_replay.json),
-including its measured `seconds` field.
+including its measured `seconds` field. Restore that runtime-only change after
+each replay with `git checkout --
+certificate/results/selected_union_independent_replay.json`.
 
 Expected status: `EXACTLY VERIFIED BY INDEPENDENT STANDARD-LIBRARY CHECKER`.
 

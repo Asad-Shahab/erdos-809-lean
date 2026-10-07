@@ -1,6 +1,9 @@
-import Erdos809.MatchingKernel
-import Erdos809.WeightedCuts
-import Erdos809.PaletteAlgebra
+module
+public import Erdos809.MatchingKernel
+public import Erdos809.WeightedCuts
+public import Erdos809.PaletteAlgebra
+
+@[expose] public section
 
 /-! The exact graph polynomial certified by the finite table. This module
 defines its weighted graph terms and proves algebraic assembly implications;

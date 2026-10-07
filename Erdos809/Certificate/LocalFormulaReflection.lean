@@ -1,5 +1,8 @@
-import Erdos809.Certificate.LocalFormula
-import Erdos809.Certificate.LocalGraphsData
+module
+public import Erdos809.Certificate.LocalFormula
+public import Erdos809.Certificate.LocalGraphsData
+
+@[expose] public section
 
 /-! Reduce the symmetrized local certificate to the explicitly ordered orbit
 representatives. The checked permutation equivalence supplies all 120 orders.

@@ -1,4 +1,7 @@
-import Erdos809.Certificate.Marking
+module
+public import Erdos809.Certificate.Marking
+
+@[expose] public section
 
 /-! Local support of the colored sampling law: a triangle containing an F
 edge has probability zero when F edges have no common neighbor in the host.

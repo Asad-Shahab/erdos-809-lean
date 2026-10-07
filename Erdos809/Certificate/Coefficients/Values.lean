@@ -1,4 +1,7 @@
-import Erdos809.Certificate.CoefficientReflection
+module
+public import Erdos809.Certificate.CoefficientReflection
+
+@[expose] public section
 
 /-! Generated exact scaled table arithmetic. Certificate source SHA256 0499aff9fdffb2da406ef787d79a0f84cd38e3bbd338f2e7d21487db17ceba09.
 Scope: stored local coefficient identities; graph enumeration, column semantics,

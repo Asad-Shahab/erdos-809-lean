@@ -1,5 +1,8 @@
-import Erdos809.UpperBound
-import Erdos809.WeightedCP
+module
+public import Erdos809.UpperBound
+public import Erdos809.WeightedCP
+
+@[expose] public section
 
 /-! Final theorem interfaces, including attainment on an exact-edge host.
 The certificate-dependent theorems below retain their explicit polynomial

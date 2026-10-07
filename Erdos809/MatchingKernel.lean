@@ -1,5 +1,8 @@
-import Erdos809.MatchingMarks
-import Erdos809.Certificate.Marking
+module
+public import Erdos809.MatchingMarks
+public import Erdos809.Certificate.Marking
+
+@[expose] public section
 
 /-! The certificate's auxiliary four-color sampling law for one actual
 triangular matching. Its root and selected-edge constraints follow from that

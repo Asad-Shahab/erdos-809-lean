@@ -1,5 +1,8 @@
-import Erdos809.Patterns
-import Erdos809.PairCounting
+module
+public import Erdos809.Patterns
+public import Erdos809.PairCounting
+
+@[expose] public section
 
 /-! Extract the actual pair amounts of an exact cover by singleton and pair
 patterns. Empty patterns are permitted and only increase the cover cost. -/

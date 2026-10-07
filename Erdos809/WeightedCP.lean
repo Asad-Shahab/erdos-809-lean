@@ -1,6 +1,9 @@
-import Erdos809.OutsideCover
-import Erdos809.WeightedPolynomial
-import Erdos809.Source.LowerAssembly
+module
+public import Erdos809.OutsideCover
+public import Erdos809.WeightedPolynomial
+public import Erdos809.Source.LowerAssembly
+
+@[expose] public section
 
 /-! The finite graph and source architecture reduced to one explicit stable
 polynomial certificate obligation. No axiom asserts that obligation here. -/

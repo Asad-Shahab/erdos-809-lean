@@ -1,4 +1,7 @@
-import Erdos809.LongOddCycles.ScalarBounds
+module
+public import Erdos809.LongOddCycles.ScalarBounds
+
+@[expose] public section
 
 /-! A proved existential cutoff for the scalar conditions in the BCM induction.
 The cutoff depends only on the cycle parameter and the error tolerance. -/

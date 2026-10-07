@@ -1,5 +1,8 @@
-import Erdos809.Source.RobustPaths
-import Mathlib.Tactic.Positivity
+module
+public import Erdos809.Source.RobustPaths
+public import Mathlib.Tactic.Positivity
+
+@[expose] public section
 
 /-!
 # Regular-pair typicality into a large subset

@@ -1,7 +1,10 @@
-import Erdos809.LongOddCycles.FarCase
-import Erdos809.LongOddCycles.ScalarCutoff
-import Erdos809.LongOddCycles.NearCase
-import Mathlib.Combinatorics.SimpleGraph.DeleteEdges
+module
+public import Erdos809.LongOddCycles.FarCase
+public import Erdos809.LongOddCycles.ScalarCutoff
+public import Erdos809.LongOddCycles.NearCase
+public import Mathlib.Combinatorics.SimpleGraph.DeleteEdges
+
+@[expose] public section
 
 /-! Universal finite-host induction for the BCM potential. The induction fixes
 its error tolerance and constant before quantifying over hosts and colorings.

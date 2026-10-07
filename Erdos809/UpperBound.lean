@@ -1,13 +1,16 @@
-import Erdos809.Definitions
-import Mathlib.Combinatorics.SimpleGraph.Sum
-import Mathlib.Combinatorics.SimpleGraph.Finite
-import Mathlib.Data.Real.Archimedean
-import Mathlib.Data.Nat.Choose.Cast
-import Mathlib.Data.Nat.Cast.Order.Field
-import Mathlib.Logic.Equiv.Fin.Basic
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.NormNum
-import Mathlib.Tactic.Positivity
+module
+public import Erdos809.Definitions
+public import Mathlib.Combinatorics.SimpleGraph.Sum
+public import Mathlib.Combinatorics.SimpleGraph.Finite
+public import Mathlib.Algebra.Order.Archimedean.Real.Basic
+public import Mathlib.Data.Nat.Choose.Cast
+public import Mathlib.Data.Nat.Cast.Order.Field
+public import Mathlib.Logic.Equiv.Fin.Basic
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.NormNum
+public import Mathlib.Tactic.Positivity
+
+@[expose] public section
 
 namespace Erdos809
 

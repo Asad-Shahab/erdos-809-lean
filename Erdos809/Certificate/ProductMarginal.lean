@@ -1,9 +1,12 @@
-import Mathlib.Algebra.BigOperators.Ring.Finset
-import Mathlib.Algebra.BigOperators.Group.Finset.Pi
-import Mathlib.Logic.Equiv.Prod
-import Mathlib.Data.Fintype.Prod
-import Mathlib.Data.Fintype.BigOperators
-import Mathlib.Tactic.Convert
+module
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.BigOperators.Group.Finset.Pi
+public import Mathlib.Logic.Equiv.Prod
+public import Mathlib.Data.Fintype.Prod
+public import Mathlib.Data.Fintype.BigOperators
+public import Mathlib.Tactic.Convert
+
+@[expose] public section
 
 /-! Marginalization of a finite normalized product law to any injectively
 indexed set of coordinates. Local kernel validation checks the supplied proof.

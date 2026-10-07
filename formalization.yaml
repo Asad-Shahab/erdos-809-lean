@@ -1,0 +1,150 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "Erdős Problem 809: an independent proof of the seven-cycle threshold"
+  description: >-
+    For every fixed integer k >= 3, the minimum number of colors in an
+    edge-coloring of an n-vertex simple graph with at least floor(n^2/4)+1
+    edges, in which every copy of C_(2k+1) is rainbow, is
+    (1/8 + o(1))n^2. The minimum is attained. The development combines
+    Asad Shahab's seven-cycle proof, using an exact rational five-vertex
+    certificate, with a formalization of the Bucić-Chen-Ma argument for
+    longer odd cycles.
+  authors: ["Asad Shahab"]
+  license: "Apache-2.0"
+  responsible_maintainers: ["Asad Shahab"]
+
+classification:
+  arxiv: ["math.CO"]
+  msc2020: ["05C35", "05C15", "05D10"]
+
+sources:
+  - title: "The Burr-Erdős-Graham-Sós conjecture for the seven-cycle"
+    authors: ["Asad Shahab"]
+    id: "arXiv:2609.38286v1"
+    location: "https://arxiv.org/abs/2609.38286v1"
+    type: "preprint"
+    relationship: "formalizes"
+    note: >-
+      Theorem 1.1 is the seven-cycle result. Corollary 1.2 is the unified
+      statement for every k >= 3. Section 10 describes the original
+      Lean 4.28.0 formalization and the rational certificate.
+  - title: "On a maximal anti-Ramsey conjecture of Burr, Erdős, Graham, and Sós"
+    authors: ["Matija Bucić", "Kaizhe Chen", "Jie Ma"]
+    id: "arXiv:2603.18952v1"
+    location: "https://arxiv.org/abs/2603.18952v1"
+    type: "preprint"
+    relationship: "formalizes"
+    note: >-
+      The longer-cycle lower bound follows the published argument in
+      Sections 3-4. The mathematics for k >= 4 is credited to these authors;
+      the contribution of this development in those cases is formalization.
+  - title: "Maximal antiramsey graphs and the strong chromatic number"
+    authors: ["S. A. Burr", "P. Erdős", "R. L. Graham", "V. T. Sós"]
+    id: "https://doi.org/10.1002/jgt.3190130302"
+    type: "article"
+    relationship: "background"
+    note: "Source of the odd-cycle threshold conjecture and upper construction."
+  - title: "Erdős Problem 809"
+    id: "https://www.erdosproblems.com/809"
+    type: "problem catalog"
+    relationship: "background"
+
+related_formalizations:
+  - id: "PALOMAR-2026-09-30-000004"
+    relationship: "independent"
+    note: >-
+      Jacob Parish's separately registered formalization, version 1.
+      This development does not import or adapt its Lean code. The
+      seven-cycle argument here uses Shahab's rational certificate.
+      This submission makes no claim of first discovery or first registration.
+  - id: "https://github.com/Asad-Shahab/erdos-809/tree/d7fcc0cd633946076a0ccc965fc088fa2cca676f"
+    relationship: "builds-on"
+    note: >-
+      The author's original research repository. The public proof source was
+      exported from this immutable commit. All substantive proof modules are
+      included here; this repository is not a thin wrapper around a dependency.
+
+status:
+  scope: >-
+    One compared theorem states the attained host-minimized threshold for
+    every fixed k >= 3, uniformly over all sufficiently large integer n,
+    all eligible hosts, and all colorings. Copies are simple and need not
+    be induced; colors are counted by their image. No exact finite-n
+    formula, effective cutoff, or full-density seven-cycle formula is claimed.
+    The original proof is recorded in the cited paper. The Lean/Mathlib
+    4.35.0-rc2 port and Formal Conjectures bridge have
+    passed local builds and axiom audits. Comparator remains incomplete because
+    con-ron exhausted memory in the local Linux Docker VM; nanoda accepted the
+    exported solution.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+
+automation:
+  methods:
+    - method: "agent"
+      models: ["GPT-6 Astra", "Claude", "Aristotle"]
+      framework: "ChatGPT, OpenAI Codex, Anthropic Claude, Harmonic Aristotle"
+      tool_setup: >-
+        Lean, Mathlib, Lake, exact rational certificate generation and
+        independent standard-library Python verification. The original
+        published development used Lean and Mathlib 4.28.0. The Palomar
+        branch uses Lean and Mathlib 4.35.0-rc2, with a checked bridge to the
+        three Formal Conjectures statements.
+      prompting_notes: >-
+        A human-directed, multi-stage campaign separated proof search,
+        exact certificate checks, formalization, and review. Aristotle was
+        used for one finite counting lemma in the longer-cycle formalization.
+        Exact per-task model revisions and costs have not been reconstructed.
+  notes: >-
+    The paper's acknowledgements disclose extensive AI assistance with
+    proof search, certificate construction, formalization, and manuscript
+    preparation. Asad Shahab is responsible for the content. This metadata
+    does not describe AI review as independent human mathematical review.
+
+fidelity:
+  divergences: >-
+    No intended change to the extremal statement. The Lean proof extracts
+    a triangular matching from exact covers, and its upper construction
+    uses an epsilon-dependent linear imbalance between two cliques;
+    Section 10.2 of the paper explains these exposition differences.
+    The Palomar statement expands the original definitions into Mathlib
+    primitives. No extra mathematical hypothesis is added.
+
+review:
+  status: "self-assessed"
+  reviewers: []
+  notes: >-
+    The original three declarations were checked at pin
+    7ec4aaa6e9d685e8f9948005d8be69923cce2ab8 on Lean 4.28.0 using a
+    cache-assisted build. The port and semantic bridge were checked locally
+    on Lean 4.35.0-rc2; the full build, standard three-axiom audits, source
+    preflight, and independent certificate replay passed. Comparator remains
+    incomplete because con-ron exhausted memory in the local Linux Docker VM;
+    nanoda accepted the exported solution.
+    Reproduction and exact outputs are recorded in
+    verification/FORMAL_CONJECTURES_VERIFICATION.md. No independent human
+    expert review or Palomar acceptance is claimed here.
+
+alignment:
+  namespace: "Erdos809Palomar"
+  statements:
+    - source: "arXiv:2609.38286v1, Corollary 1.2 (including Theorem 1.1)"
+      lean: "Erdos809Palomar.main_result"
+      module: "Solution"
+      status: "ported-verified-except-comparator"
+      note: >-
+        The proof term is Erdos809.erdos_809 k hk. The Challenge spells out
+        the attained minimum, edge threshold, cycle copies, and used-color
+        count without any project-specific import. The current toolchain
+        build and axiom audit passed. Comparator remains incomplete because
+        con-ron exhausted memory in the local Linux Docker VM; nanoda accepted
+        the exported solution.
+
+acknowledgements: >-
+  The Lean and Mathlib communities; Bucić, Chen, and Ma for the longer-cycle
+  argument; the AI tools disclosed above; and Palomar's public submission
+  standard. The independent formalization by Jacob Parish is acknowledged
+  separately under related_formalizations.

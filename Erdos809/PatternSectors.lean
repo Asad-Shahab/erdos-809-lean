@@ -1,10 +1,13 @@
+module
 /-
 Copyright (c) 2026 Asad Shahab. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Asad Shahab
 -/
-import Erdos809.Patterns
-import Erdos809.Triangular
+public import Erdos809.Patterns
+public import Erdos809.Triangular
+
+@[expose] public section
 
 /-! Finite whole-pattern consequences of the full-host sector geometry. -/
 

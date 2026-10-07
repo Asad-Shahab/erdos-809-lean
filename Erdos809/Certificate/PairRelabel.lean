@@ -1,5 +1,8 @@
-import Erdos809.Certificate.Sampling
-import Mathlib.GroupTheory.Perm.Basic
+module
+public import Erdos809.Certificate.Sampling
+public import Mathlib.GroupTheory.Perm.Basic
+
+@[expose] public section
 
 /-! Reindex fresh independent marks on unordered pairs of sample positions.
 The proof constructs the permutation of increasing endpoint pairs explicitly.

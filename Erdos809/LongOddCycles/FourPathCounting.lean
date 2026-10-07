@@ -1,6 +1,9 @@
-import Erdos809.Source.RobustPaths
-import Mathlib.Combinatorics.SimpleGraph.DegreeSum
-import Mathlib.Tactic
+module
+public import Erdos809.Source.RobustPaths
+public import Mathlib.Combinatorics.SimpleGraph.DegreeSum
+public import Mathlib.Tactic
+
+@[expose] public section
 
 /-!
 # The local obstruction to a simple four-path
@@ -436,7 +439,6 @@ theorem no_four_path_degree_sum_bound {x y : V}
         have := degree_neither_add_degree_endpoint_le hxy horder hno hz.1 hz.2
         have : ((G.degree z + G.degree y + 1 : ℕ) : ℝ) ≤ n := by exact_mod_cast this
         push_cast at this
-        simp only
         linarith)
     simpa [nsmul_eq_mul] using this
   -- estimate for A
@@ -472,7 +474,6 @@ theorem no_four_path_degree_sum_bound {x y : V}
               hw.1 hw.2.2 hw.2.1
             have : ((G.degree z₀ + G.degree w : ℕ) : ℝ) ≤ n := by exact_mod_cast h
             push_cast at this
-            simp only
             linarith)
         simpa [nsmul_eq_mul] using this
       have hmax : (G.degree z₀ : ℝ) ≤ n - b := by

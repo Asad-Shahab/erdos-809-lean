@@ -1,6 +1,9 @@
-import Erdos809.Source.NearCut
-import Erdos809.Source.NearCutParameters
-import Erdos809.Source.NearCutCounting
+module
+public import Erdos809.Source.NearCut
+public import Erdos809.Source.NearCutParameters
+public import Erdos809.Source.NearCutCounting
+
+@[expose] public section
 
 /-!
 # From an internal trigger to the near-cut palette lower bound

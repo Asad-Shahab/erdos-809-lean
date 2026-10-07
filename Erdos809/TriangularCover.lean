@@ -1,6 +1,9 @@
-import Erdos809.PairCover
-import Erdos809.PatternSectors
-import Erdos809.Matching
+module
+public import Erdos809.PairCover
+public import Erdos809.PatternSectors
+public import Erdos809.Matching
+
+@[expose] public section
 
 /-! Extract one actual capacitated matching from any exact triangular-sector
 cover. The resulting lower bound does not require choosing an LP optimizer. -/

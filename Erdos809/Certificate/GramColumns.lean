@@ -1,7 +1,10 @@
-import Erdos809.Certificate.RootedGram
-import Erdos809.Certificate.TypedGram
-import Erdos809.Certificate.LocalFormula
-import Erdos809.Certificate.LocalExpectation
+module
+public import Erdos809.Certificate.RootedGram
+public import Erdos809.Certificate.TypedGram
+public import Erdos809.Certificate.LocalFormula
+public import Erdos809.Certificate.LocalExpectation
+
+@[expose] public section
 
 /-! Positivity of the exact integer Gram columns in the local certificate.
 Their matrix entries are linked to checked PSD matrices at the common scale. -/
@@ -16,8 +19,9 @@ theorem local_rootGram_nonnegative (x : VertexWeights V) (κ : ColorKernel V) :
     LinkedMatrices.rootReal LinkedMatrices.rootReal_posSemidef FlagData.rootFlag
   have hgram : 0 ≤ localExpectation x κ (fun g =>
       LinkedMatrices.rootReal (LocalFormula.rootAt g 0 1 2) (LocalFormula.rootAt g 0 3 4)) := by
-    simpa only [localExpectation, sampleWeight, typeWeight, markWeight, mul_assoc,
-      Finset.mul_sum] using h
+    simp only [localExpectation, sampleWeight, typeWeight, markWeight, mul_assoc,
+      Finset.mul_sum] at h ⊢
+    exact h
   have hscale : (Coefficients.scale : ℝ) ≠ 0 :=
     Nat.cast_ne_zero.mpr (Nat.ne_of_gt Coefficients.scale_positive)
   calc
@@ -44,8 +48,9 @@ theorem local_typeGram_term_nonnegative (x : VertexWeights V) (κ : ColorKernel 
   have hgram : 0 ≤ localExpectation x κ (fun g => if LocalFormula.literalRoot g t then
       LinkedMatrices.typeReal t (LocalFormula.attachmentAt g t 3)
         (LocalFormula.attachmentAt g t 4) else 0) := by
-    simpa only [localExpectation, sampleWeight, typeWeight, markWeight, mul_assoc,
-      Finset.mul_sum] using h
+    simp only [localExpectation, sampleWeight, typeWeight, markWeight, mul_assoc,
+      Finset.mul_sum] at h ⊢
+    exact h
   have hscale : (Coefficients.scale : ℝ) ≠ 0 :=
     Nat.cast_ne_zero.mpr (Nat.ne_of_gt Coefficients.scale_positive)
   calc

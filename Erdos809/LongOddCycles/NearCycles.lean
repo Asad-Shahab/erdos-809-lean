@@ -1,4 +1,7 @@
-import Erdos809.LongOddCycles.FarCycles
+module
+public import Erdos809.LongOddCycles.FarCycles
+
+@[expose] public section
 
 /-!
 # Adjustable cycles in the near case

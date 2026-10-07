@@ -1,13 +1,16 @@
+module
 /-
 Copyright (c) 2026 Asad Shahab. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Asad Shahab
 -/
-import Erdos809.Definitions
-import Erdos809.Compatibility
-import Erdos809.Source.RobustPaths
-import Mathlib.Data.Fin.Tuple.Basic
-import Mathlib.Tactic.FinCases
+public import Erdos809.Definitions
+public import Erdos809.Compatibility
+public import Erdos809.Source.RobustPaths
+public import Mathlib.Data.Fin.Tuple.Basic
+public import Mathlib.Tactic.FinCases
+
+@[expose] public section
 
 /-!
 # Original color classes and full retained-host compatibility

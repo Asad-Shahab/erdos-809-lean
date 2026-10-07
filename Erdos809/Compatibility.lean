@@ -1,4 +1,7 @@
-import Mathlib.Combinatorics.SimpleGraph.Basic
+module
+public import Mathlib.Combinatorics.SimpleGraph.Basic
+
+@[expose] public section
 
 /-! Full-host walk compatibility. Walks in this module may repeat vertices. -/
 

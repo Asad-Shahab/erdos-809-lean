@@ -1,10 +1,13 @@
+module
 /-
 Copyright (c) 2026 Asad Shahab. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Asad Shahab
 -/
-import Erdos809.WeightedIdentities
-import Mathlib.Combinatorics.SimpleGraph.DegreeSum
+public import Erdos809.WeightedIdentities
+public import Mathlib.Combinatorics.SimpleGraph.DegreeSum
+
+@[expose] public section
 
 /-! Relating unordered host edges to oriented weighted sums. -/
 

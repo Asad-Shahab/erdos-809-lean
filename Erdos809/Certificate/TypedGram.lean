@@ -1,8 +1,11 @@
-import Erdos809.Certificate.ProductDisjoint
-import Erdos809.Certificate.GramForms
-import Erdos809.Certificate.Sampling
-import Mathlib.Algebra.BigOperators.Fin
-import Mathlib.Logic.Equiv.Fin.Basic
+module
+public import Erdos809.Certificate.ProductDisjoint
+public import Erdos809.Certificate.GramForms
+public import Erdos809.Certificate.Sampling
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Logic.Equiv.Fin.Basic
+
+@[expose] public section
 
 /-! Conditional Gram forms with three fixed sampled roots and one fresh
 vertex per flag. The pair coordinates are independent even for repeated types.

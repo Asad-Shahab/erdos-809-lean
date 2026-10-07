@@ -1,7 +1,10 @@
-import Erdos809.LongOddCycles.Definitions
-import Erdos809.Source.DegreePruning
-import Mathlib.Data.Nat.Choose.Cast
-import Mathlib.Tactic
+module
+public import Erdos809.LongOddCycles.Definitions
+public import Erdos809.Source.DegreePruning
+public import Mathlib.Data.Nat.Choose.Cast
+public import Mathlib.Tactic
+
+@[expose] public section
 
 /-! Palette and incident-edge counting, with actual used colors and original
 host edges. Selected graphs are only used via adjacency-preserving copies. -/
@@ -13,7 +16,7 @@ lemma card_le_usedColors_of_injOn {V K : Type*} [Finite V] {G : SimpleGraph V}
     S.card ≤ usedColors c := by
   calc
     S.card = (c '' (S : Set G.edgeSet)).ncard := by
-      rw [Set.ncard_image_of_injOn hc, Set.ncard_coe_finset]
+      rw [hc.ncard_image, Set.ncard_coe_finset]
     _ ≤ (Set.range c).ncard :=
       Set.ncard_le_ncard (Set.image_subset_range _ _) (Set.finite_range c)
 
@@ -27,13 +30,17 @@ lemma edgeCount_le_usedColors_of_restrict_injective {V K : Type*} [Finite V]
 /-- Keep precisely the edges touching A whose endpoints both avoid B. -/
 def touchingGraph {V : Type*} (G : SimpleGraph V) (A B : Finset V) : SimpleGraph V where
   Adj x y := G.Adj x y ∧ (x ∈ A ∨ y ∈ A) ∧ x ∉ B ∧ y ∉ B
-  symm := by tauto
+  symm := ⟨by tauto⟩
   loopless := ⟨by intro x h; exact G.irrefl h.1⟩
 
 instance touchingGraph_decidable {V : Type*} [DecidableEq V]
     (G : SimpleGraph V) [DecidableRel G.Adj] (A B : Finset V) :
     DecidableRel (touchingGraph G A B).Adj := fun x y =>
   inferInstanceAs (Decidable (G.Adj x y ∧ (x ∈ A ∨ y ∈ A) ∧ x ∉ B ∧ y ∉ B))
+
+@[simp] lemma touchingGraph_adj {V : Type*} (G : SimpleGraph V) (A B : Finset V) (x y : V) :
+    (touchingGraph G A B).Adj x y ↔ G.Adj x y ∧ (x ∈ A ∨ y ∈ A) ∧ x ∉ B ∧ y ∉ B :=
+  Iff.rfl
 
 lemma touchingGraph_le {V : Type*} (G : SimpleGraph V) (A B : Finset V) :
     touchingGraph G A B ≤ G := fun _ _ h => h.1
@@ -46,7 +53,7 @@ lemma touchingGraph_degree_lower (A B : Finset V) {v : V} (hvA : v ∈ A) (hvB :
   classical
   have he : (touchingGraph G A B).neighborFinset v = G.neighborFinset v \ B := by
     ext w
-    simp [mem_neighborFinset, touchingGraph, hvA, hvB]
+    simp [mem_neighborFinset, touchingGraph_adj, hvA, hvB]
   have h := card_le_card_sdiff_add_card (s := G.neighborFinset v) (t := B)
   rw [← he, card_neighborFinset_eq_degree, card_neighborFinset_eq_degree] at h
   exact h
@@ -102,7 +109,7 @@ lemma incident_edge_partition (A : Finset V) :
       G.edgeFinset.filter (fun e => ¬e.toFinset ⊆ univ \ A) := by
     ext e
     induction e using Sym2.inductionOn with
-    | _ x y => simp [mem_edgeFinset, touchingGraph, Finset.subset_iff,
+    | _ x y => simp [mem_edgeFinset, touchingGraph_adj, Finset.subset_iff,
         Sym2.mem_toFinset, not_and_or]
   rw [he, card_edgeFinset_induce_eq_filter]
   exact (card_filter_add_card_filter_not (s := G.edgeFinset)

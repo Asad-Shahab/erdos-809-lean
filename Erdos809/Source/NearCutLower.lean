@@ -1,6 +1,9 @@
-import Erdos809.Source.NearCutWitness
-import Erdos809.Source.Potential
-import Mathlib.Tactic.FieldSimp
+module
+public import Erdos809.Source.NearCutWitness
+public import Erdos809.Source.Potential
+public import Mathlib.Tactic.FieldSimp
+
+@[expose] public section
 
 /-!
 # The quantitative near-cut lower bound

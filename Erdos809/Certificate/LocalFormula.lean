@@ -1,6 +1,9 @@
-import Erdos809.Certificate.LinkedMatrices
-import Erdos809.Certificate.LocalGraphs
-import Erdos809.Certificate.TargetExpectation
+module
+public import Erdos809.Certificate.LinkedMatrices
+public import Erdos809.Certificate.LocalGraphs
+public import Erdos809.Certificate.TargetExpectation
+
+@[expose] public section
 
 /-! Exact ordered local formulas for the certificate. The integer numerator
 uses the actual PSD matrix entries and total finite flag classifiers. Its

@@ -1,4 +1,7 @@
-import Erdos809.LongOddCycles.CycleCopies
+module
+public import Erdos809.LongOddCycles.CycleCopies
+
+@[expose] public section
 
 /-!
 # Two designated edges in a dense common-neighbor graph
@@ -62,7 +65,7 @@ theorem cycle_through_prefix [Fintype V] [DecidableEq V] [DecidableRel G.Adj]
   obtain ⟨w, q, hq, hqlen, hsub⟩ := exists_path_extension p hp
     (2 * k - 1 - p.length) (by omega)
   obtain ⟨r, hr, hrlen, hsub'⟩ := close_path_of_codegree hk hcodeg q hq (by omega)
-  exact ⟨r, hr, hrlen, hsub.trans hsub'⟩
+  exact ⟨r, hr, hrlen, List.Subset.trans hsub hsub'⟩
 
 /-- Any pair of distinct adjacent edges lies on an exact odd cycle under the
 dense auxiliary graph hypotheses. -/

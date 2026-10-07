@@ -1,4 +1,7 @@
-import Erdos809.Sectors
+module
+public import Erdos809.Sectors
+
+@[expose] public section
 
 /-! The free sector consists of full-host edges whose two endpoints lie in no
 triangle. Its complement is the actual edge domain of the palette theorem. -/
@@ -9,12 +12,12 @@ variable {V : Type*} (G : SimpleGraph V)
 
 def freeSector : SimpleGraph V where
   Adj u v := G.Adj u v ∧ TriangleFreeVertex G u ∧ TriangleFreeVertex G v
-  symm := fun _ _ h => ⟨h.1.symm, h.2.2, h.2.1⟩
+  symm := ⟨fun _ _ h => ⟨h.1.symm, h.2.2, h.2.1⟩⟩
   loopless := ⟨fun _ h => G.irrefl h.1⟩
 
 def outsideSector : SimpleGraph V where
   Adj u v := G.Adj u v ∧ ¬ (TriangleFreeVertex G u ∧ TriangleFreeVertex G v)
-  symm := fun _ _ h => ⟨h.1.symm, fun h' => h.2 ⟨h'.2, h'.1⟩⟩
+  symm := ⟨fun _ _ h => ⟨h.1.symm, fun h' => h.2 ⟨h'.2, h'.1⟩⟩⟩
   loopless := ⟨fun _ h => G.irrefl h.1⟩
 
 theorem freeSector_le : freeSector G ≤ G := fun _ _ h => h.1

@@ -1,6 +1,9 @@
-import Erdos809.Source.RobustPaths
-import Mathlib.Combinatorics.SimpleGraph.Triangle.Removal
-import Mathlib.Tactic.FinCases
+module
+public import Erdos809.Source.RobustPaths
+public import Mathlib.Combinatorics.SimpleGraph.Triangle.Removal
+public import Mathlib.Tactic.FinCases
+
+@[expose] public section
 
 /-!
 # Tripartite graph for robust two-path cleanup
@@ -32,7 +35,7 @@ private def auxForward (k : ℕ) (a b : Fin 3 × V) : Prop :=
 /-- Auxiliary tripartite graph with two original-edge layers and one virtual layer. -/
 def twoPathAux (k : ℕ) : SimpleGraph (Fin 3 × V) where
   Adj a b := auxForward G k a b ∨ auxForward G k b a
-  symm := fun _ _ h => h.symm
+  symm := ⟨fun _ _ h => h.symm⟩
   loopless := ⟨by
     intro a h
     simp only [auxForward] at h

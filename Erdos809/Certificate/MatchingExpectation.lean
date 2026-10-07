@@ -1,5 +1,8 @@
-import Erdos809.Certificate.LocalExpectation
-import Erdos809.Certificate.TargetExpectation
+module
+public import Erdos809.Certificate.LocalExpectation
+public import Erdos809.Certificate.TargetExpectation
+
+@[expose] public section
 
 /-! The actual matching law applied to a symmetrized finite certificate.
 The local inequality and the expected right-hand-side bound remain explicit

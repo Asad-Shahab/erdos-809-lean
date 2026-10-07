@@ -1,5 +1,8 @@
-import Erdos809.Certificate.IntegerGram
-import Mathlib.Algebra.BigOperators.Field
+module
+public import Erdos809.Certificate.IntegerGram
+public import Mathlib.Algebra.BigOperators.Field
+
+@[expose] public section
 
 /-! Link a table of scaled integer matrix entries to a basis-transformed PSD
 matrix. The entry identities are separate finite kernel-checking obligations.
@@ -48,6 +51,7 @@ theorem posSemidef_of_scaled_integer_basis {K n m : Type*}
     (hA : Matrix.PosSemidef (fun i j => (A i j : K) / scaleA : Matrix n n K)) :
     Matrix.PosSemidef (fun i j => (Q i j : K) / scaleQ : Matrix m m K) := by
   rw [scaled_integer_basis_eq A B Q scaleA scaleQ hscaleA hscaleQ hentry]
-  simpa using hA.mul_mul_conjTranspose_same (fun i k => (B i k : K) : Matrix m n K)
+  have h := hA.mul_mul_conjTranspose_same (Matrix.of fun i k => (B i k : K))
+  rwa [Matrix.conjTranspose_eq_transpose_of_trivial] at h
 
 end Erdos809.Certificate

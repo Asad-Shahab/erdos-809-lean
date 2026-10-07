@@ -1,7 +1,10 @@
-import Erdos809.Certificate.Coefficients.Values
-import Mathlib.Data.Fin.VecNotation
-import Mathlib.Data.Fintype.Fin
-import Mathlib.Tactic.FinCases
+module
+public import Erdos809.Certificate.Coefficients.Values
+public import Mathlib.Data.Fin.VecNotation
+public import Mathlib.Data.Fintype.Fin
+public import Mathlib.Tactic.FinCases
+
+@[expose] public section
 
 /-! Total flag classifiers and exact nonnegative scalar coefficients.
 Certificate SHA256: 0499aff9fdffb2da406ef787d79a0f84cd38e3bbd338f2e7d21487db17ceba09.

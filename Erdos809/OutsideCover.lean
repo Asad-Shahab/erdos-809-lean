@@ -1,6 +1,9 @@
-import Erdos809.SectorCover
-import Erdos809.TriangularCover
-import Erdos809.FreeSector
+module
+public import Erdos809.SectorCover
+public import Erdos809.TriangularCover
+public import Erdos809.FreeSector
+
+@[expose] public section
 
 /-!
 # Exact whole-pattern covers of the actual outside edge set

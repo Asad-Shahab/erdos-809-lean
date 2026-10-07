@@ -1,4 +1,7 @@
-import Erdos809.LongOddCycles.DenseCycles
+module
+public import Erdos809.LongOddCycles.DenseCycles
+
+@[expose] public section
 
 /-!
 # Far-case exact cycles through a short-connected core

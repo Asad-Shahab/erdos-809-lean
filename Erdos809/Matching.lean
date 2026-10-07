@@ -1,11 +1,14 @@
+module
 /-
 Copyright (c) 2026 Asad Shahab. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Asad Shahab
 -/
-import Erdos809.Triangular
-import Mathlib.Algebra.BigOperators.Ring.Finset
-import Mathlib.Tactic.Ring
+public import Erdos809.Triangular
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Tactic.Ring
+
+@[expose] public section
 
 /-! One actual capacitated fractional matching, with a symmetric ordered-pair
 matrix. Each unordered pair is counted twice by this representation. -/

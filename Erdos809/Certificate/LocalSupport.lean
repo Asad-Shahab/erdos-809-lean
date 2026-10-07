@@ -1,6 +1,9 @@
-import Erdos809.Certificate.LocalGraphs
-import Erdos809.Certificate.SamplingSymmetry
-import Erdos809.Certificate.Admissibility
+module
+public import Erdos809.Certificate.LocalGraphs
+public import Erdos809.Certificate.SamplingSymmetry
+public import Erdos809.Certificate.Admissibility
+
+@[expose] public section
 
 /-! Support of the finite colored sampling law. Only admissible local graphs
 can have nonzero weight when triangles containing an F edge are forbidden.

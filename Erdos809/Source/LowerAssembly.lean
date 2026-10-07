@@ -1,12 +1,15 @@
-import Erdos809.Source.Peeling
-import Erdos809.Source.RobustCleanup
-import Erdos809.Source.DegreePruning
-import Erdos809.Source.ColorClassCover
-import Erdos809.Source.NearCutLower
-import Erdos809.Source.CutTransport
-import Erdos809.FreeSector
-import Erdos809.WeightedCuts
-import Erdos809.UniformWeights
+module
+public import Erdos809.Source.Peeling
+public import Erdos809.Source.RobustCleanup
+public import Erdos809.Source.DegreePruning
+public import Erdos809.Source.ColorClassCover
+public import Erdos809.Source.NearCutLower
+public import Erdos809.Source.CutTransport
+public import Erdos809.FreeSector
+public import Erdos809.WeightedCuts
+public import Erdos809.UniformWeights
+
+@[expose] public section
 
 /-!
 # Explicit source reduction interfaces for the lower bound

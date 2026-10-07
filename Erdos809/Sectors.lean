@@ -1,10 +1,13 @@
+module
 /-
 Copyright (c) 2026 Asad Shahab. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Asad Shahab
 -/
-import Erdos809.Edges
-import Erdos809.Patterns
+public import Erdos809.Edges
+public import Erdos809.Patterns
+
+@[expose] public section
 
 /-! The triangular and nontriangular sectors of the unchanged full host, and
 the exact identification of the private-resource objective with q(w). -/
@@ -18,12 +21,12 @@ variable {V : Type*} (G : SimpleGraph V)
 
 def triangularSector : SimpleGraph V where
   Adj := Triangular G
-  symm := fun _ _ h => ⟨h.1.symm, walk2_symm G h.2⟩
+  symm := ⟨fun _ _ h => ⟨h.1.symm, walk2_symm G h.2⟩⟩
   loopless := ⟨fun _ h => G.irrefl h.1⟩
 
 def nontriangularSector : SimpleGraph V where
   Adj u v := G.Adj u v ∧ ¬ Walk2 G u v
-  symm := fun _ _ h => ⟨h.1.symm, fun h' => h.2 (walk2_symm G h')⟩
+  symm := ⟨fun _ _ h => ⟨h.1.symm, fun h' => h.2 (walk2_symm G h')⟩⟩
   loopless := ⟨fun _ h => G.irrefl h.1⟩
 
 theorem triangularSector_le : triangularSector G ≤ G := fun _ _ h => h.1

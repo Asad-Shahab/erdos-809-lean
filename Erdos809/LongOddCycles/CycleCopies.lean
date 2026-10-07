@@ -1,5 +1,8 @@
-import Erdos809.LongOddCycles.Definitions
-import Erdos809.LongOddCycles.PathBasics
+module
+public import Erdos809.LongOddCycles.Definitions
+public import Erdos809.LongOddCycles.PathBasics
+
+@[expose] public section
 
 /-!
 # Exact cycles and their non-induced copies

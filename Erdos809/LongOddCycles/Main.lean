@@ -1,6 +1,9 @@
-import Erdos809.LongOddCycles.FiniteLower
-import Erdos809.LongOddCycles.FinalInterface
-import Erdos809.Source.NearCutLower
+module
+public import Erdos809.LongOddCycles.FiniteLower
+public import Erdos809.LongOddCycles.FinalInterface
+public import Erdos809.Source.NearCutLower
+
+@[expose] public section
 
 /-! BCM's longer-cycle lower bound at the exact one-edge threshold, combined
 with the existing two-clique upper construction and actual minimum attainment. -/

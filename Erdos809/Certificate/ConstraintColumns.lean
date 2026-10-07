@@ -1,6 +1,9 @@
-import Erdos809.Certificate.ConstraintExpectation
-import Erdos809.Certificate.LocalFormula
-import Erdos809.Certificate.LocalExpectation
+module
+public import Erdos809.Certificate.ConstraintExpectation
+public import Erdos809.Certificate.LocalFormula
+public import Erdos809.Certificate.LocalExpectation
+
+@[expose] public section
 
 /-! The exact stored ordered constraint formulas satisfy the graph-model
 bounds. Positivity uses total classifiers only; their canonical interpretation
@@ -34,8 +37,16 @@ private theorem density_formula (g : LocalGraph) :
     (LocalFormula.density g : ℝ) =
       densityEvent (fun p => g (initialPairEmbedding (by decide : 3 ≤ 5) p)) *
         (2 * edgeFlag (g (densityFreshPair 0)) - 1) := by
-  simp [LocalFormula.density, LocalFormula.typeAt, densityEvent, initialPairEmbedding,
-    positionPairEmbedding, densityFreshPair, LocalGraph.color, LocalFormula.edge, edgeFlag]
+  have e01 : initialPairEmbedding (by decide : 3 ≤ 5) ⟨(0,1), by decide⟩ = ⟨(0,1), by decide⟩ :=
+    rfl
+  have e02 : initialPairEmbedding (by decide : 3 ≤ 5) ⟨(0,2), by decide⟩ = ⟨(0,2), by decide⟩ :=
+    rfl
+  have e12 : initialPairEmbedding (by decide : 3 ≤ 5) ⟨(1,2), by decide⟩ = ⟨(1,2), by decide⟩ :=
+    rfl
+  simp only [densityEvent, e01, e02, e12]
+  simp [LocalFormula.density, LocalFormula.typeAt, densityFreshPair, LocalGraph.color,
+    LocalFormula.edge, edgeFlag]
+  split_ifs <;> simp_all
 
 private lemma edge_cast (c : Fin 4) : (LocalFormula.edge c : ℝ) = edgeFlag c := by
   simp [LocalFormula.edge, edgeFlag]

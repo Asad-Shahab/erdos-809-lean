@@ -1,9 +1,12 @@
-import Mathlib.Data.Real.Basic
-import Mathlib.Combinatorics.SimpleGraph.Paths
-import Mathlib.Combinatorics.SimpleGraph.Finite
-import Mathlib.Combinatorics.SimpleGraph.Regularity.Uniform
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.ByContra
+module
+public import Mathlib.Data.Real.Basic
+public import Mathlib.Combinatorics.SimpleGraph.Paths
+public import Mathlib.Combinatorics.SimpleGraph.Finite
+public import Mathlib.Combinatorics.SimpleGraph.Regularity.Uniform
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.ByContra
+
+@[expose] public section
 
 /-!
 # Exact-length paths avoiding forbidden vertices

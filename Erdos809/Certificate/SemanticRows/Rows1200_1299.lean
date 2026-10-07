@@ -1,4 +1,7 @@
-import Erdos809.Certificate.LocalFormulaReflection
+module
+public import Erdos809.Certificate.LocalFormulaReflection
+
+@[expose] public section
 
 /-! Direct kernel checks of the actual finite local formulas.
 No Python arithmetic is trusted by these theorem statements. -/

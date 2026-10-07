@@ -1,6 +1,9 @@
-import Erdos809.Certificate.LocalGraphsReflection
-import Mathlib.Data.Fintype.Perm
-import Mathlib.Tactic.NormNum
+module
+public import Erdos809.Certificate.LocalGraphsReflection
+public import Mathlib.Data.Fintype.Perm
+public import Mathlib.Tactic.NormNum
+
+@[expose] public section
 
 /-! Generated candidate tables from frozen source SHA256 06ab1bad5cfe4667671485ddcf6a1ba72c2841953c7a482d513968db6de507f8.
 Only the Lean theorems below and in coverage chunks certify their properties. -/

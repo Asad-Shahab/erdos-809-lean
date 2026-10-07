@@ -1,5 +1,8 @@
-import Erdos809.Certificate.IntegerGram
-import Mathlib.Data.Real.StarOrdered
+module
+public import Erdos809.Certificate.IntegerGram
+public import Mathlib.Algebra.Order.Star.Real
+
+@[expose] public section
 
 /-! Exact block 13 of the frozen Campaign 4 certificate.
 Source SHA256: 0499aff9fdffb2da406ef787d79a0f84cd38e3bbd338f2e7d21487db17ceba09.

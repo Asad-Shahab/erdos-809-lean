@@ -1,5 +1,8 @@
-import Erdos809.Certificate.TargetExpectation
-import Erdos809.Certificate.ProductDisjoint
+module
+public import Erdos809.Certificate.TargetExpectation
+public import Erdos809.Certificate.ProductDisjoint
+
+@[expose] public section
 
 /-! Fresh-extension moments for the degree, matching-root, and selected-union
 constraints. Arbitrary nonnegative events on the old sampled positions may
@@ -311,7 +314,8 @@ theorem markExpectation_root_factor (κ : ColorKernel V) (v : Fin 5 → V)
     (fun p a => κ.prob (v p.1.1) (v p.1.2) a) (fun p => κ.total _ _)
     (initialPairEmbedding (by decide : 3 ≤ 5)) rootFreshPairs
     rootPairFamilies_disjoint event rootExtensionTarget
-  simpa only [markExpectation, markWeight, mul_assoc] using h
+  simp only [markExpectation, markWeight, mul_assoc] at h ⊢
+  exact h
 
 lemma oldSampleAverage_type_sum {n : ℕ} (κ : ColorKernel V)
     (f : (Fin n → V) → (PairPosition n → Fin 4) → ℝ) :
@@ -431,7 +435,8 @@ lemma markExpectation_degree_factor (κ : ColorKernel V) (v : Fin 5 → V)
     simp only [sum_fin_fun_succ, sum_fin_fun_zero, Fin.prod_univ_one, degreeFreshPair,
       Function.Embedding.coeFn_mk, Fin.cons_zero]
   rw [hm] at h
-  simpa only [markExpectation, markWeight, mul_assoc] using h
+  simp only [markExpectation, markWeight, mul_assoc] at h ⊢
+  exact h
 
 omit [Fintype V] in
 private lemma initial_four_vec (a b c d e : V) :
@@ -524,7 +529,8 @@ lemma markExpectation_union_factor (v : Fin 5 → V)
       Matrix.cons_val_zero, Matrix.cons_val_one]
     exact sampled_unionExtension_eq y hinj (v 0) (v 1) (v 4)
   rw [hm] at h
-  simpa only [markExpectation, markWeight, mul_assoc] using h
+  simp only [markExpectation, markWeight, mul_assoc] at h ⊢
+  exact h
 
 /-- Actual five-position selected-union column, with its arbitrary old event
 and the selected old root-edge indicator retained inside the old sample law. -/
@@ -611,7 +617,8 @@ lemma markExpectation_density_factor (v : Fin 5 → V)
       rw [mul_sum]; apply sum_congr rfl; intro a _; ring]
     rw [he]
   rw [hm] at h
-  simpa only [markExpectation, markWeight, mul_assoc] using h
+  simp only [markExpectation, markWeight, mul_assoc] at h ⊢
+  exact h
 
 lemma densityFreshMoment_eq :
     (∑ a, x.weight a * ∑ b, x.weight b * (2 * adjIndicator G a b - 1)) =

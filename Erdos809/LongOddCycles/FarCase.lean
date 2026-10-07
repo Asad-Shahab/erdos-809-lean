@@ -1,7 +1,10 @@
-import Erdos809.LongOddCycles.ShortCore
-import Erdos809.LongOddCycles.FourPath
-import Erdos809.LongOddCycles.FarCycles
-import Erdos809.LongOddCycles.Counting
+module
+public import Erdos809.LongOddCycles.ShortCore
+public import Erdos809.LongOddCycles.FourPath
+public import Erdos809.LongOddCycles.FarCycles
+public import Erdos809.LongOddCycles.Counting
+
+@[expose] public section
 
 /-! The far terminal estimate. All structural and cycle-extension inputs are
 instantiated by their proved graph theorems; the palette is the actual range of

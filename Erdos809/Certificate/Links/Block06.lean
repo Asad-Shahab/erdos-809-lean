@@ -1,6 +1,9 @@
-import Erdos809.Certificate.SparseBasis
-import Erdos809.Certificate.Blocks.Block06
-import Erdos809.Certificate.Coefficients.Values
+module
+public import Erdos809.Certificate.SparseBasis
+public import Erdos809.Certificate.Blocks.Block06
+public import Erdos809.Certificate.Coefficients.Values
+
+@[expose] public section
 
 /-! Scaled Gram entries used in the coefficient table, block 6.
 Frozen certificate SHA256: 0499aff9fdffb2da406ef787d79a0f84cd38e3bbd338f2e7d21487db17ceba09.
@@ -87,7 +90,9 @@ noncomputable def basisRows : Fin 23 → List (Fin 18 × ℤ) := ![
   [(17, 1)]]
 
 theorem basis_sparse : ∀ i k, sparseBasisEntry (basisRows i) k = basis i k := by
-  decide +kernel
+  exact of_decide_eq_true (inst := @Nat.decidableForallFin _ _ (fun i =>
+    (inferInstance : Decidable (∀ k, sparseBasisEntry (basisRows i) k = basis i k))))
+    (by decide +kernel)
 
 noncomputable def basisRowCheck (i : Fin 23) : Bool :=
   (List.finRange 23).all fun j =>

@@ -1,6 +1,9 @@
-import Erdos809.LongOddCycles.ScalarBounds
-import Mathlib.Combinatorics.SimpleGraph.Paths
-import Mathlib.Combinatorics.SimpleGraph.DegreeSum
+module
+public import Erdos809.LongOddCycles.ScalarBounds
+public import Mathlib.Combinatorics.SimpleGraph.Paths
+public import Mathlib.Combinatorics.SimpleGraph.DegreeSum
+
+@[expose] public section
 
 /-! The strict-density specialization of BCM Lemma 3.1. The short connections
 are in the original host, not necessarily in the induced graph on the core. -/

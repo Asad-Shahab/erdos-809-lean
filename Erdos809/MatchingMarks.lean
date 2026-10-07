@@ -1,5 +1,8 @@
-import Erdos809.Matching
-import Erdos809.Sectors
+module
+public import Erdos809.Matching
+public import Erdos809.Sectors
+
+@[expose] public section
 
 /-! Turn the usage of one actual matching into fractional edge marks. The
 unordered endpoint injection prevents duplicate indices from exceeding a host

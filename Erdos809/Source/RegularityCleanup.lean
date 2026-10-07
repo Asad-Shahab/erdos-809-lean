@@ -1,5 +1,8 @@
-import Erdos809.Source.RegularityPaths
-import Mathlib.Combinatorics.SimpleGraph.Triangle.Removal
+module
+public import Erdos809.Source.RegularityPaths
+public import Mathlib.Combinatorics.SimpleGraph.Triangle.Removal
+
+@[expose] public section
 
 /-!
 # The typical-edge regularity reduction
@@ -27,10 +30,11 @@ def typicalReduction (ε d : ℝ) : SimpleGraph V where
     d ≤ G.edgeDensity (P.part a) (P.part b) ∧
     (d - ε) * (P.part b).card ≤ ((P.part b).filter (G.Adj a)).card ∧
     (d - ε) * (P.part a).card ≤ ((P.part a).filter (G.Adj b)).card
-  symm a b := by
+  symm := ⟨by
+    intro a b
     rintro ⟨hab, hparts, hreg, hdense, htypA, htypB⟩
     exact ⟨hab.symm, hparts.symm, hreg.symm, by simpa [edgeDensity_comm] using hdense,
-      htypB, htypA⟩
+      htypB, htypA⟩⟩
   loopless.irrefl a h := h.1.ne rfl
 
 instance (ε d : ℝ) : DecidableRel (typicalReduction G P ε d).Adj := Classical.decRel _

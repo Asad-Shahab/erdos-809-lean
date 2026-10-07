@@ -1,5 +1,8 @@
-import Erdos809.Source.RobustPaths
-import Mathlib.Tactic
+module
+public import Erdos809.Source.RobustPaths
+public import Mathlib.Tactic
+
+@[expose] public section
 
 /-!
 # Exact path operations for the longer odd cycles
@@ -92,8 +95,9 @@ theorem endpoints_ne_of_isPath {p : G.Walk u v} (hp : p.IsPath)
     (hlen : 0 < p.length) : u ≠ v := by
   intro huv
   subst v
-  have hnil := (Walk.isPath_iff_eq_nil p).mp hp
-  simp [hnil] at hlen
+  have hnil : p.Nil := Walk.isPath_iff_nil.mp hp
+  cases hnil
+  simp at hlen
 
 /-- An interior forbidden set works for every shorter path supported inside the
 same path and having the same endpoints. -/

@@ -1,4 +1,7 @@
-import Erdos809.WeightedCP
+module
+public import Erdos809.WeightedCP
+
+@[expose] public section
 
 /-! The strict-density finite CP theorem for every exact whole-pattern cover
 of the actual outside sector. Its only certificate premise is the explicit

@@ -1,4 +1,7 @@
-import Erdos809.Certificate.LocalGraphsData
+module
+public import Erdos809.Certificate.LocalGraphsData
+
+@[expose] public section
 
 set_option maxRecDepth 100000
 set_option maxHeartbeats 0
@@ -265,64 +268,65 @@ noncomputable def witnesses : List (ℕ × ℕ) := unit000 ++ unit001 ++ unit002
 theorem witnesses_length : witnesses.length = 4096 := by
   simp only [witnesses, List.length_append, unit000_length, unit001_length, unit002_length, unit003_length, unit004_length, unit005_length, unit006_length, unit007_length, unit008_length, unit009_length, unit010_length, unit011_length, unit012_length, unit013_length, unit014_length, unit015_length, unit016_length, unit017_length, unit018_length, unit019_length, unit020_length, unit021_length, unit022_length, unit023_length, unit024_length, unit025_length, unit026_length, unit027_length, unit028_length, unit029_length, unit030_length, unit031_length, Nat.reduceAdd]
 theorem checked : checkIndexedRange Data.representatives Data.permutations start witnesses = true := by
+  simp only [witnesses, start, List.append_assoc]
   exact (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit000 (unit001 ++ unit002 ++ unit003 ++ unit004 ++ unit005 ++ unit006 ++ unit007 ++ unit008 ++ unit009 ++ unit010 ++ unit011 ++ unit012 ++ unit013 ++ unit014 ++ unit015 ++ unit016 ++ unit017 ++ unit018 ++ unit019 ++ unit020 ++ unit021 ++ unit022 ++ unit023 ++ unit024 ++ unit025 ++ unit026 ++ unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 274432 unit000_checked
+    unit000 (unit001 ++ (unit002 ++ (unit003 ++ (unit004 ++ (unit005 ++ (unit006 ++ (unit007 ++ (unit008 ++ (unit009 ++ (unit010 ++ (unit011 ++ (unit012 ++ (unit013 ++ (unit014 ++ (unit015 ++ (unit016 ++ (unit017 ++ (unit018 ++ (unit019 ++ (unit020 ++ (unit021 ++ (unit022 ++ (unit023 ++ (unit024 ++ (unit025 ++ (unit026 ++ (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031)))))))))))))))))))))))))))))) 274432 unit000_checked
     (by simpa only [unit000_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit001 (unit002 ++ unit003 ++ unit004 ++ unit005 ++ unit006 ++ unit007 ++ unit008 ++ unit009 ++ unit010 ++ unit011 ++ unit012 ++ unit013 ++ unit014 ++ unit015 ++ unit016 ++ unit017 ++ unit018 ++ unit019 ++ unit020 ++ unit021 ++ unit022 ++ unit023 ++ unit024 ++ unit025 ++ unit026 ++ unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 274560 unit001_checked
+    unit001 (unit002 ++ (unit003 ++ (unit004 ++ (unit005 ++ (unit006 ++ (unit007 ++ (unit008 ++ (unit009 ++ (unit010 ++ (unit011 ++ (unit012 ++ (unit013 ++ (unit014 ++ (unit015 ++ (unit016 ++ (unit017 ++ (unit018 ++ (unit019 ++ (unit020 ++ (unit021 ++ (unit022 ++ (unit023 ++ (unit024 ++ (unit025 ++ (unit026 ++ (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031))))))))))))))))))))))))))))) 274560 unit001_checked
     (by simpa only [unit001_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit002 (unit003 ++ unit004 ++ unit005 ++ unit006 ++ unit007 ++ unit008 ++ unit009 ++ unit010 ++ unit011 ++ unit012 ++ unit013 ++ unit014 ++ unit015 ++ unit016 ++ unit017 ++ unit018 ++ unit019 ++ unit020 ++ unit021 ++ unit022 ++ unit023 ++ unit024 ++ unit025 ++ unit026 ++ unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 274688 unit002_checked
+    unit002 (unit003 ++ (unit004 ++ (unit005 ++ (unit006 ++ (unit007 ++ (unit008 ++ (unit009 ++ (unit010 ++ (unit011 ++ (unit012 ++ (unit013 ++ (unit014 ++ (unit015 ++ (unit016 ++ (unit017 ++ (unit018 ++ (unit019 ++ (unit020 ++ (unit021 ++ (unit022 ++ (unit023 ++ (unit024 ++ (unit025 ++ (unit026 ++ (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031)))))))))))))))))))))))))))) 274688 unit002_checked
     (by simpa only [unit002_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit003 (unit004 ++ unit005 ++ unit006 ++ unit007 ++ unit008 ++ unit009 ++ unit010 ++ unit011 ++ unit012 ++ unit013 ++ unit014 ++ unit015 ++ unit016 ++ unit017 ++ unit018 ++ unit019 ++ unit020 ++ unit021 ++ unit022 ++ unit023 ++ unit024 ++ unit025 ++ unit026 ++ unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 274816 unit003_checked
+    unit003 (unit004 ++ (unit005 ++ (unit006 ++ (unit007 ++ (unit008 ++ (unit009 ++ (unit010 ++ (unit011 ++ (unit012 ++ (unit013 ++ (unit014 ++ (unit015 ++ (unit016 ++ (unit017 ++ (unit018 ++ (unit019 ++ (unit020 ++ (unit021 ++ (unit022 ++ (unit023 ++ (unit024 ++ (unit025 ++ (unit026 ++ (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031))))))))))))))))))))))))))) 274816 unit003_checked
     (by simpa only [unit003_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit004 (unit005 ++ unit006 ++ unit007 ++ unit008 ++ unit009 ++ unit010 ++ unit011 ++ unit012 ++ unit013 ++ unit014 ++ unit015 ++ unit016 ++ unit017 ++ unit018 ++ unit019 ++ unit020 ++ unit021 ++ unit022 ++ unit023 ++ unit024 ++ unit025 ++ unit026 ++ unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 274944 unit004_checked
+    unit004 (unit005 ++ (unit006 ++ (unit007 ++ (unit008 ++ (unit009 ++ (unit010 ++ (unit011 ++ (unit012 ++ (unit013 ++ (unit014 ++ (unit015 ++ (unit016 ++ (unit017 ++ (unit018 ++ (unit019 ++ (unit020 ++ (unit021 ++ (unit022 ++ (unit023 ++ (unit024 ++ (unit025 ++ (unit026 ++ (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031)))))))))))))))))))))))))) 274944 unit004_checked
     (by simpa only [unit004_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit005 (unit006 ++ unit007 ++ unit008 ++ unit009 ++ unit010 ++ unit011 ++ unit012 ++ unit013 ++ unit014 ++ unit015 ++ unit016 ++ unit017 ++ unit018 ++ unit019 ++ unit020 ++ unit021 ++ unit022 ++ unit023 ++ unit024 ++ unit025 ++ unit026 ++ unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 275072 unit005_checked
+    unit005 (unit006 ++ (unit007 ++ (unit008 ++ (unit009 ++ (unit010 ++ (unit011 ++ (unit012 ++ (unit013 ++ (unit014 ++ (unit015 ++ (unit016 ++ (unit017 ++ (unit018 ++ (unit019 ++ (unit020 ++ (unit021 ++ (unit022 ++ (unit023 ++ (unit024 ++ (unit025 ++ (unit026 ++ (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031))))))))))))))))))))))))) 275072 unit005_checked
     (by simpa only [unit005_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit006 (unit007 ++ unit008 ++ unit009 ++ unit010 ++ unit011 ++ unit012 ++ unit013 ++ unit014 ++ unit015 ++ unit016 ++ unit017 ++ unit018 ++ unit019 ++ unit020 ++ unit021 ++ unit022 ++ unit023 ++ unit024 ++ unit025 ++ unit026 ++ unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 275200 unit006_checked
+    unit006 (unit007 ++ (unit008 ++ (unit009 ++ (unit010 ++ (unit011 ++ (unit012 ++ (unit013 ++ (unit014 ++ (unit015 ++ (unit016 ++ (unit017 ++ (unit018 ++ (unit019 ++ (unit020 ++ (unit021 ++ (unit022 ++ (unit023 ++ (unit024 ++ (unit025 ++ (unit026 ++ (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031)))))))))))))))))))))))) 275200 unit006_checked
     (by simpa only [unit006_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit007 (unit008 ++ unit009 ++ unit010 ++ unit011 ++ unit012 ++ unit013 ++ unit014 ++ unit015 ++ unit016 ++ unit017 ++ unit018 ++ unit019 ++ unit020 ++ unit021 ++ unit022 ++ unit023 ++ unit024 ++ unit025 ++ unit026 ++ unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 275328 unit007_checked
+    unit007 (unit008 ++ (unit009 ++ (unit010 ++ (unit011 ++ (unit012 ++ (unit013 ++ (unit014 ++ (unit015 ++ (unit016 ++ (unit017 ++ (unit018 ++ (unit019 ++ (unit020 ++ (unit021 ++ (unit022 ++ (unit023 ++ (unit024 ++ (unit025 ++ (unit026 ++ (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031))))))))))))))))))))))) 275328 unit007_checked
     (by simpa only [unit007_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit008 (unit009 ++ unit010 ++ unit011 ++ unit012 ++ unit013 ++ unit014 ++ unit015 ++ unit016 ++ unit017 ++ unit018 ++ unit019 ++ unit020 ++ unit021 ++ unit022 ++ unit023 ++ unit024 ++ unit025 ++ unit026 ++ unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 275456 unit008_checked
+    unit008 (unit009 ++ (unit010 ++ (unit011 ++ (unit012 ++ (unit013 ++ (unit014 ++ (unit015 ++ (unit016 ++ (unit017 ++ (unit018 ++ (unit019 ++ (unit020 ++ (unit021 ++ (unit022 ++ (unit023 ++ (unit024 ++ (unit025 ++ (unit026 ++ (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031)))))))))))))))))))))) 275456 unit008_checked
     (by simpa only [unit008_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit009 (unit010 ++ unit011 ++ unit012 ++ unit013 ++ unit014 ++ unit015 ++ unit016 ++ unit017 ++ unit018 ++ unit019 ++ unit020 ++ unit021 ++ unit022 ++ unit023 ++ unit024 ++ unit025 ++ unit026 ++ unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 275584 unit009_checked
+    unit009 (unit010 ++ (unit011 ++ (unit012 ++ (unit013 ++ (unit014 ++ (unit015 ++ (unit016 ++ (unit017 ++ (unit018 ++ (unit019 ++ (unit020 ++ (unit021 ++ (unit022 ++ (unit023 ++ (unit024 ++ (unit025 ++ (unit026 ++ (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031))))))))))))))))))))) 275584 unit009_checked
     (by simpa only [unit009_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit010 (unit011 ++ unit012 ++ unit013 ++ unit014 ++ unit015 ++ unit016 ++ unit017 ++ unit018 ++ unit019 ++ unit020 ++ unit021 ++ unit022 ++ unit023 ++ unit024 ++ unit025 ++ unit026 ++ unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 275712 unit010_checked
+    unit010 (unit011 ++ (unit012 ++ (unit013 ++ (unit014 ++ (unit015 ++ (unit016 ++ (unit017 ++ (unit018 ++ (unit019 ++ (unit020 ++ (unit021 ++ (unit022 ++ (unit023 ++ (unit024 ++ (unit025 ++ (unit026 ++ (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031)))))))))))))))))))) 275712 unit010_checked
     (by simpa only [unit010_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit011 (unit012 ++ unit013 ++ unit014 ++ unit015 ++ unit016 ++ unit017 ++ unit018 ++ unit019 ++ unit020 ++ unit021 ++ unit022 ++ unit023 ++ unit024 ++ unit025 ++ unit026 ++ unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 275840 unit011_checked
+    unit011 (unit012 ++ (unit013 ++ (unit014 ++ (unit015 ++ (unit016 ++ (unit017 ++ (unit018 ++ (unit019 ++ (unit020 ++ (unit021 ++ (unit022 ++ (unit023 ++ (unit024 ++ (unit025 ++ (unit026 ++ (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031))))))))))))))))))) 275840 unit011_checked
     (by simpa only [unit011_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit012 (unit013 ++ unit014 ++ unit015 ++ unit016 ++ unit017 ++ unit018 ++ unit019 ++ unit020 ++ unit021 ++ unit022 ++ unit023 ++ unit024 ++ unit025 ++ unit026 ++ unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 275968 unit012_checked
+    unit012 (unit013 ++ (unit014 ++ (unit015 ++ (unit016 ++ (unit017 ++ (unit018 ++ (unit019 ++ (unit020 ++ (unit021 ++ (unit022 ++ (unit023 ++ (unit024 ++ (unit025 ++ (unit026 ++ (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031)))))))))))))))))) 275968 unit012_checked
     (by simpa only [unit012_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit013 (unit014 ++ unit015 ++ unit016 ++ unit017 ++ unit018 ++ unit019 ++ unit020 ++ unit021 ++ unit022 ++ unit023 ++ unit024 ++ unit025 ++ unit026 ++ unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 276096 unit013_checked
+    unit013 (unit014 ++ (unit015 ++ (unit016 ++ (unit017 ++ (unit018 ++ (unit019 ++ (unit020 ++ (unit021 ++ (unit022 ++ (unit023 ++ (unit024 ++ (unit025 ++ (unit026 ++ (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031))))))))))))))))) 276096 unit013_checked
     (by simpa only [unit013_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit014 (unit015 ++ unit016 ++ unit017 ++ unit018 ++ unit019 ++ unit020 ++ unit021 ++ unit022 ++ unit023 ++ unit024 ++ unit025 ++ unit026 ++ unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 276224 unit014_checked
+    unit014 (unit015 ++ (unit016 ++ (unit017 ++ (unit018 ++ (unit019 ++ (unit020 ++ (unit021 ++ (unit022 ++ (unit023 ++ (unit024 ++ (unit025 ++ (unit026 ++ (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031)))))))))))))))) 276224 unit014_checked
     (by simpa only [unit014_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit015 (unit016 ++ unit017 ++ unit018 ++ unit019 ++ unit020 ++ unit021 ++ unit022 ++ unit023 ++ unit024 ++ unit025 ++ unit026 ++ unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 276352 unit015_checked
+    unit015 (unit016 ++ (unit017 ++ (unit018 ++ (unit019 ++ (unit020 ++ (unit021 ++ (unit022 ++ (unit023 ++ (unit024 ++ (unit025 ++ (unit026 ++ (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031))))))))))))))) 276352 unit015_checked
     (by simpa only [unit015_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit016 (unit017 ++ unit018 ++ unit019 ++ unit020 ++ unit021 ++ unit022 ++ unit023 ++ unit024 ++ unit025 ++ unit026 ++ unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 276480 unit016_checked
+    unit016 (unit017 ++ (unit018 ++ (unit019 ++ (unit020 ++ (unit021 ++ (unit022 ++ (unit023 ++ (unit024 ++ (unit025 ++ (unit026 ++ (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031)))))))))))))) 276480 unit016_checked
     (by simpa only [unit016_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit017 (unit018 ++ unit019 ++ unit020 ++ unit021 ++ unit022 ++ unit023 ++ unit024 ++ unit025 ++ unit026 ++ unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 276608 unit017_checked
+    unit017 (unit018 ++ (unit019 ++ (unit020 ++ (unit021 ++ (unit022 ++ (unit023 ++ (unit024 ++ (unit025 ++ (unit026 ++ (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031))))))))))))) 276608 unit017_checked
     (by simpa only [unit017_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit018 (unit019 ++ unit020 ++ unit021 ++ unit022 ++ unit023 ++ unit024 ++ unit025 ++ unit026 ++ unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 276736 unit018_checked
+    unit018 (unit019 ++ (unit020 ++ (unit021 ++ (unit022 ++ (unit023 ++ (unit024 ++ (unit025 ++ (unit026 ++ (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031)))))))))))) 276736 unit018_checked
     (by simpa only [unit018_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit019 (unit020 ++ unit021 ++ unit022 ++ unit023 ++ unit024 ++ unit025 ++ unit026 ++ unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 276864 unit019_checked
+    unit019 (unit020 ++ (unit021 ++ (unit022 ++ (unit023 ++ (unit024 ++ (unit025 ++ (unit026 ++ (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031))))))))))) 276864 unit019_checked
     (by simpa only [unit019_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit020 (unit021 ++ unit022 ++ unit023 ++ unit024 ++ unit025 ++ unit026 ++ unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 276992 unit020_checked
+    unit020 (unit021 ++ (unit022 ++ (unit023 ++ (unit024 ++ (unit025 ++ (unit026 ++ (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031)))))))))) 276992 unit020_checked
     (by simpa only [unit020_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit021 (unit022 ++ unit023 ++ unit024 ++ unit025 ++ unit026 ++ unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 277120 unit021_checked
+    unit021 (unit022 ++ (unit023 ++ (unit024 ++ (unit025 ++ (unit026 ++ (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031))))))))) 277120 unit021_checked
     (by simpa only [unit021_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit022 (unit023 ++ unit024 ++ unit025 ++ unit026 ++ unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 277248 unit022_checked
+    unit022 (unit023 ++ (unit024 ++ (unit025 ++ (unit026 ++ (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031)))))))) 277248 unit022_checked
     (by simpa only [unit022_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit023 (unit024 ++ unit025 ++ unit026 ++ unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 277376 unit023_checked
+    unit023 (unit024 ++ (unit025 ++ (unit026 ++ (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031))))))) 277376 unit023_checked
     (by simpa only [unit023_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit024 (unit025 ++ unit026 ++ unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 277504 unit024_checked
+    unit024 (unit025 ++ (unit026 ++ (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031)))))) 277504 unit024_checked
     (by simpa only [unit024_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit025 (unit026 ++ unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 277632 unit025_checked
+    unit025 (unit026 ++ (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031))))) 277632 unit025_checked
     (by simpa only [unit025_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit026 (unit027 ++ unit028 ++ unit029 ++ unit030 ++ unit031) 277760 unit026_checked
+    unit026 (unit027 ++ (unit028 ++ (unit029 ++ (unit030 ++ unit031)))) 277760 unit026_checked
     (by simpa only [unit026_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit027 (unit028 ++ unit029 ++ unit030 ++ unit031) 277888 unit027_checked
+    unit027 (unit028 ++ (unit029 ++ (unit030 ++ unit031))) 277888 unit027_checked
     (by simpa only [unit027_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
-    unit028 (unit029 ++ unit030 ++ unit031) 278016 unit028_checked
+    unit028 (unit029 ++ (unit030 ++ unit031)) 278016 unit028_checked
     (by simpa only [unit028_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations
     unit029 (unit030 ++ unit031) 278144 unit029_checked
     (by simpa only [unit029_length, Nat.reduceAdd] using (checkIndexedRange_append_of_checked Data.representatives Data.permutations

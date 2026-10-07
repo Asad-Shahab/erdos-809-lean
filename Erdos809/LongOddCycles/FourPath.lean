@@ -1,8 +1,11 @@
-import Erdos809.LongOddCycles.FourPathCounting
-import Erdos809.LongOddCycles.ScalarBounds
-import Erdos809.Source.DegreePruning
-import Mathlib.Combinatorics.SimpleGraph.Operations
-import Mathlib.Data.Real.Sqrt
+module
+public import Erdos809.LongOddCycles.FourPathCounting
+public import Erdos809.LongOddCycles.ScalarBounds
+public import Erdos809.Source.DegreePruning
+public import Mathlib.Combinatorics.SimpleGraph.Operations
+public import Mathlib.Data.Real.Sqrt
+
+@[expose] public section
 
 /-!
 # Exact four-paths and forbidden-vertex deletion
@@ -59,13 +62,15 @@ lemma avoidingPath_of_induce_compl {x y : V} {L : ℕ} (F : Finset V)
       ⟨x, by simp [hx]⟩ ⟨y, by simp [hy]⟩ L ∅) :
     Source.HasAvoidingPath G x y L F := by
   obtain ⟨p, hp, hlen, _⟩ := hpath
-  refine ⟨p.map (SimpleGraph.Embedding.induce _).toHom,
-    p.map_isPath_of_injective Subtype.val_injective hp, ?_, ?_⟩
-  · simpa only [SimpleGraph.Walk.length_map] using hlen
-  · intro z hz
+  have hqlen : (p.map (SimpleGraph.Embedding.induce _).toHom).length = L := by
+    rw [SimpleGraph.Walk.length_map, hlen]
+  have hqsupp : ∀ z ∈ (p.map (SimpleGraph.Embedding.induce _).toHom).support, z ∉ F := by
+    intro z hz
     rw [SimpleGraph.Walk.support_map, List.mem_map] at hz
     obtain ⟨w, _, rfl⟩ := hz
     simpa using w.property
+  exact ⟨p.map (SimpleGraph.Embedding.induce _).toHom,
+    p.map_isPath_of_injective Subtype.val_injective hp, hqlen, hqsupp⟩
 
 /-- The exact simple-graph density ceiling, stated over the reals. -/
 lemma card_edgeFinset_le_real_clique_bound :
@@ -195,8 +200,7 @@ lemma fourPath_induce_compl_hypotheses (r : ℕ) (F : Finset V)
     have hsquares := mul_self_le_mul_self hn0 hn
     nlinarith [mul_nonneg (by linarith : 0 ≤ (r : ℝ) - F.card) hnV]
   constructor
-  · dsimp only
-    change (Fintype.card W : ℝ)^2 / 4 + 4 ≤ (H.edgeFinset.card : ℝ)
+  · change (Fintype.card W : ℝ)^2 / 4 + 4 ≤ (H.edgeFinset.card : ℝ)
     linarith
   · intro v
     change (Fintype.card W : ℝ) / 2 -

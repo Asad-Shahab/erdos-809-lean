@@ -1,9 +1,12 @@
-import Erdos809.Source.RobustPaths
-import Erdos809.Source.NearCutParameters
-import Mathlib.Data.Finset.Max
-import Mathlib.Combinatorics.SimpleGraph.DegreeSum
-import Mathlib.Tactic.Positivity
-import Mathlib.Tactic.Ring
+module
+public import Erdos809.Source.RobustPaths
+public import Erdos809.Source.NearCutParameters
+public import Mathlib.Data.Finset.Max
+public import Mathlib.Combinatorics.SimpleGraph.DegreeSum
+public import Mathlib.Tactic.Positivity
+public import Mathlib.Tactic.Ring
+
+@[expose] public section
 
 /-!
 # Counting for the near-cut branch
@@ -57,8 +60,9 @@ omit [DecidableEq V] in
 lemma missing_cross_edges_comm (A B : Finset V) :
     (Rel.interedges (fun u v => ¬ G.Adj u v) A B).card =
       (Rel.interedges (fun u v => ¬ G.Adj u v) B A).card :=
-  Rel.card_interedges_comm (r := fun u v => ¬ G.Adj u v)
-    (by intro u v h hab; exact h hab.symm) A B
+  letI : Std.Symm (fun u v => ¬ G.Adj u v) :=
+    ⟨fun _ _ h hab => h hab.symm⟩
+  Rel.card_interedges_comm A B
 
 /-- Exceptional vertices on both sides of the cut. -/
 def cutBad (P Q : Finset V) (d : ℝ) : Finset V := by
@@ -217,7 +221,8 @@ lemma exists_maximum_cut [Fintype V] :
 omit [DecidableEq V] in
 lemma card_interedges_comm (A B : Finset V) :
     (G.interedges A B).card = (G.interedges B A).card :=
-  Rel.card_interedges_comm G.symm A B
+  letI : Std.Symm G.Adj := ⟨fun _ _ h => h.symm⟩
+  Rel.card_interedges_comm A B
 
 lemma interedges_insert_left (A B : Finset V) (v : V) :
     G.interedges (insert v A) B = G.interedges {v} B ∪ G.interedges A B := by

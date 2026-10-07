@@ -1,10 +1,13 @@
+module
 /-
 Copyright (c) 2026 Asad Shahab. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Asad Shahab
 -/
-import Erdos809.Source.ColoringBridgeCopy
-import Erdos809.Patterns
+public import Erdos809.Source.ColoringBridgeCopy
+public import Erdos809.Patterns
+
+@[expose] public section
 
 /-!
 # Exact covers from the original used-color palette

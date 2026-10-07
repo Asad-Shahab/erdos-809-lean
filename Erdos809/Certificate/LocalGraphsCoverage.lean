@@ -1,259 +1,262 @@
-import Erdos809.Certificate.LocalGraphs.Block000
-import Erdos809.Certificate.LocalGraphs.Block001
-import Erdos809.Certificate.LocalGraphs.Block002
-import Erdos809.Certificate.LocalGraphs.Block003
-import Erdos809.Certificate.LocalGraphs.Block004
-import Erdos809.Certificate.LocalGraphs.Block005
-import Erdos809.Certificate.LocalGraphs.Block006
-import Erdos809.Certificate.LocalGraphs.Block007
-import Erdos809.Certificate.LocalGraphs.Block008
-import Erdos809.Certificate.LocalGraphs.Block009
-import Erdos809.Certificate.LocalGraphs.Block010
-import Erdos809.Certificate.LocalGraphs.Block011
-import Erdos809.Certificate.LocalGraphs.Block012
-import Erdos809.Certificate.LocalGraphs.Block013
-import Erdos809.Certificate.LocalGraphs.Block014
-import Erdos809.Certificate.LocalGraphs.Block015
-import Erdos809.Certificate.LocalGraphs.Block016
-import Erdos809.Certificate.LocalGraphs.Block017
-import Erdos809.Certificate.LocalGraphs.Block018
-import Erdos809.Certificate.LocalGraphs.Block019
-import Erdos809.Certificate.LocalGraphs.Block020
-import Erdos809.Certificate.LocalGraphs.Block021
-import Erdos809.Certificate.LocalGraphs.Block022
-import Erdos809.Certificate.LocalGraphs.Block023
-import Erdos809.Certificate.LocalGraphs.Block024
-import Erdos809.Certificate.LocalGraphs.Block025
-import Erdos809.Certificate.LocalGraphs.Block026
-import Erdos809.Certificate.LocalGraphs.Block027
-import Erdos809.Certificate.LocalGraphs.Block028
-import Erdos809.Certificate.LocalGraphs.Block029
-import Erdos809.Certificate.LocalGraphs.Block030
-import Erdos809.Certificate.LocalGraphs.Block031
-import Erdos809.Certificate.LocalGraphs.Block032
-import Erdos809.Certificate.LocalGraphs.Block033
-import Erdos809.Certificate.LocalGraphs.Block034
-import Erdos809.Certificate.LocalGraphs.Block035
-import Erdos809.Certificate.LocalGraphs.Block036
-import Erdos809.Certificate.LocalGraphs.Block037
-import Erdos809.Certificate.LocalGraphs.Block038
-import Erdos809.Certificate.LocalGraphs.Block039
-import Erdos809.Certificate.LocalGraphs.Block040
-import Erdos809.Certificate.LocalGraphs.Block041
-import Erdos809.Certificate.LocalGraphs.Block042
-import Erdos809.Certificate.LocalGraphs.Block043
-import Erdos809.Certificate.LocalGraphs.Block044
-import Erdos809.Certificate.LocalGraphs.Block045
-import Erdos809.Certificate.LocalGraphs.Block046
-import Erdos809.Certificate.LocalGraphs.Block047
-import Erdos809.Certificate.LocalGraphs.Block048
-import Erdos809.Certificate.LocalGraphs.Block049
-import Erdos809.Certificate.LocalGraphs.Block050
-import Erdos809.Certificate.LocalGraphs.Block051
-import Erdos809.Certificate.LocalGraphs.Block052
-import Erdos809.Certificate.LocalGraphs.Block053
-import Erdos809.Certificate.LocalGraphs.Block054
-import Erdos809.Certificate.LocalGraphs.Block055
-import Erdos809.Certificate.LocalGraphs.Block056
-import Erdos809.Certificate.LocalGraphs.Block057
-import Erdos809.Certificate.LocalGraphs.Block058
-import Erdos809.Certificate.LocalGraphs.Block059
-import Erdos809.Certificate.LocalGraphs.Block060
-import Erdos809.Certificate.LocalGraphs.Block061
-import Erdos809.Certificate.LocalGraphs.Block062
-import Erdos809.Certificate.LocalGraphs.Block063
-import Erdos809.Certificate.LocalGraphs.Block064
-import Erdos809.Certificate.LocalGraphs.Block065
-import Erdos809.Certificate.LocalGraphs.Block066
-import Erdos809.Certificate.LocalGraphs.Block067
-import Erdos809.Certificate.LocalGraphs.Block068
-import Erdos809.Certificate.LocalGraphs.Block069
-import Erdos809.Certificate.LocalGraphs.Block070
-import Erdos809.Certificate.LocalGraphs.Block071
-import Erdos809.Certificate.LocalGraphs.Block072
-import Erdos809.Certificate.LocalGraphs.Block073
-import Erdos809.Certificate.LocalGraphs.Block074
-import Erdos809.Certificate.LocalGraphs.Block075
-import Erdos809.Certificate.LocalGraphs.Block076
-import Erdos809.Certificate.LocalGraphs.Block077
-import Erdos809.Certificate.LocalGraphs.Block078
-import Erdos809.Certificate.LocalGraphs.Block079
-import Erdos809.Certificate.LocalGraphs.Block080
-import Erdos809.Certificate.LocalGraphs.Block081
-import Erdos809.Certificate.LocalGraphs.Block082
-import Erdos809.Certificate.LocalGraphs.Block083
-import Erdos809.Certificate.LocalGraphs.Block084
-import Erdos809.Certificate.LocalGraphs.Block085
-import Erdos809.Certificate.LocalGraphs.Block086
-import Erdos809.Certificate.LocalGraphs.Block087
-import Erdos809.Certificate.LocalGraphs.Block088
-import Erdos809.Certificate.LocalGraphs.Block089
-import Erdos809.Certificate.LocalGraphs.Block090
-import Erdos809.Certificate.LocalGraphs.Block091
-import Erdos809.Certificate.LocalGraphs.Block092
-import Erdos809.Certificate.LocalGraphs.Block093
-import Erdos809.Certificate.LocalGraphs.Block094
-import Erdos809.Certificate.LocalGraphs.Block095
-import Erdos809.Certificate.LocalGraphs.Block096
-import Erdos809.Certificate.LocalGraphs.Block097
-import Erdos809.Certificate.LocalGraphs.Block098
-import Erdos809.Certificate.LocalGraphs.Block099
-import Erdos809.Certificate.LocalGraphs.Block100
-import Erdos809.Certificate.LocalGraphs.Block101
-import Erdos809.Certificate.LocalGraphs.Block102
-import Erdos809.Certificate.LocalGraphs.Block103
-import Erdos809.Certificate.LocalGraphs.Block104
-import Erdos809.Certificate.LocalGraphs.Block105
-import Erdos809.Certificate.LocalGraphs.Block106
-import Erdos809.Certificate.LocalGraphs.Block107
-import Erdos809.Certificate.LocalGraphs.Block108
-import Erdos809.Certificate.LocalGraphs.Block109
-import Erdos809.Certificate.LocalGraphs.Block110
-import Erdos809.Certificate.LocalGraphs.Block111
-import Erdos809.Certificate.LocalGraphs.Block112
-import Erdos809.Certificate.LocalGraphs.Block113
-import Erdos809.Certificate.LocalGraphs.Block114
-import Erdos809.Certificate.LocalGraphs.Block115
-import Erdos809.Certificate.LocalGraphs.Block116
-import Erdos809.Certificate.LocalGraphs.Block117
-import Erdos809.Certificate.LocalGraphs.Block118
-import Erdos809.Certificate.LocalGraphs.Block119
-import Erdos809.Certificate.LocalGraphs.Block120
-import Erdos809.Certificate.LocalGraphs.Block121
-import Erdos809.Certificate.LocalGraphs.Block122
-import Erdos809.Certificate.LocalGraphs.Block123
-import Erdos809.Certificate.LocalGraphs.Block124
-import Erdos809.Certificate.LocalGraphs.Block125
-import Erdos809.Certificate.LocalGraphs.Block126
-import Erdos809.Certificate.LocalGraphs.Block127
-import Erdos809.Certificate.LocalGraphs.Block128
-import Erdos809.Certificate.LocalGraphs.Block129
-import Erdos809.Certificate.LocalGraphs.Block130
-import Erdos809.Certificate.LocalGraphs.Block131
-import Erdos809.Certificate.LocalGraphs.Block132
-import Erdos809.Certificate.LocalGraphs.Block133
-import Erdos809.Certificate.LocalGraphs.Block134
-import Erdos809.Certificate.LocalGraphs.Block135
-import Erdos809.Certificate.LocalGraphs.Block136
-import Erdos809.Certificate.LocalGraphs.Block137
-import Erdos809.Certificate.LocalGraphs.Block138
-import Erdos809.Certificate.LocalGraphs.Block139
-import Erdos809.Certificate.LocalGraphs.Block140
-import Erdos809.Certificate.LocalGraphs.Block141
-import Erdos809.Certificate.LocalGraphs.Block142
-import Erdos809.Certificate.LocalGraphs.Block143
-import Erdos809.Certificate.LocalGraphs.Block144
-import Erdos809.Certificate.LocalGraphs.Block145
-import Erdos809.Certificate.LocalGraphs.Block146
-import Erdos809.Certificate.LocalGraphs.Block147
-import Erdos809.Certificate.LocalGraphs.Block148
-import Erdos809.Certificate.LocalGraphs.Block149
-import Erdos809.Certificate.LocalGraphs.Block150
-import Erdos809.Certificate.LocalGraphs.Block151
-import Erdos809.Certificate.LocalGraphs.Block152
-import Erdos809.Certificate.LocalGraphs.Block153
-import Erdos809.Certificate.LocalGraphs.Block154
-import Erdos809.Certificate.LocalGraphs.Block155
-import Erdos809.Certificate.LocalGraphs.Block156
-import Erdos809.Certificate.LocalGraphs.Block157
-import Erdos809.Certificate.LocalGraphs.Block158
-import Erdos809.Certificate.LocalGraphs.Block159
-import Erdos809.Certificate.LocalGraphs.Block160
-import Erdos809.Certificate.LocalGraphs.Block161
-import Erdos809.Certificate.LocalGraphs.Block162
-import Erdos809.Certificate.LocalGraphs.Block163
-import Erdos809.Certificate.LocalGraphs.Block164
-import Erdos809.Certificate.LocalGraphs.Block165
-import Erdos809.Certificate.LocalGraphs.Block166
-import Erdos809.Certificate.LocalGraphs.Block167
-import Erdos809.Certificate.LocalGraphs.Block168
-import Erdos809.Certificate.LocalGraphs.Block169
-import Erdos809.Certificate.LocalGraphs.Block170
-import Erdos809.Certificate.LocalGraphs.Block171
-import Erdos809.Certificate.LocalGraphs.Block172
-import Erdos809.Certificate.LocalGraphs.Block173
-import Erdos809.Certificate.LocalGraphs.Block174
-import Erdos809.Certificate.LocalGraphs.Block175
-import Erdos809.Certificate.LocalGraphs.Block176
-import Erdos809.Certificate.LocalGraphs.Block177
-import Erdos809.Certificate.LocalGraphs.Block178
-import Erdos809.Certificate.LocalGraphs.Block179
-import Erdos809.Certificate.LocalGraphs.Block180
-import Erdos809.Certificate.LocalGraphs.Block181
-import Erdos809.Certificate.LocalGraphs.Block182
-import Erdos809.Certificate.LocalGraphs.Block183
-import Erdos809.Certificate.LocalGraphs.Block184
-import Erdos809.Certificate.LocalGraphs.Block185
-import Erdos809.Certificate.LocalGraphs.Block186
-import Erdos809.Certificate.LocalGraphs.Block187
-import Erdos809.Certificate.LocalGraphs.Block188
-import Erdos809.Certificate.LocalGraphs.Block189
-import Erdos809.Certificate.LocalGraphs.Block190
-import Erdos809.Certificate.LocalGraphs.Block191
-import Erdos809.Certificate.LocalGraphs.Block192
-import Erdos809.Certificate.LocalGraphs.Block193
-import Erdos809.Certificate.LocalGraphs.Block194
-import Erdos809.Certificate.LocalGraphs.Block195
-import Erdos809.Certificate.LocalGraphs.Block196
-import Erdos809.Certificate.LocalGraphs.Block197
-import Erdos809.Certificate.LocalGraphs.Block198
-import Erdos809.Certificate.LocalGraphs.Block199
-import Erdos809.Certificate.LocalGraphs.Block200
-import Erdos809.Certificate.LocalGraphs.Block201
-import Erdos809.Certificate.LocalGraphs.Block202
-import Erdos809.Certificate.LocalGraphs.Block203
-import Erdos809.Certificate.LocalGraphs.Block204
-import Erdos809.Certificate.LocalGraphs.Block205
-import Erdos809.Certificate.LocalGraphs.Block206
-import Erdos809.Certificate.LocalGraphs.Block207
-import Erdos809.Certificate.LocalGraphs.Block208
-import Erdos809.Certificate.LocalGraphs.Block209
-import Erdos809.Certificate.LocalGraphs.Block210
-import Erdos809.Certificate.LocalGraphs.Block211
-import Erdos809.Certificate.LocalGraphs.Block212
-import Erdos809.Certificate.LocalGraphs.Block213
-import Erdos809.Certificate.LocalGraphs.Block214
-import Erdos809.Certificate.LocalGraphs.Block215
-import Erdos809.Certificate.LocalGraphs.Block216
-import Erdos809.Certificate.LocalGraphs.Block217
-import Erdos809.Certificate.LocalGraphs.Block218
-import Erdos809.Certificate.LocalGraphs.Block219
-import Erdos809.Certificate.LocalGraphs.Block220
-import Erdos809.Certificate.LocalGraphs.Block221
-import Erdos809.Certificate.LocalGraphs.Block222
-import Erdos809.Certificate.LocalGraphs.Block223
-import Erdos809.Certificate.LocalGraphs.Block224
-import Erdos809.Certificate.LocalGraphs.Block225
-import Erdos809.Certificate.LocalGraphs.Block226
-import Erdos809.Certificate.LocalGraphs.Block227
-import Erdos809.Certificate.LocalGraphs.Block228
-import Erdos809.Certificate.LocalGraphs.Block229
-import Erdos809.Certificate.LocalGraphs.Block230
-import Erdos809.Certificate.LocalGraphs.Block231
-import Erdos809.Certificate.LocalGraphs.Block232
-import Erdos809.Certificate.LocalGraphs.Block233
-import Erdos809.Certificate.LocalGraphs.Block234
-import Erdos809.Certificate.LocalGraphs.Block235
-import Erdos809.Certificate.LocalGraphs.Block236
-import Erdos809.Certificate.LocalGraphs.Block237
-import Erdos809.Certificate.LocalGraphs.Block238
-import Erdos809.Certificate.LocalGraphs.Block239
-import Erdos809.Certificate.LocalGraphs.Block240
-import Erdos809.Certificate.LocalGraphs.Block241
-import Erdos809.Certificate.LocalGraphs.Block242
-import Erdos809.Certificate.LocalGraphs.Block243
-import Erdos809.Certificate.LocalGraphs.Block244
-import Erdos809.Certificate.LocalGraphs.Block245
-import Erdos809.Certificate.LocalGraphs.Block246
-import Erdos809.Certificate.LocalGraphs.Block247
-import Erdos809.Certificate.LocalGraphs.Block248
-import Erdos809.Certificate.LocalGraphs.Block249
-import Erdos809.Certificate.LocalGraphs.Block250
-import Erdos809.Certificate.LocalGraphs.Block251
-import Erdos809.Certificate.LocalGraphs.Block252
-import Erdos809.Certificate.LocalGraphs.Block253
-import Erdos809.Certificate.LocalGraphs.Block254
-import Erdos809.Certificate.LocalGraphs.Block255
+module
+public import Erdos809.Certificate.LocalGraphs.Block000
+public import Erdos809.Certificate.LocalGraphs.Block001
+public import Erdos809.Certificate.LocalGraphs.Block002
+public import Erdos809.Certificate.LocalGraphs.Block003
+public import Erdos809.Certificate.LocalGraphs.Block004
+public import Erdos809.Certificate.LocalGraphs.Block005
+public import Erdos809.Certificate.LocalGraphs.Block006
+public import Erdos809.Certificate.LocalGraphs.Block007
+public import Erdos809.Certificate.LocalGraphs.Block008
+public import Erdos809.Certificate.LocalGraphs.Block009
+public import Erdos809.Certificate.LocalGraphs.Block010
+public import Erdos809.Certificate.LocalGraphs.Block011
+public import Erdos809.Certificate.LocalGraphs.Block012
+public import Erdos809.Certificate.LocalGraphs.Block013
+public import Erdos809.Certificate.LocalGraphs.Block014
+public import Erdos809.Certificate.LocalGraphs.Block015
+public import Erdos809.Certificate.LocalGraphs.Block016
+public import Erdos809.Certificate.LocalGraphs.Block017
+public import Erdos809.Certificate.LocalGraphs.Block018
+public import Erdos809.Certificate.LocalGraphs.Block019
+public import Erdos809.Certificate.LocalGraphs.Block020
+public import Erdos809.Certificate.LocalGraphs.Block021
+public import Erdos809.Certificate.LocalGraphs.Block022
+public import Erdos809.Certificate.LocalGraphs.Block023
+public import Erdos809.Certificate.LocalGraphs.Block024
+public import Erdos809.Certificate.LocalGraphs.Block025
+public import Erdos809.Certificate.LocalGraphs.Block026
+public import Erdos809.Certificate.LocalGraphs.Block027
+public import Erdos809.Certificate.LocalGraphs.Block028
+public import Erdos809.Certificate.LocalGraphs.Block029
+public import Erdos809.Certificate.LocalGraphs.Block030
+public import Erdos809.Certificate.LocalGraphs.Block031
+public import Erdos809.Certificate.LocalGraphs.Block032
+public import Erdos809.Certificate.LocalGraphs.Block033
+public import Erdos809.Certificate.LocalGraphs.Block034
+public import Erdos809.Certificate.LocalGraphs.Block035
+public import Erdos809.Certificate.LocalGraphs.Block036
+public import Erdos809.Certificate.LocalGraphs.Block037
+public import Erdos809.Certificate.LocalGraphs.Block038
+public import Erdos809.Certificate.LocalGraphs.Block039
+public import Erdos809.Certificate.LocalGraphs.Block040
+public import Erdos809.Certificate.LocalGraphs.Block041
+public import Erdos809.Certificate.LocalGraphs.Block042
+public import Erdos809.Certificate.LocalGraphs.Block043
+public import Erdos809.Certificate.LocalGraphs.Block044
+public import Erdos809.Certificate.LocalGraphs.Block045
+public import Erdos809.Certificate.LocalGraphs.Block046
+public import Erdos809.Certificate.LocalGraphs.Block047
+public import Erdos809.Certificate.LocalGraphs.Block048
+public import Erdos809.Certificate.LocalGraphs.Block049
+public import Erdos809.Certificate.LocalGraphs.Block050
+public import Erdos809.Certificate.LocalGraphs.Block051
+public import Erdos809.Certificate.LocalGraphs.Block052
+public import Erdos809.Certificate.LocalGraphs.Block053
+public import Erdos809.Certificate.LocalGraphs.Block054
+public import Erdos809.Certificate.LocalGraphs.Block055
+public import Erdos809.Certificate.LocalGraphs.Block056
+public import Erdos809.Certificate.LocalGraphs.Block057
+public import Erdos809.Certificate.LocalGraphs.Block058
+public import Erdos809.Certificate.LocalGraphs.Block059
+public import Erdos809.Certificate.LocalGraphs.Block060
+public import Erdos809.Certificate.LocalGraphs.Block061
+public import Erdos809.Certificate.LocalGraphs.Block062
+public import Erdos809.Certificate.LocalGraphs.Block063
+public import Erdos809.Certificate.LocalGraphs.Block064
+public import Erdos809.Certificate.LocalGraphs.Block065
+public import Erdos809.Certificate.LocalGraphs.Block066
+public import Erdos809.Certificate.LocalGraphs.Block067
+public import Erdos809.Certificate.LocalGraphs.Block068
+public import Erdos809.Certificate.LocalGraphs.Block069
+public import Erdos809.Certificate.LocalGraphs.Block070
+public import Erdos809.Certificate.LocalGraphs.Block071
+public import Erdos809.Certificate.LocalGraphs.Block072
+public import Erdos809.Certificate.LocalGraphs.Block073
+public import Erdos809.Certificate.LocalGraphs.Block074
+public import Erdos809.Certificate.LocalGraphs.Block075
+public import Erdos809.Certificate.LocalGraphs.Block076
+public import Erdos809.Certificate.LocalGraphs.Block077
+public import Erdos809.Certificate.LocalGraphs.Block078
+public import Erdos809.Certificate.LocalGraphs.Block079
+public import Erdos809.Certificate.LocalGraphs.Block080
+public import Erdos809.Certificate.LocalGraphs.Block081
+public import Erdos809.Certificate.LocalGraphs.Block082
+public import Erdos809.Certificate.LocalGraphs.Block083
+public import Erdos809.Certificate.LocalGraphs.Block084
+public import Erdos809.Certificate.LocalGraphs.Block085
+public import Erdos809.Certificate.LocalGraphs.Block086
+public import Erdos809.Certificate.LocalGraphs.Block087
+public import Erdos809.Certificate.LocalGraphs.Block088
+public import Erdos809.Certificate.LocalGraphs.Block089
+public import Erdos809.Certificate.LocalGraphs.Block090
+public import Erdos809.Certificate.LocalGraphs.Block091
+public import Erdos809.Certificate.LocalGraphs.Block092
+public import Erdos809.Certificate.LocalGraphs.Block093
+public import Erdos809.Certificate.LocalGraphs.Block094
+public import Erdos809.Certificate.LocalGraphs.Block095
+public import Erdos809.Certificate.LocalGraphs.Block096
+public import Erdos809.Certificate.LocalGraphs.Block097
+public import Erdos809.Certificate.LocalGraphs.Block098
+public import Erdos809.Certificate.LocalGraphs.Block099
+public import Erdos809.Certificate.LocalGraphs.Block100
+public import Erdos809.Certificate.LocalGraphs.Block101
+public import Erdos809.Certificate.LocalGraphs.Block102
+public import Erdos809.Certificate.LocalGraphs.Block103
+public import Erdos809.Certificate.LocalGraphs.Block104
+public import Erdos809.Certificate.LocalGraphs.Block105
+public import Erdos809.Certificate.LocalGraphs.Block106
+public import Erdos809.Certificate.LocalGraphs.Block107
+public import Erdos809.Certificate.LocalGraphs.Block108
+public import Erdos809.Certificate.LocalGraphs.Block109
+public import Erdos809.Certificate.LocalGraphs.Block110
+public import Erdos809.Certificate.LocalGraphs.Block111
+public import Erdos809.Certificate.LocalGraphs.Block112
+public import Erdos809.Certificate.LocalGraphs.Block113
+public import Erdos809.Certificate.LocalGraphs.Block114
+public import Erdos809.Certificate.LocalGraphs.Block115
+public import Erdos809.Certificate.LocalGraphs.Block116
+public import Erdos809.Certificate.LocalGraphs.Block117
+public import Erdos809.Certificate.LocalGraphs.Block118
+public import Erdos809.Certificate.LocalGraphs.Block119
+public import Erdos809.Certificate.LocalGraphs.Block120
+public import Erdos809.Certificate.LocalGraphs.Block121
+public import Erdos809.Certificate.LocalGraphs.Block122
+public import Erdos809.Certificate.LocalGraphs.Block123
+public import Erdos809.Certificate.LocalGraphs.Block124
+public import Erdos809.Certificate.LocalGraphs.Block125
+public import Erdos809.Certificate.LocalGraphs.Block126
+public import Erdos809.Certificate.LocalGraphs.Block127
+public import Erdos809.Certificate.LocalGraphs.Block128
+public import Erdos809.Certificate.LocalGraphs.Block129
+public import Erdos809.Certificate.LocalGraphs.Block130
+public import Erdos809.Certificate.LocalGraphs.Block131
+public import Erdos809.Certificate.LocalGraphs.Block132
+public import Erdos809.Certificate.LocalGraphs.Block133
+public import Erdos809.Certificate.LocalGraphs.Block134
+public import Erdos809.Certificate.LocalGraphs.Block135
+public import Erdos809.Certificate.LocalGraphs.Block136
+public import Erdos809.Certificate.LocalGraphs.Block137
+public import Erdos809.Certificate.LocalGraphs.Block138
+public import Erdos809.Certificate.LocalGraphs.Block139
+public import Erdos809.Certificate.LocalGraphs.Block140
+public import Erdos809.Certificate.LocalGraphs.Block141
+public import Erdos809.Certificate.LocalGraphs.Block142
+public import Erdos809.Certificate.LocalGraphs.Block143
+public import Erdos809.Certificate.LocalGraphs.Block144
+public import Erdos809.Certificate.LocalGraphs.Block145
+public import Erdos809.Certificate.LocalGraphs.Block146
+public import Erdos809.Certificate.LocalGraphs.Block147
+public import Erdos809.Certificate.LocalGraphs.Block148
+public import Erdos809.Certificate.LocalGraphs.Block149
+public import Erdos809.Certificate.LocalGraphs.Block150
+public import Erdos809.Certificate.LocalGraphs.Block151
+public import Erdos809.Certificate.LocalGraphs.Block152
+public import Erdos809.Certificate.LocalGraphs.Block153
+public import Erdos809.Certificate.LocalGraphs.Block154
+public import Erdos809.Certificate.LocalGraphs.Block155
+public import Erdos809.Certificate.LocalGraphs.Block156
+public import Erdos809.Certificate.LocalGraphs.Block157
+public import Erdos809.Certificate.LocalGraphs.Block158
+public import Erdos809.Certificate.LocalGraphs.Block159
+public import Erdos809.Certificate.LocalGraphs.Block160
+public import Erdos809.Certificate.LocalGraphs.Block161
+public import Erdos809.Certificate.LocalGraphs.Block162
+public import Erdos809.Certificate.LocalGraphs.Block163
+public import Erdos809.Certificate.LocalGraphs.Block164
+public import Erdos809.Certificate.LocalGraphs.Block165
+public import Erdos809.Certificate.LocalGraphs.Block166
+public import Erdos809.Certificate.LocalGraphs.Block167
+public import Erdos809.Certificate.LocalGraphs.Block168
+public import Erdos809.Certificate.LocalGraphs.Block169
+public import Erdos809.Certificate.LocalGraphs.Block170
+public import Erdos809.Certificate.LocalGraphs.Block171
+public import Erdos809.Certificate.LocalGraphs.Block172
+public import Erdos809.Certificate.LocalGraphs.Block173
+public import Erdos809.Certificate.LocalGraphs.Block174
+public import Erdos809.Certificate.LocalGraphs.Block175
+public import Erdos809.Certificate.LocalGraphs.Block176
+public import Erdos809.Certificate.LocalGraphs.Block177
+public import Erdos809.Certificate.LocalGraphs.Block178
+public import Erdos809.Certificate.LocalGraphs.Block179
+public import Erdos809.Certificate.LocalGraphs.Block180
+public import Erdos809.Certificate.LocalGraphs.Block181
+public import Erdos809.Certificate.LocalGraphs.Block182
+public import Erdos809.Certificate.LocalGraphs.Block183
+public import Erdos809.Certificate.LocalGraphs.Block184
+public import Erdos809.Certificate.LocalGraphs.Block185
+public import Erdos809.Certificate.LocalGraphs.Block186
+public import Erdos809.Certificate.LocalGraphs.Block187
+public import Erdos809.Certificate.LocalGraphs.Block188
+public import Erdos809.Certificate.LocalGraphs.Block189
+public import Erdos809.Certificate.LocalGraphs.Block190
+public import Erdos809.Certificate.LocalGraphs.Block191
+public import Erdos809.Certificate.LocalGraphs.Block192
+public import Erdos809.Certificate.LocalGraphs.Block193
+public import Erdos809.Certificate.LocalGraphs.Block194
+public import Erdos809.Certificate.LocalGraphs.Block195
+public import Erdos809.Certificate.LocalGraphs.Block196
+public import Erdos809.Certificate.LocalGraphs.Block197
+public import Erdos809.Certificate.LocalGraphs.Block198
+public import Erdos809.Certificate.LocalGraphs.Block199
+public import Erdos809.Certificate.LocalGraphs.Block200
+public import Erdos809.Certificate.LocalGraphs.Block201
+public import Erdos809.Certificate.LocalGraphs.Block202
+public import Erdos809.Certificate.LocalGraphs.Block203
+public import Erdos809.Certificate.LocalGraphs.Block204
+public import Erdos809.Certificate.LocalGraphs.Block205
+public import Erdos809.Certificate.LocalGraphs.Block206
+public import Erdos809.Certificate.LocalGraphs.Block207
+public import Erdos809.Certificate.LocalGraphs.Block208
+public import Erdos809.Certificate.LocalGraphs.Block209
+public import Erdos809.Certificate.LocalGraphs.Block210
+public import Erdos809.Certificate.LocalGraphs.Block211
+public import Erdos809.Certificate.LocalGraphs.Block212
+public import Erdos809.Certificate.LocalGraphs.Block213
+public import Erdos809.Certificate.LocalGraphs.Block214
+public import Erdos809.Certificate.LocalGraphs.Block215
+public import Erdos809.Certificate.LocalGraphs.Block216
+public import Erdos809.Certificate.LocalGraphs.Block217
+public import Erdos809.Certificate.LocalGraphs.Block218
+public import Erdos809.Certificate.LocalGraphs.Block219
+public import Erdos809.Certificate.LocalGraphs.Block220
+public import Erdos809.Certificate.LocalGraphs.Block221
+public import Erdos809.Certificate.LocalGraphs.Block222
+public import Erdos809.Certificate.LocalGraphs.Block223
+public import Erdos809.Certificate.LocalGraphs.Block224
+public import Erdos809.Certificate.LocalGraphs.Block225
+public import Erdos809.Certificate.LocalGraphs.Block226
+public import Erdos809.Certificate.LocalGraphs.Block227
+public import Erdos809.Certificate.LocalGraphs.Block228
+public import Erdos809.Certificate.LocalGraphs.Block229
+public import Erdos809.Certificate.LocalGraphs.Block230
+public import Erdos809.Certificate.LocalGraphs.Block231
+public import Erdos809.Certificate.LocalGraphs.Block232
+public import Erdos809.Certificate.LocalGraphs.Block233
+public import Erdos809.Certificate.LocalGraphs.Block234
+public import Erdos809.Certificate.LocalGraphs.Block235
+public import Erdos809.Certificate.LocalGraphs.Block236
+public import Erdos809.Certificate.LocalGraphs.Block237
+public import Erdos809.Certificate.LocalGraphs.Block238
+public import Erdos809.Certificate.LocalGraphs.Block239
+public import Erdos809.Certificate.LocalGraphs.Block240
+public import Erdos809.Certificate.LocalGraphs.Block241
+public import Erdos809.Certificate.LocalGraphs.Block242
+public import Erdos809.Certificate.LocalGraphs.Block243
+public import Erdos809.Certificate.LocalGraphs.Block244
+public import Erdos809.Certificate.LocalGraphs.Block245
+public import Erdos809.Certificate.LocalGraphs.Block246
+public import Erdos809.Certificate.LocalGraphs.Block247
+public import Erdos809.Certificate.LocalGraphs.Block248
+public import Erdos809.Certificate.LocalGraphs.Block249
+public import Erdos809.Certificate.LocalGraphs.Block250
+public import Erdos809.Certificate.LocalGraphs.Block251
+public import Erdos809.Certificate.LocalGraphs.Block252
+public import Erdos809.Certificate.LocalGraphs.Block253
+public import Erdos809.Certificate.LocalGraphs.Block254
+public import Erdos809.Certificate.LocalGraphs.Block255
+
+@[expose] public section
 
 set_option maxRecDepth 100000
 set_option maxHeartbeats 0

@@ -1,8 +1,11 @@
-import Erdos809.Certificate.Sampling
-import Mathlib.Algebra.BigOperators.Fin
-import Mathlib.Tactic.FinCases
-import Mathlib.Tactic.Ring
-import Mathlib.Tactic.NormNum
+module
+public import Erdos809.Certificate.Sampling
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Tactic.FinCases
+public import Mathlib.Tactic.Ring
+public import Mathlib.Tactic.NormNum
+
+@[expose] public section
 
 /-! The four-color law on a marked host. The marked sector is the part of G
 outside F. In the application F must be the nontriangular sector and the mark

@@ -1,6 +1,9 @@
-import Erdos809.WeightedGraph
-import Mathlib.Algebra.BigOperators.Ring.Finset
-import Mathlib.Algebra.Order.BigOperators.Ring.Finset
+module
+public import Erdos809.WeightedGraph
+public import Mathlib.Algebra.BigOperators.Ring.Finset
+public import Mathlib.Algebra.Order.BigOperators.Ring.Finset
+
+@[expose] public section
 
 /-! Finite sampling space for the colored-kernel certificate. Marks are indexed
 by pairs of sampled positions, even when positions receive equal host types.

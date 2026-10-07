@@ -1,6 +1,9 @@
-import Erdos809.Source.ColoringBridge
-import Mathlib.Combinatorics.SimpleGraph.Density
-import Mathlib.Data.List.Nodup
+module
+public import Erdos809.Source.ColoringBridge
+public import Mathlib.Combinatorics.SimpleGraph.Density
+public import Mathlib.Data.List.Nodup
+
+@[expose] public section
 
 /-!
 # Explicit seven-cycles for the near-cut branch

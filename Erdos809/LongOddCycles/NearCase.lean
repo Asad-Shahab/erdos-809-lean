@@ -1,6 +1,9 @@
-import Erdos809.LongOddCycles.NearConnectivity
-import Erdos809.LongOddCycles.NearCycles
-import Erdos809.LongOddCycles.WeakBook
+module
+public import Erdos809.LongOddCycles.NearConnectivity
+public import Erdos809.LongOddCycles.NearCycles
+public import Erdos809.LongOddCycles.WeakBook
+
+@[expose] public section
 
 /-! The near-density terminal palette estimate. Robust connectivity is obtained
 only after the alternative palette estimate has been excluded. -/

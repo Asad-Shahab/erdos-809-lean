@@ -1,7 +1,10 @@
-import Mathlib.Combinatorics.SimpleGraph.Copy
-import Mathlib.Combinatorics.SimpleGraph.Density
-import Mathlib.Data.Real.Basic
-import Mathlib.Tactic.Linarith
+module
+public import Mathlib.Combinatorics.SimpleGraph.Copy
+public import Mathlib.Combinatorics.SimpleGraph.Density
+public import Mathlib.Data.Real.Basic
+public import Mathlib.Tactic.Linarith
+
+@[expose] public section
 
 /-!
 # Transport cut deficits through an injective graph copy

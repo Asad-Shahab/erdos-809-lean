@@ -1,7 +1,10 @@
-import Erdos809.WeightedPolynomial
-import Erdos809.Certificate.ProductMarginal
-import Mathlib.Algebra.BigOperators.Fin
-import Mathlib.Logic.Equiv.Fin.Basic
+module
+public import Erdos809.WeightedPolynomial
+public import Erdos809.Certificate.ProductMarginal
+public import Mathlib.Algebra.BigOperators.Fin
+public import Mathlib.Logic.Equiv.Fin.Basic
+
+@[expose] public section
 
 /-! The ordered five-position target and its expectation under the actual
 matching's auxiliary sampling law. Vertex types may repeat. -/

@@ -1,4 +1,7 @@
-import Erdos809.Certificate.LocalGraphs
+module
+public import Erdos809.Certificate.LocalGraphs
+
+@[expose] public section
 
 /-!
 # Kernel reflection for exhaustive local graph coverage

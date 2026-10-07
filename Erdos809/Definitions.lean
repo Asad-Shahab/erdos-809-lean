@@ -1,7 +1,10 @@
-import Mathlib.Combinatorics.SimpleGraph.Copy
-import Mathlib.Combinatorics.SimpleGraph.Circulant
-import Mathlib.Data.Set.Card
-import Mathlib.Data.Real.Basic
+module
+public import Mathlib.Combinatorics.SimpleGraph.Copy
+public import Mathlib.Combinatorics.SimpleGraph.Circulant
+public import Mathlib.Data.Set.Card
+public import Mathlib.Data.Real.Basic
+
+@[expose] public section
 
 /-!
 # Exact finite semantics for Erdős 809, C₇

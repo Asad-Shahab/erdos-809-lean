@@ -1,7 +1,10 @@
-import Erdos809.WeightedCuts
-import Erdos809.Edges
-import Mathlib.Combinatorics.SimpleGraph.Density
-import Mathlib.Tactic.FieldSimp
+module
+public import Erdos809.WeightedCuts
+public import Erdos809.Edges
+public import Mathlib.Combinatorics.SimpleGraph.Density
+public import Mathlib.Tactic.FieldSimp
+
+@[expose] public section
 
 /-!
 # Uniform probability weights on finite graphs
